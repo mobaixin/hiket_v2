@@ -26,6 +26,7 @@ public class Good {
     private Double oldPrice;
     private Integer section;
     private String sectionTag;
+    private Integer elseTag;
     private Integer helpTag;
     private Integer favoriteNumber;
     private String reward;

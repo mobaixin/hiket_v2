@@ -53,6 +53,7 @@ create table `good`(
   `old_price` double comment '商品',
   `section` int (4) comment '商品 种类 0：学习用品、1：动植物、2：生活美妆、3：吃喝玩乐、4：电子设备、5：时尚穿搭->商品 种类 0：生活家居、1：美妆洗护、2：学习书籍、3：时尚穿搭、4：生鲜零食、5：体育数码',
   `section_tag` varchar (10) comment '商品 标签',
+  `else_tag` int (1) not null default 0 comment '是否为其它',
   `help_tag` int (4) comment '帮助 种类 0：校园快递、1：楼下外卖、2：相约出行，待定',
   `reward` varchar (256) comment '求助',
   `period` int(11) comment '求助 时间 10 分钟：10*60*1000、半小时、一小时、两小时、四小时',

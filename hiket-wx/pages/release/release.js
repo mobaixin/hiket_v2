@@ -20,6 +20,7 @@ Page({
 
             section: null,
             sectionTag: null,
+            elseTag: 0,
             oldPrice: null,
             price: null,
 
@@ -103,6 +104,7 @@ Page({
                         goodInfo: res.data.goodInfo,
                         sectionId: res.data.goodInfo.section
                     });
+                    that.data.goodInfo.section = that.data.sectionId;
                     wx.hideLoading();
                 },
                 fail: function () {
@@ -120,16 +122,16 @@ Page({
                     console.log(res);
                     if (res.data) {
                         that.setData({
-                            sectionId:res.data.sectionId,
+                            sectionId: res.data.sectionId,
                             sectionTagId: res.data.sectionTagId,
                             goodInfo: res.data.goodInfo
                         });
-                    } else {
-                        that.data.goodInfo.section = that.data.sectionId;
                     }
+                    that.data.goodInfo.section = that.data.sectionId;
                     wx.hideLoading();
                 },
                 fail: function () {
+                    that.data.goodInfo.section = that.data.sectionId;
                     wx.hideLoading();
                 }
             })
@@ -165,6 +167,11 @@ Page({
     },
     oldPriceInput: function (e) {
         this.data.goodInfo.oldPrice = e.detail.value;
+        this.storageRelease();
+    },
+    sectionTagInput: function (e) {
+        this.data.goodInfo.sectionTag = e.detail.value;
+        this.data.goodInfo.elseTag = 1;
         this.storageRelease();
     },
     rewardInput: function (e) {
@@ -206,7 +213,7 @@ Page({
                     that.setData({
                         goodInfo: that.data.goodInfo
                     });
-                    this.storageRelease();
+                    that.storageRelease();
                     wx.showToast({
                         title: '上传成功'
                     });
@@ -299,6 +306,7 @@ Page({
             sectionTagId: e.detail.value
         });
         this.data.goodInfo.sectionTag = this.data.sectionTags[this.data.sectionId][this.data.sectionTagId];
+        this.data.goodInfo.elseTag = 0;
         this.setData({
             goodInfo: this.data.goodInfo
         });
@@ -338,7 +346,6 @@ Page({
     },
     // 表单验证和提交
     formSubmit: function (e) {
-        this.data.goodInfo.sellerOpenId = app.globalData.openId;
         if (!this.data.hasUserInfo || !this.data.hasStudentInfo) {
             this.setData({
                 modalHidden: false
