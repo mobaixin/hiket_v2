@@ -8,6 +8,7 @@ import java.util.List;
 public class Message {
     private Long messageId;
     private String openId;
+    private String triggerOpenId;
     private String title;
     private String content;
     private Long goodId;

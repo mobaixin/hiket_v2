@@ -20,4 +20,6 @@ public interface GoodService {
     List<Good> getMyGood(String openId);
 
     boolean updateGoodState(Long goodId, Integer state);
+
+    boolean browse(Long goodId);
 }

@@ -159,4 +159,11 @@
     </update>
     <!--我的-->
 
+    <!--浏览-->
+    <update id="increaseBrowseNumber" parameterType="long">
+        update good set
+        browse_number=browse_number+1
+        where good_id=#{goodId};
+    </update>
+    <!--浏览-->
 </mapper>

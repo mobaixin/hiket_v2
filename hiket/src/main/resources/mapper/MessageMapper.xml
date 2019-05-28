@@ -6,10 +6,12 @@
     <insert id="insert" parameterType="message">
         insert into message
         (title,open_id
+        <if test="triggerOpenId != null">,trigger_open_id</if>
         <if test="content != null">,content</if>
         <if test="goodId != null">,good_id</if>)
         values
         (#{title},#{openId}
+        <if test="triggerOpenId != null">,#{triggerOpenId}</if>
         <if test="content != null">,#{content}</if>
         <if test="goodId != null">,#{goodId}</if>)
     </insert>
@@ -17,11 +19,13 @@
     <insert id="insertSome" parameterType="message">
         insert into message
         (title,open_id
+        <if test="triggerOpenId != null">,trigger_open_id</if>
         <if test="content != null">,content</if>
         <if test="goodId != null">,good_id</if>)
         values
         <foreach collection="openIdList" item="item" index="index" separator=",">
             (#{title},#{item,jdbcType=VARCHAR}
+            <if test="triggerOpenId != null">,trigger_open_id</if>
             <if test="content != null">,#{content}</if>
             <if test="goodId != null">,#{goodId}</if>)
         </foreach>

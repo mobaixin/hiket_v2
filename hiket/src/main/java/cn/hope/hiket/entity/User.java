@@ -15,6 +15,7 @@ public class User {
     private String password;
     private String campus;
     private String college;
+    private Integer state;
 
     private List<Integer> favoriteGoodIdList;
     private List<Message> messageList;

@@ -109,4 +109,9 @@ public class GoodServiceImpl implements GoodService {
         int ret = goodDao.updateState(goodId, state);
         return ret > 0;
     }
+
+    @Override
+    public boolean browse(Long goodId) {
+        return goodDao.increaseBrowseNumber(goodId) > 0;
+    }
 }

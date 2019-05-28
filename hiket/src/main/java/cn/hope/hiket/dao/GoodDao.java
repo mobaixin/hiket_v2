@@ -39,5 +39,7 @@ public interface GoodDao {
     int updateState(@Param("goodId") Long goodId,@Param("state")int state);
 
     int update(Good good);
+
+    int increaseBrowseNumber(Long goodId);
 }
 

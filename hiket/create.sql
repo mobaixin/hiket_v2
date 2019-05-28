@@ -21,6 +21,7 @@ create table `user`(
   `campus` varchar (16),
   `college` varchar (16),
   `create_time` timestamp not null default current_timestamp,
+  `state` int(4) not null default 0 comment '状态'
   primary key (`open_id`)
 ) ENGINE=InnoDB default CHARset=utf8;
 
@@ -51,12 +52,14 @@ create table `good`(
   `price` double comment '商品',
   `old_price` double comment '商品',
   `section` int (4) comment '商品 种类 0：学习用品、1：动植物、2：生活美妆、3：吃喝玩乐、4：电子设备、5：时尚穿搭',
+  `section_tag` varchar (10) comment '商品 标签',
   `help_tag` int (4) comment '帮助 种类 0：校园快递、1：楼下外卖、2：相约出行，待定',
   `reward` varchar (256) comment '求助',
   `period` int(11) comment '求助 时间 10 分钟：10*60*1000、半小时、一小时、两小时、四小时',
   `background_id` int(11) comment '求助',
   `finish_time` timestamp not null default current_timestamp,
   `buyer_open_id` varchar (64),
+  `browse_number` int (11) not null default 0 comment '浏览数目',
   primary key (`good_id`),
   foreign key (`seller_open_id`) references `user` (`open_id`),
   foreign key (`buyer_open_id`) references `user` (`open_id`),
@@ -78,6 +81,7 @@ create table `user_favorite_good`(
 create table `message`(
   `message_id` bigint (16) not null AUTO_INCREMENT,
   `open_id` varchar (64) not null comment '若为空则为所有用户的消息',
+  `trigger_open_id` varchar (64) comment '触发者的 openId',
   `title` varchar (16) not null,
   `content` varchar (256),
   `good_id` bigint(16),
@@ -85,13 +89,14 @@ create table `message`(
   `state` int(4) not null default 0 comment '标志 0：未读，1：已读',
   primary key (`message_id`),
   foreign key (`open_id`) references `user` (`open_id`),
+  foreign key (`trigger_open_id`) references `user` (`open_id`),
   foreign key (`good_id`) references `good` (`good_id`)
-) ENGINE=InnoDB default CHARset=utf8;
+) ENGINE=InnoDB default CHARset=utf8);
 
 drop view if exists `good_info`;
 
-create view `good_info` as select `good_id`,`seller_open_id`,`nick_name`,`gender`,`avatar_url`,`campus`,`college`,`title`,`content`,`phone_number`,`weixin_number`,`qq_number`,good.`create_time`,`state`,`price`,`old_price`,`section` from (`good` left join `user` on `seller_open_id` = `open_id`) where `type` = 0;
+create view `good_info` as select `good_id`,`seller_open_id`,`nick_name`,`gender`,`avatar_url`,`campus`,`college`,`title`,`content`,`phone_number`,`weixin_number`,`qq_number`,good.`create_time`,`state`,`price`,`old_price`,`section`,`section_tag`,`browse_number` from (`good` left join `user` on `seller_open_id` = `open_id`) where `type` = 0;
 
 drop view if exists `help_info`;
 
-create view `help_info` as select `good_id`,`seller_open_id`,`nick_name`,`gender`,`avatar_url`,`campus`,`college`,`title`,`content`,`phone_number`,`weixin_number`,`qq_number`,good.`create_time`,`state`,`help_tag`,`reward`,`period`,`background_image_path`,`limit_size`,`font_color`,`font_size`,`margin_top`,`margin_bottom`,`margin_left`,`margin_right` from ((`good` left join `user` on `seller_open_id` = `open_id`) left join `background_images` on `good`.`background_id` = `background_images`.`background_id`) where `type` = 1;
+create view `help_info` as select `good_id`,`seller_open_id`,`nick_name`,`gender`,`avatar_url`,`campus`,`college`,`title`,`content`,`phone_number`,`weixin_number`,`qq_number`,good.`create_time`,`state`,`help_tag`,`reward`,`period`,`background_image_path`,`limit_size`,`font_color`,`font_size`,`margin_top`,`margin_bottom`,`margin_left`,`margin_right`,`browse_number` from ((`good` left join `user` on `seller_open_id` = `open_id`) left join `background_images` on `good`.`background_id` = `background_images`.`background_id`) where `type` = 1;

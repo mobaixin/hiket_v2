@@ -15,17 +15,19 @@ public class MessageServiceImpl implements MessageService {
     @Autowired
     MessageDao messageDao;
 
-    private boolean sendMessage(String openId, String title, String content,Long goodId) {
+    private boolean sendMessage(String openId, String title, String content,Long goodId,String triggerOpenId) {
         Message message = new Message();
         message.setOpenId(openId);
         message.setTitle(title);
         message.setContent(content);
         message.setGoodId(goodId);
+        message.setTriggerOpenId(triggerOpenId);
+        System.out.println(message);
         int ret = messageDao.insert(message);
         return ret > 0;
     }
 
-    private boolean sendMessage(List<String> openIdList, String title, String content,Long goodId) {
+    private boolean sendMessage(List<String> openIdList, String title, String content,Long goodId,String triggerOpenId) {
         if (openIdList == null || openIdList.size() == 0) {
             return false;
         }
@@ -34,6 +36,7 @@ public class MessageServiceImpl implements MessageService {
         message.setTitle(title);
         message.setContent(content);
         message.setGoodId(goodId);
+        message.setTriggerOpenId(triggerOpenId);
         int ret = messageDao.insertSome(message);
         return ret > 0;
     }
@@ -81,35 +84,40 @@ public class MessageServiceImpl implements MessageService {
                         good.getFavoriteOpenIdList(),
                         "你收藏的商品重新上架了",
                         "你收藏的商品重新上架了：" + good.getTitle(),
-                        good.getGoodId());
+                        good.getGoodId(),
+                        openId);
             }
             case 1: {
                 return sendMessage(
                         good.getFavoriteOpenIdList(),
                         "你收藏的商品下架了",
                         "你收藏的商品下架了：" + good.getTitle(),
-                        good.getGoodId());
+                        good.getGoodId(),
+                        openId);
             }
             case 2: {
                 return sendMessage(
                         good.getFavoriteOpenIdList(),
                         "你收藏的商品卖出了",
                         "你收藏的商品卖出了：" + good.getTitle(),
-                        good.getGoodId());
+                        good.getGoodId(),
+                        openId);
             }
             case 3: {
                 return sendMessage(
                         good.getSellerOpenId(),
                         "你的商品被举报了",
                         "你的商品被举报了：" + good.getTitle(),
-                        good.getGoodId());
+                        good.getGoodId(),
+                        openId);
             }
             case 5: {
                 return sendMessage(
                         good.getFavoriteOpenIdList(),
                         "你收藏的商品过期了",
                         "你收藏的商品过期了：" + good.getTitle(),
-                        good.getGoodId());
+                        good.getGoodId(),
+                        openId);
             }
         }
         return false;

@@ -46,7 +46,7 @@
     </update>
 
     <select id="selectUserInfoByOpenId" parameterType="string" resultType="user">
-        select open_id,nick_name,gender,avatar_url,campus,college,role from user where open_id=#{openId}
+        select open_id,nick_name,gender,avatar_url,campus,college,role,state from user where open_id=#{openId}
     </select>
 
 </mapper>

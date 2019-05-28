@@ -25,6 +25,7 @@ public class Good {
     private Double price;
     private Double oldPrice;
     private Integer section;
+    private String sectionTag;
     private Integer helpTag;
     private Integer favoriteNumber;
     private String reward;
@@ -40,6 +41,7 @@ public class Good {
     private Integer marginLeft;
     private Date finishTime;
     private String buyerOpenId;
+    private Integer browseNumber;
 
     private String timePast;
     private boolean isMyFavorite;

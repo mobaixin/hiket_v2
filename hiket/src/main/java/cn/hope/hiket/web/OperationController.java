@@ -42,11 +42,10 @@ public class OperationController {
         boolean ret = goodService.updateGoodState(goodId, state);
         LOG.info("openId=" + openId + ": updateGoodState with goodId, state: " + goodId + ", " + state + ", success with: " + ret);
         if (ret) {
-            LOG.info("openId=" + "system" + ": send message about update good state with openId, goodId, state: " + openId + ", " + goodId + ", " + state);
+            LOG.info("openId=" + openId + ": send message about update good state with openId, goodId, state: " + openId + ", " + goodId + ", " + state);
             Good good = goodService.getGood(openId, goodId);
             boolean retTmp = messageService.sendMessageAboutUpdateGoodState(openId, good, state);
-            LOG.info("openId=" + "system" + ": send message about update good state with openId, goodId, state: "+openId+", " + goodId + ", " + state + ", success with: " + retTmp);
-
+            LOG.info("openId=" + openId + ": send message about update good state with openId, goodId, state: "+openId+", " + goodId + ", " + state + ", success with: " + retTmp);
         }
         return FormatResponseUtil.adapter(ret);
     }
