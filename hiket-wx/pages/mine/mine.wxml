@@ -19,7 +19,7 @@
                           style="display:flex;justify-content:center;">
                         <text wx:if="{{!studentInfo.campus}}"
                               bindtap="bindChooseCampus"
-                              style="font-size:30rpx">设置校区
+                              style="font-size:30rpx;color: #000;">设置校区
                         </text>
                         <text wx:else style="font-size:30rpx"
                               bindtap="bindChooseCampus">{{studentInfo.campus!=null?studentInfo.campus:''}}

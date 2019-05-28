@@ -28,7 +28,8 @@
             </view>
             <view class="cell_flex" style="justify-content:flex-end"
                   hidden='{{goodInfo.isHelp}}'>
-                <text class="cell_text">收藏 {{goodInfo.favoriteNumber}}</text>
+                <!--<text class="cell_text">收藏 {{goodInfo.favoriteNumber}}</text>-->
+                <text class="cell_text">浏览 {{goodInfo.browseNumber}}</text>
             </view>
         </view>
         <!---->
@@ -72,9 +73,10 @@
         <!--用户信息-->
         <view class="good_cell">
             <image class="user_avatar " src="{{goodInfo.avatarUrl}}"/>
-            <text class="user_nickname" decode="{{true}}">{{goodInfo.nickName!=null?goodInfo.nickName:''}}&nbsp;|&nbsp;{{goodInfo.college!=null?goodInfo.college:''}}</text>
+            <!--<text class="user_nickname" decode="{{true}}">{{goodInfo.nickName!=null?goodInfo.nickName:''}}&nbsp;|&nbsp;{{goodInfo.college!=null?goodInfo.college:''}}</text>-->
+            <text class="user_nickname" decode="{{true}}">{{goodInfo.nickName!=null?goodInfo.nickName:''}}</text>
             <text class="user_location">
-                {{goodInfo.campus!=null?goodInfo.campus:''}}
+                {{goodInfo.campus!=null?goodInfo.campus:'未知校区'}}
             </text>
         </view>
         <!---->

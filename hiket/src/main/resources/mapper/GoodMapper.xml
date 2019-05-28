@@ -52,13 +52,13 @@
 
     <!--搜索-->
     <select id="select" resultType="good" parameterType="long">
-    select good_id, seller_open_id, nick_name, gender, avatar_url, campus, college, title, content, phone_number, weixin_number, qq_number, create_time, price, old_price, section,state
+    select good_id, seller_open_id, nick_name, gender, avatar_url, campus, college, title, content, phone_number, weixin_number, qq_number, create_time, price, old_price, section,state,browse_number
     from good_info
     where good_id=#{goodId}
     </select>
 
     <select id="selectActiveGood" resultType="good">
-        select good_id, nick_name, gender, avatar_url, campus, college, title, content, phone_number, weixin_number, qq_number, create_time, price, old_price, section,state
+        select good_id, nick_name, gender, avatar_url, campus, college, title, content, phone_number, weixin_number, qq_number, create_time, price, old_price, section,state,browse_number
         from good_info
         where state = 0
         <if test="section!=null and section!=-1">and section = #{section}</if>
@@ -83,7 +83,7 @@
     </select>
 
     <select id="selectGoodByGoodIdList" resultType="good">
-        select good_id, nick_name, gender, avatar_url, campus, college, title, content, phone_number, weixin_number, qq_number, create_time, price, old_price, section,state
+        select good_id, nick_name, gender, avatar_url, campus, college, title, content, phone_number, weixin_number, qq_number, create_time, price, old_price, section,state,browse_number
         from good_info
         where
         <foreach collection="goodIdList" item="item" index="index" separator=" or ">
@@ -126,7 +126,7 @@
 
     <!--我的-->
     <select id="selectMyGood" parameterType="string" resultType="good">
-        select good_id, nick_name, gender, avatar_url, campus, college, title, content, phone_number, weixin_number, qq_number, create_time, price, old_price, section,state
+        select good_id, nick_name, gender, avatar_url, campus, college, title, content, phone_number, weixin_number, qq_number, create_time, price, old_price, section,state,browse_number
         from good_info where seller_open_id=#{openId} order by create_time desc
     </select>
 

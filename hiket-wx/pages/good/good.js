@@ -5,8 +5,8 @@ Page({
     data: {
         rewardLabel: '答谢：',
         goodInfo: null,
-        col:null,
-        index:null,
+        col: null,
+        index: null,
         swiperCurrent: 0,
         userInfo: null,
         studentInfo: null,
@@ -48,8 +48,13 @@ Page({
         };
         if (options.goodId) {
             this.getGoodInfoFromServer(options.goodId);
-        }else {
+        } else {
             this.getGoodInfoFromStorage();
+        }
+    },
+    onShow: function () {
+        if (this.data.goodInfo) {
+            this.browse();
         }
     },
     onShareAppMessage: function () {
@@ -58,6 +63,27 @@ Page({
             path: '/pages/index/index?goodId=' + this.data.goodInfo.goodId
             // path: '/pages/good/good?goodId=' + this.data.goodInfo.goodId
         }
+    },
+    browse: function () {
+        this.data.goodInfo.browseNumber = this.data.goodInfo.browseNumber + 1;
+        this.setData({
+            goodInfo: this.data.goodInfo
+        });
+        let that = this;
+        wx.request({
+            url: app.globalData.browseBrowseGoodUrl,
+            header: {
+                "Content-Type": 'application/x-www-form-urlencoded'
+            },
+            data: {
+                openId: app.globalData.openId,
+                goodId: that.data.goodInfo.goodId
+            },
+            method: 'POST',
+            success: function (res) {
+                console.log(res);
+            }
+        });
     },
     getGoodInfoFromServer: function (goodId) {
         let that = this;
@@ -71,7 +97,7 @@ Page({
                 "Content-Type": 'application/x-www-form-urlencoded'
             },
             data: {
-                openId:app.globalData.openId,
+                openId: app.globalData.openId,
                 goodId: goodId
             },
             method: 'POST',
@@ -81,7 +107,8 @@ Page({
                 if (res.data.success) {
                     that.setData({
                         goodInfo: res.data.data
-                    })
+                    });
+                    that.browse();
                 } else {
                     wx.showToast({
                         title: '加载失败',
@@ -107,15 +134,16 @@ Page({
         wx.getStorage({
             key: 'good',
             success: function (res) {
+                wx.hideLoading();
                 that.setData({
                     goodInfo: res.data.goodInfo,
-                    col:res.data.col,
+                    col: res.data.col,
                     index: res.data.index
                 });
+                that.browse();
                 wx.removeStorage({
                     key: 'good'
                 });
-                wx.hideLoading();
             },
             fail: function () {
                 wx.hideLoading();

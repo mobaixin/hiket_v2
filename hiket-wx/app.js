@@ -2,6 +2,7 @@
 const serverUrl = "http://localhost:8080";
 // const serverUrl = "https://www.werehunter.com";
 
+
 App({
     onLaunch: function () {
         let that = this;
@@ -175,24 +176,25 @@ App({
         studentInfo: null,
         studentRegister: false,
         messageUnRead: false,
-        userGetTopBannerUrl: serverUrl+ '/user/getTopBanner',
-        userRegisterUrl: serverUrl+ '/user/register',
-        userWeixinRegisterUrl: serverUrl+ '/user/weixinRegister',
-        userStudentRegisterUrl: serverUrl+ '/user/studentRegister',
-        userUpdateUserInfoUrl: serverUrl+ '/user/updateUserInfo',
-        releaseUploadImageUrl: 'https://www.werehunter.com'+ '/release/uploadImage',
-        releaseReleaseGoodUrl: serverUrl+ '/release/releaseGood',
-        searchGetGoodUrl: serverUrl+ '/search/getGood',
-        searchActiveGoodUrl: serverUrl+ '/search/searchActiveGood',
-        favoriteFavoriteGoodUrl: serverUrl+ '/favorite/favoriteGood',
-        favoriteNoneFavoriteGoodUrl: serverUrl+ '/favorite/noneFavoriteGood',
-        favoriteMyFavoriteGoodUrl: serverUrl+ '/favorite/myFavoriteGood',
-        operationMyGoodUrl: serverUrl+ '/operation/myGood',
-        operationUpdateGoodStateUrl: serverUrl+ '/operation/updateGoodState',
-        messageHasUnreadMessageUrl: serverUrl+ '/message/hasUnreadMessage',
-        messageGetMyMessageUrl: serverUrl+ '/message/getMyMessage',
-        messageReadMessageUrl: serverUrl+ '/message/readMessage',
-        messageReadAllMessageUrl: serverUrl+ '/message/readAllMessage',
+        userGetTopBannerUrl: serverUrl + '/user/getTopBanner',
+        userRegisterUrl: serverUrl + '/user/register',
+        userWeixinRegisterUrl: serverUrl + '/user/weixinRegister',
+        userStudentRegisterUrl: serverUrl + '/user/studentRegister',
+        userUpdateUserInfoUrl: serverUrl + '/user/updateUserInfo',
+        releaseUploadImageUrl: 'https://www.werehunter.com' + '/release/uploadImage',
+        releaseReleaseGoodUrl: serverUrl + '/release/releaseGood',
+        searchGetGoodUrl: serverUrl + '/search/getGood',
+        searchActiveGoodUrl: serverUrl + '/search/searchActiveGood',
+        favoriteFavoriteGoodUrl: serverUrl + '/favorite/favoriteGood',
+        favoriteNoneFavoriteGoodUrl: serverUrl + '/favorite/noneFavoriteGood',
+        favoriteMyFavoriteGoodUrl: serverUrl + '/favorite/myFavoriteGood',
+        operationMyGoodUrl: serverUrl + '/operation/myGood',
+        operationUpdateGoodStateUrl: serverUrl + '/operation/updateGoodState',
+        messageHasUnreadMessageUrl: serverUrl + '/message/hasUnreadMessage',
+        messageGetMyMessageUrl: serverUrl + '/message/getMyMessage',
+        messageReadMessageUrl: serverUrl + '/message/readMessage',
+        messageReadAllMessageUrl: serverUrl + '/message/readAllMessage',
+        browseBrowseGoodUrl: serverUrl + '/browse/browseGood',
         tabBar: {
             "backgroundColor": "#ffffff",
             "color": "#979795",

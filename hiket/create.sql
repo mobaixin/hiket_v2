@@ -59,7 +59,7 @@ create table `good`(
   `background_id` int(11) comment '求助',
   `finish_time` timestamp not null default current_timestamp,
   `buyer_open_id` varchar (64),
-  `browse_number` int (11) not null default 0 comment '浏览数目',
+  `browse_number` int (11) not null default 1 comment '浏览数目',
   primary key (`good_id`),
   foreign key (`seller_open_id`) references `user` (`open_id`),
   foreign key (`buyer_open_id`) references `user` (`open_id`),

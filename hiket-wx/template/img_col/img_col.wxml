@@ -9,7 +9,7 @@
           <image class="user_avatar" src="{{item.avatarUrl}}"></image>
           <text wx:if="{{item.mine}}" style='color:#FF4F64' class="user_nickname">我</text>
           <text wx:else class="user_nickname">{{item.nickName}}</text>
-          <text class="user_location">{{item.campus!=null?item.campus:''}}</text>
+          <text class="user_location">{{item.campus!=null?item.campus:'未知校区'}}</text>
         </view>
 
         <!--物品图片-->
@@ -27,9 +27,9 @@
         <view class="img_cell">
           <text class="item_price">￥{{item.price}}</text>
           <text class="item_price_before">￥{{item.oldPrice}}</text>
-          <text decode="{{true}}" class="item_date">{{item.timePast}}</text>
+          <text decode="{{true}}" class="item_date">浏览&nbsp;{{item.browseNumber}}&nbsp;</text>
+          <!--<text decode="{{true}}" class="item_date">{{item.timePast}}</text>-->
         </view>
-
       </view>
     </view>
     <!--商品左列-->
@@ -41,7 +41,7 @@
           <image class="user_avatar" src="{{item.avatarUrl}}"></image>
           <text wx:if="{{item.mine}}" style='color:#FF4F64' class="user_nickname">我</text>
           <text wx:else class="user_nickname">{{item.nickName}}</text>
-          <text class="user_location">{{item.campus!=null?item.campus:''}}</text>
+          <text class="user_location">{{item.campus!=null?item.campus:'未知校区'}}</text>
         </view>
 
         <!--物品图片-->
@@ -59,7 +59,8 @@
         <view class="img_cell">
           <text class="item_price">￥{{item.price}}</text>
           <text class="item_price_before">￥{{item.oldPrice}}</text>
-          <text decode="{{true}}" class="item_date">{{item.timePast}}</text>
+          <text decode="{{true}}" class="item_date">浏览&nbsp;{{item.browseNumber}}&nbsp;</text>
+          <!--<text decode="{{true}}" class="item_date">{{item.timePast}}</text>-->
         </view>
 
       </view>
