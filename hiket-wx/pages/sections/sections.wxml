@@ -4,7 +4,7 @@
     <view hidden='{{hideSearch}}' class='page_row'>
         <view class="search">
             <view class="search_arr">
-                <icon class="searchcion" size='20' type='search'></icon>
+                <icon class="search_icon" size='20' type='search'></icon>
                 <input confirm-type="search" bindconfirm="bindSearch" class=""
                        placeholder="请输入关键字" value="{{searchValue}}"
                        bindinput='searchValueInput'/>

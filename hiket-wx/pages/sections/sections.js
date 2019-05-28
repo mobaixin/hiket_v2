@@ -92,20 +92,20 @@ Page({
                     let goodInfo = res.data.goodInfo;
                     let col = res.data.col;
                     let index = res.data.index;
-                    if(col==0) {
-                        that.data.col1[index] = goodInfo;
-                    }else if(col==1){
-                        that.data.col2[index] = goodInfo;
+                    let change = res.data.change;
+                    if(change){
+                        if(col==0) {
+                            that.data.col1[index] = goodInfo;
+                        }else if(col==1){
+                            that.data.col2[index] = goodInfo;
+                        }
+                        that.setData({
+                            goods: that.data.goods,
+                            col1: that.data.col1,
+                            col2: that.data.col2
+                        });
                     }
-                    that.setData({
-                        goods: that.data.goods,
-                        col1:that.data.col1,
-                        col2:that.data.col2
-                    })
                 }
-                wx.removeStorage({
-                    key: 'good',
-                })
             }
         })
     },

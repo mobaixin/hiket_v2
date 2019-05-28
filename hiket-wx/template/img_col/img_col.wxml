@@ -17,6 +17,7 @@
         <!--物品图片-->
 
         <view class="item_description">
+          <text decode="{{true}}" style='color:#50B2F3'>#{{item.sectionTag==null?'':item.sectionTag}}&nbsp;</text>
           <text wx:if="{{item.state==1}}" style='color:#FF4F64'>（已下架）</text>
           <text wx:elif="{{item.state==2}}" style='color:#FF4F64'>（已卖出）</text>
           <text wx:elif="{{item.state==3}}" style='color:#FF4F64'>（被举报）</text>
@@ -49,6 +50,7 @@
         <!--物品图片-->
 
         <view class="item_description">
+          <text decode="{{true}}" style='color:#50B2F3'>#{{item.sectionTag==null?'':item.sectionTag}}&nbsp;</text>
           <text wx:if="{{item.state==1}}" style='color:#FF4F64'>（已下架）</text>
           <text wx:elif="{{item.state==2}}" style='color:#FF4F64'>（已卖出）</text>
           <text wx:elif="{{item.state==3}}" style='color:#FF4F64'>（被举报）</text>

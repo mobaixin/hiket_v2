@@ -81,6 +81,17 @@
       </view>
     </view>
     <!--  -->
+    <!-- 分类 -->
+    <view class='sell_cells'>
+      <view class="sell_cell">
+        <text class="sell_title">标签</text>
+        <input value="{{goodInfo.sectionTag}}" class="sell_input" placeholder="选择或输入标签" placeholder-class='placeholder' maxlength='8'/>
+        <picker style="flex:1;display:flex;justify-content:flex-end" bindchange="bindSectionTagChange" value="{{sectionTagId}}" range="{{sectionTags[sectionId]}}">
+          <text class="sell_select">{{sectionTags[sectionId][sectionTagId]==""?"选择标签":sectionTags[sectionId][sectionTagId]}}</text>
+        </picker>
+      </view>
+    </view>
+    <!--  -->
     <!-- 联系方式 -->
     <view class='sell_cells'>
       <view class="sell_cell">

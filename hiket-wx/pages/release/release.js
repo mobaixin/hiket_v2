@@ -8,6 +8,8 @@ Page({
         hasUserInfo: false,
         hasStudentInfo: false,
         isHelp: false,
+        col: null,
+        index: null,
         goodInfo: {
             sellerOpenId: null,
 
@@ -17,6 +19,7 @@ Page({
             uploadImagePathList: [],
 
             section: null,
+            sectionTag: null,
             oldPrice: null,
             price: null,
 
@@ -29,9 +32,17 @@ Page({
             qqNumber: null
         },
 
-        sections: ["学习用品", "动植物", "生活美妆", "吃喝玩乐", "电子设备", "时尚穿搭"],
+        sections: ["学习书籍", "美妆洗护", "生活家居", "时尚穿搭", "体育数码", "生鲜零食"],
         sectionId: 0,
-
+        sectionTags: [
+            ["", "教材", "考研", "雅思", "托福/GRE", "考证系列", "文学", "工具书"],
+            ["", "个人洗护", "美妆工具", "口红专区", "防晒", "彩妆", "面膜", "香水"],
+            ["", "收纳贮藏", "日用品", "装饰好物", "小家电", "桌椅", "玩偶", "养生保健"],
+            ["", "饰品", "包包", "裙子", "帽子", "鞋", "上衣", "裤子"],
+            ["", "耳机", "键盘", "体育装备", "运动器械", "智能设备", "健身卡", "音箱"],
+            ["", "膨化食品", "咖啡", "坚果类", "奶制品", "饮料", "速食品", "水果"]
+        ],
+        sectionTagId: 0,
         helpTags: ["校园快递", "楼下外卖", "相约出行"],
         helpTagId: 0,
         period: ["10分钟", "30分钟", "1小时", "2小时", "4小时"],
@@ -87,7 +98,10 @@ Page({
                 key: 'good',
                 success: function (res) {
                     that.setData({
-                        goodInfo: res.data
+                        col: res.data.col,
+                        index: res.data.index,
+                        goodInfo: res.data.goodInfo,
+                        sectionId: res.data.goodInfo.section
                     });
                     wx.hideLoading();
                 },
@@ -103,9 +117,12 @@ Page({
             wx.getStorage({
                 key: 'release',
                 success: function (res) {
+                    console.log(res);
                     if (res.data) {
                         that.setData({
-                            goodInfo: res.data
+                            sectionId:res.data.sectionId,
+                            sectionTagId: res.data.sectionTagId,
+                            goodInfo: res.data.goodInfo
                         });
                     } else {
                         that.data.goodInfo.section = that.data.sectionId;
@@ -121,64 +138,50 @@ Page({
     onShareAppMessage: function () {
         return app.onShareAppMessage();
     },
-    titleInput: function (e) {
-        this.data.goodInfo.title = e.detail.value;
+    storageRelease: function () {
         wx.setStorage({
             key: "release",
-            data: this.data.goodInfo
+            data: {
+                sectionId: this.data.sectionId,
+                sectionTagId: this.data.sectionTagId,
+                goodInfo: this.data.goodInfo
+            }
         })
+    },
+    titleInput: function (e) {
+        this.data.goodInfo.title = e.detail.value;
+        this.storageRelease();
     },
     contentInput: function (e) {
         this.data.goodInfo.content = e.detail.value;
         this.setData({
             inputLength: e.detail.value.length
         });
-        wx.setStorage({
-            key: "release",
-            data: this.data.goodInfo
-        })
+        this.storageRelease();
     },
     priceInput: function (e) {
         this.data.goodInfo.price = e.detail.value;
-        wx.setStorage({
-            key: "release",
-            data: this.data.goodInfo
-        })
+        this.storageRelease();
     },
     oldPriceInput: function (e) {
         this.data.goodInfo.oldPrice = e.detail.value;
-        wx.setStorage({
-            key: "release",
-            data: this.data.goodInfo
-        })
+        this.storageRelease();
     },
     rewardInput: function (e) {
         this.data.goodInfo.reward = e.detail.value;
-        wx.setStorage({
-            key: "release",
-            data: this.data.goodInfo
-        })
+        this.storageRelease();
     },
     phoneNumberInput: function (e) {
         this.data.goodInfo.phoneNumber = e.detail.value;
-        wx.setStorage({
-            key: "release",
-            data: this.data.goodInfo
-        })
+        this.storageRelease();
     },
     weixinNumberInput: function (e) {
         this.data.goodInfo.weixinNumber = e.detail.value;
-        wx.setStorage({
-            key: "release",
-            data: this.data.goodInfo
-        })
+        this.storageRelease();
     },
     qqNumberInput: function (e) {
         this.data.goodInfo.qqNumber = e.detail.value;
-        wx.setStorage({
-            key: "release",
-            data: this.data.goodInfo
-        })
+        this.storageRelease();
     },
     uploadImage: function (imagePath) {
         let that = this;
@@ -203,10 +206,7 @@ Page({
                     that.setData({
                         goodInfo: that.data.goodInfo
                     });
-                    wx.setStorage({
-                        key: "release",
-                        data: that.data.goodInfo
-                    });
+                    this.storageRelease();
                     wx.showToast({
                         title: '上传成功'
                     });
@@ -255,10 +255,7 @@ Page({
         this.setData({
             goodInfo: this.data.goodInfo
         });
-        wx.setStorage({
-            key: "release",
-            data: this.data.goodInfo
-        })
+        this.storageRelease();
     },
     // 是否为帮助
     bindHelp: function (e) {
@@ -282,21 +279,30 @@ Page({
         this.setData({
             goodInfo: this.data.goodInfo
         });
-        wx.setStorage({
-            key: "release",
-            data: this.data.goodInfo
-        })
+        this.storageRelease();
     },
     // 物品类别滚动选择器事件监听
     bindSectionChange: function (e) {
         this.setData({
-            sectionId: e.detail.value
+            sectionId: e.detail.value,
+            sectionTagId: 0
         });
         this.data.goodInfo.section = this.data.sectionId;
-        wx.setStorage({
-            key: "release",
-            data: this.data.goodInfo
-        })
+        this.data.goodInfo.sectionTag = this.data.sectionTags[this.data.sectionId][this.data.sectionTagId];
+        this.setData({
+            goodInfo: this.data.goodInfo
+        });
+        this.storageRelease();
+    },
+    bindSectionTagChange: function (e) {
+        this.setData({
+            sectionTagId: e.detail.value
+        });
+        this.data.goodInfo.sectionTag = this.data.sectionTags[this.data.sectionId][this.data.sectionTagId];
+        this.setData({
+            goodInfo: this.data.goodInfo
+        });
+        this.storageRelease();
     },
     // 帮助类别滚动选择器事件监听
     bindHelpTagChange: function (e) {
@@ -304,10 +310,7 @@ Page({
             helpTagId: e.detail.value
         });
         this.data.goodInfo.helpTag = this.data.helpTags[this.data.helpTagId];
-        wx.setStorage({
-            key: "release",
-            data: this.data.goodInfo
-        })
+        this.storageRelease();
     },
     // 帮助持续时间
     bindPeriodChange: function (e) {
@@ -315,10 +318,7 @@ Page({
             periodId: e.detail.value
         });
         this.data.goodInfo.period = this.data.periodValue[this.data.periodId];
-        wx.setStorage({
-            key: "release",
-            data: this.data.goodInfo
-        })
+        this.storageRelease();
     },
     modalBindConfirm: function () {
         this.setData({
@@ -345,7 +345,6 @@ Page({
             });
             return
         }
-        let that = this;
         // 金额，联系方式输入验证正则表达式
         let priceReg = /(^[1-9]([0-9]+)?(\.[0-9]{1,2})?$)|(^(0){1}$)|(^[0-9]\.[0-9]([0-9])?$)/;
         let phoneNumberReg = /^([1](([3][0-9])|([4][5-9])|([5][0-3,5-9])|([6][5,6])|([7][0-8])|([8][0-9])|([9][1,8,9]))[0-9]{8})$/;
@@ -353,11 +352,12 @@ Page({
         let warn = "";
         let flag = false;
 
-        if (!this.data.goodInfo.title) warn = "请填写标题！";
-        else if (!this.data.goodInfo.content) warn = "请填写描述！";
+        if (!this.data.goodInfo.title || this.data.goodInfo.title.trim() == "") warn = "请填写标题！";
+        else if (!this.data.goodInfo.content || this.data.goodInfo.content.trim() == "") warn = "请填写描述！";
         else if (!this.data.isHelp && this.data.goodInfo.uploadImagePathList.length == 0) warn = "请上传图片！";
         else if (!this.data.isHelp && !priceReg.test(this.data.goodInfo.price)) warn = "请正确填写价格！";
         else if (!this.data.isHelp && !priceReg.test(this.data.goodInfo.oldPrice)) warn = "请正确填写原价！";
+        else if (!this.data.goodInfo.sectionTag || this.data.goodInfo.sectionTag.trim() == "") warn = "请选择或输入标签！";
         else if (!this.data.goodInfo.phoneNumber && !this.data.goodInfo.weixinNumber && !this.data.goodInfo.qqNumber) warn = "请填写至少一个联系方式";
         else if (this.data.goodInfo.phoneNumber && !phoneNumberReg.test(this.data.goodInfo.phoneNumber)) warn = "请正确填写手机号码";
         else if (this.data.goodInfo.qqNumber && !qqNumberReg.test(this.data.goodInfo.qqNumber)) warn = "请正确填写QQ号码";
@@ -370,6 +370,8 @@ Page({
                 icon: 'none'
             });
         } else {
+            let that = this;
+            console.log(that.data.goodInfo)
             wx.showModal({
                 title: '提示',
                 content: '请检查填写内容，确认发布',
@@ -382,13 +384,17 @@ Page({
                             success: function (res) {
                                 console.log(res);
                                 if (res.data.success) {
-                                    wx.setStorage({
-                                        key: "release",
-                                        data: null
+                                    wx.removeStorage({
+                                        key: "release"
                                     });
                                     wx.setStorage({
                                         key: "good",
-                                        data: res.data.data
+                                        data: {
+                                            col: that.data.col,
+                                            index: that.data.index,
+                                            goodInfo: res.data.data,
+                                            change: true
+                                        }
                                     });
                                     wx.redirectTo({
                                         url: '../good/good'

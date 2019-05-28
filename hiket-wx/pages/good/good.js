@@ -141,9 +141,6 @@ Page({
                     index: res.data.index
                 });
                 that.browse();
-                wx.removeStorage({
-                    key: 'good'
-                });
             },
             fail: function () {
                 wx.hideLoading();
@@ -321,7 +318,15 @@ Page({
         })
     },
     bindEdit: function () {
-        wx.navigateTo({
+        wx.setStorage({
+            key: "good",
+            data: {
+                col: this.data.col,
+                index: this.data.index,
+                goodInfo: this.data.goodInfo
+            }
+        });
+        wx.redirectTo({
             url: '../release/release?edit=true',
         })
     },
@@ -425,7 +430,8 @@ Page({
                         data: {
                             goodInfo: that.data.goodInfo,
                             col: that.data.col,
-                            index: that.data.index
+                            index: that.data.index,
+                            change: true
                         }
                     });
                     wx.showToast({

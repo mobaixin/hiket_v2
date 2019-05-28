@@ -51,7 +51,7 @@ create table `good`(
   `type` int(4) not null default 0 comment '类型 0：商品、1：求助、2：公告',
   `price` double comment '商品',
   `old_price` double comment '商品',
-  `section` int (4) comment '商品 种类 0：学习用品、1：动植物、2：生活美妆、3：吃喝玩乐、4：电子设备、5：时尚穿搭',
+  `section` int (4) comment '商品 种类 0：学习用品、1：动植物、2：生活美妆、3：吃喝玩乐、4：电子设备、5：时尚穿搭->商品 种类 0：生活家居、1：美妆洗护、2：学习书籍、3：时尚穿搭、4：生鲜零食、5：体育数码',
   `section_tag` varchar (10) comment '商品 标签',
   `help_tag` int (4) comment '帮助 种类 0：校园快递、1：楼下外卖、2：相约出行，待定',
   `reward` varchar (256) comment '求助',
