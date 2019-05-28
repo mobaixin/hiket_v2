@@ -1,7 +1,8 @@
 <!--index.wxml-->
-<import src="../../template/index_sections/index_sections.wxml"/>
+<!--<import src="../../template/index_sections/index_sections.wxml"/>-->
+<import src="../../template/img_col/img_col.wxml"/>
 
-<view class="page">
+<view class="page" style="background-color: white">
 
     <view class='page_row'>
         <view class="search">
@@ -15,18 +16,16 @@
     </view>
 
     <view class='tab'>
-        <scroll-view scroll-x="true" class="tab-scroll" scroll-left="0">
-            <view class="tab-item active" data-current="0" bindtap="swichNav">首页</view>
-            <view class="tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="swichNav">生活家居</view>
-            <view class="tab-item {{currentTab==3?'active':''}}" data-current="3" bindtap="swichNav">美妆洗护</view>
-            <view class="tab-item {{currentTab==4?'active':''}}" data-current="4" bindtap="swichNav">学习书籍</view>
-            <view class="tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="swichNav">时尚穿搭</view>
-            <view class="tab-item {{currentTab==5?'active':''}}" data-current="5" bindtap="swichNav">生鲜零食</view>
-            <view class="tab-item {{currentTab==5?'active':''}}" data-current="5" bindtap="swichNav">体育数码</view>
+        <scroll-view scroll-x="true" class="tab-scroll">
+            <view class="tab-item {{currentTab==-1?'active':''}}"
+                  data-current="-1" bindtap="bindTab">首页
+            </view>
+            <view wx:for="{{sections}}" class="tab-item {{currentTab==index?'active':''}}" data-current="{{index}}" bindtap="bindTab">{{item}}</view>
         </scroll-view>
     </view>
 
-    <swiper class="swiper" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
+    <swiper wx:if="{{currentTab==-1}}" class="swiper" indicator-dots="true"
+            autoplay="true" interval="3000" duration="1000">
         <block wx:for="{{topBanner}}">
             <swiper-item>
                 <image src="{{item}}" style="position:absolute;z-index:1"
@@ -35,23 +34,44 @@
         </block>
     </swiper>
 
-    <view style="background-color:#fff;padding:15rpx 0rpx">
+    <view wx:else>
+        <view style="display: flex;justify-content:space-around;margin: 10rpx 0">
+            <view wx:for="{{sectionTags[currentTab]}}" wx:if="{{index<4}}" style="width: 120rpx;height: 160rpx;display: flex;flex-direction:column">
+                <image style="width: 120rpx;height: 120rpx" src="{{'../../images/index/tag/'+item+'.jpg'}}"
+                       mode="scaleToFill"/>
+                <text style="width: 120rpx;color: darkgray;text-align: center">{{item}}</text>
+            </view>
+        </view>
+        <view style="display: flex;justify-content:space-around;margin: 10rpx 0">
+            <view wx:for="{{sectionTags[currentTab]}}" wx:if="{{index>3}}" style="width: 120rpx;height: 160rpx;display: flex;flex-direction:column">
+                <image style="width: 120rpx;height: 120rpx" src="{{'../../images/index/tag/'+item+'.jpg'}}"
+                       mode="scaleToFill"/>
+                <text style="width: 120rpx;color: darkgray;text-align: center">{{item}}</text>
+            </view>
+        </view>
+    </view>
+
+    <!--两栏展示商品-->
+    <template is="img_col" data="{{col1,col2,Loading}}"></template>
+    <!--两栏展示商品-->
+
+    <!--<view style="background-color:#fff;padding:15rpx 0rpx">-->
         <!--显示分类-->
-        <view style="width:720rpx;margin:10rpx 15rpx 7.5rpx 15rpx;display:flex">
-            <template wx:for="{{sections1}}" wx:key="idx" is="index_sections"
-                      data="{{item}}"></template>
-        </view>
-        <view style="width:720rpx;margin:7.5rpx 15rpx 5rpx 15rpx;display:flex">
-            <template wx:for="{{sections2}}" wx:key="idx" is="index_sections"
-                      data="{{item}}"></template>
-        </view>
+        <!--<view style="width:720rpx;margin:10rpx 15rpx 7.5rpx 15rpx;display:flex">-->
+            <!--<template wx:for="{{sections1}}" wx:key="idx" is="index_sections"-->
+                      <!--data="{{item}}"></template>-->
+        <!--</view>-->
+        <!--<view style="width:720rpx;margin:7.5rpx 15rpx 5rpx 15rpx;display:flex">-->
+            <!--<template wx:for="{{sections2}}" wx:key="idx" is="index_sections"-->
+                      <!--data="{{item}}"></template>-->
+        <!--</view>-->
         <!--显示分类-->
         <view bindtap='bindRecommend' class="recommend">
-      <text class="recommend_text">今日推荐</text>
-      <view class="mine_arrow"></view>
-      <view class="mine_arrow" style='margin-right:40rpx'></view>
-    </view>
-    </view>
+            <text class="recommend_text">今日推荐</text>
+            <view class="mine_arrow"></view>
+            <view class="mine_arrow" style='margin-right:40rpx'></view>
+        </view>
+    <!--</view>-->
     <tabbar tabbar="{{tabbar}}"></tabbar>
 </view>
 <modal title="提示" hidden="{{modalHidden}}" confirm-text="前往认证"

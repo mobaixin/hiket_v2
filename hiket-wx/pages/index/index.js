@@ -14,6 +14,16 @@ Page({
             'https://www.werehunter.com/upload/banner/tiny/2.png',
             'https://www.werehunter.com/upload/banner/tiny/3.png'
         ],
+        currentTab: -1,
+        sections: ["学习书籍", "美妆洗护", "生活家居", "时尚穿搭", "体育数码", "生鲜零食"],
+        sectionTags: [
+            [ "教材", "考研", "雅思", "托福GRE", "考证系列", "文学", "工具书","其它"],
+            [ "个人洗护", "美妆工具", "口红专区", "防晒", "彩妆", "面膜", "香水","其它"],
+            [ "收纳储藏", "日用品", "宿舍好物", "小家电", "桌椅", "玩偶", "养生保健","其它"],
+            [ "饰品", "包包", "裙子", "帽子", "鞋", "上衣", "裤子","其它"],
+            [ "耳机", "键盘", "体育装备", "运动器械", "智能设备", "健身卡", "音响","其它"],
+            [ "膨化食品", "咖啡", "坚果类", "奶制品", "饮料", "速食品", "水果","其它"]
+        ],
         sections1: [{
             url: "../../images/index/s_1.png",
             title: "学习用品",
@@ -157,6 +167,12 @@ Page({
     onPullDownRefresh: function () {
         this.load();
         wx.stopPullDownRefresh();
+    },
+    bindTab: function (e) {
+        let current = e.target.dataset.current;
+        this.setData({
+            currentTab: current
+        })
     },
     bindSectionTap: function (e) {
         let sectionId = e.currentTarget.id;
