@@ -1,0 +1,39 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/mine/mine",
+    "pages/release/release",
+    "pages/sections/sections",
+    "pages/good/good",
+    "pages/logs/logs",
+    "pages/about/about",
+    "pages/message/message",
+    "pages/message_info/message_info"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Hi! Ket",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "selectedIconPath": "component/tabbar/icon/home_selected.png",
+        "iconPath": "component/tabbar/icon/home.png",
+        "pagePath": "pages/index/index",
+        "text": "我要买"
+      },
+      {
+        "selectedIconPath": "component/tabbar/icon/mine_selected.png",
+        "iconPath": "component/tabbar/icon/mine.png",
+        "pagePath": "pages/mine/mine",
+        "text": "我的"
+      }
+    ],
+    "backgroundColor": "#ffffff",
+    "color": "#979795",
+    "selectedColor": "#E74552"
+  },
+  "sitemapLocation": "sitemap.json"
+}

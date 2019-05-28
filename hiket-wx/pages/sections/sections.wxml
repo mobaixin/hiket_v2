@@ -1,0 +1,17 @@
+<!--pages/sections/sections.wxml-->
+<import src="../../template/img_col/img_col.wxml"/>
+<view class="page">
+    <view hidden='{{hideSearch}}' class='page_row'>
+        <view class="search">
+            <view class="search_arr">
+                <icon class="searchcion" size='20' type='search'></icon>
+                <input confirm-type="search" bindconfirm="bindSearch" class=""
+                       placeholder="请输入关键字" value="{{searchValue}}"
+                       bindinput='searchValueInput'/>
+            </view>
+        </view>
+    </view>
+    <!--两栏展示商品-->
+    <template is="img_col" data="{{col1,col2,Loading}}"></template>
+    <!--两栏展示商品-->
+</view>

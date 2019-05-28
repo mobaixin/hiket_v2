@@ -1,0 +1,147 @@
+<!--pages/good/good.wxml-->
+<view class="page">
+    <view style="margin-top: 20rpx;margin-bottom: 120rpx" class="good_block">
+        <!--滑块视图-->
+        <view>
+            <swiper current="{{swiperCurrent}}" bindchange="swiperChange"
+                    class="good_swiper">
+                <block wx:for="{{goodInfo.uploadImagePathList}}">
+                    <swiper-item style="display:flex;justify-content:center">
+                        <image src="{{item}}" mode='aspectFit'
+                               style="width:100%;height:100%"
+                               bindtap="previewImage" data-index="{{index}}"/>
+                    </swiper-item>
+                </block>
+            </swiper>
+        </view>
+        <!---->
+        <!--价格+滑块指示点+收藏数-->
+        <view class="good_cell">
+            <view class="cell_flex" hidden='{{goodInfo.isHelp}}'>
+                <text class="item_price">￥{{goodInfo.price}}</text>
+                <text class="item_price_before">￥{{goodInfo.oldPrice}}</text>
+            </view>
+            <view class="cell_flex" style="justify-content:center">
+                <block wx:for="{{goodInfo.uploadImagePathList}}">
+                    <view class="dot{{index==swiperCurrent?' active':''}}"></view>
+                </block>
+            </view>
+            <view class="cell_flex" style="justify-content:flex-end"
+                  hidden='{{goodInfo.isHelp}}'>
+                <text class="cell_text">收藏 {{goodInfo.favoriteNumber}}</text>
+            </view>
+        </view>
+        <!---->
+        <!--标题+介绍-->
+        <view class="good_cell" style="padding:0">
+            <text style="font-size:36rpx;font-weight:bold;">
+                {{goodInfo.title}}{{goodInfo.state==1?'（已下架）':''}}{{goodInfo.state==2?'（已卖出）':''}}{{goodInfo.state==3?'（被举报）':''}}{{goodInfo.state==4?'（审核中）':''}}{{goodInfo.state==5?'（已过期）':''}}
+            </text>
+        </view>
+        <view wx:if="{{goodInfo.state!=5}}">
+            <view wx:if="{{!goodInfo.mine}}" class="good_cell">
+                <text class="text-operate"
+                      bindtap='bindReport'>举报
+                </text>
+            </view>
+            <view wx:elif="{{goodInfo.state==3}}" class="good_cell">
+                <text class="text-operate"
+                      bindtap='bindExamine'>请求审核
+                </text>
+            </view>
+            <view wx:elif="{{goodInfo.state!=4}}" class="good_cell">
+                <text class="text-operate"
+                      bindtap='bindEdit'>编辑
+                </text>
+                <text wx:if="{{goodInfo.state==1||goodInfo.state==2}}"
+                      class="text-operate"
+                      bindtap='bindResell'>重新上架
+                </text>
+                <text wx:if="{{goodInfo.state==0}}" class="text-operate"
+                      bindtap='bindInvalid'>下架
+                </text>
+                <text wx:if="{{goodInfo.state==0}}" class="text-operate"
+                      bindtap='bindSold'>卖出
+                </text>
+            </view>
+        </view>
+        <view class="good_cell bottom_line">
+            <text class="cell_text">{{goodInfo.content}}</text>
+        </view>
+        <!---->
+        <!--用户信息-->
+        <view class="good_cell">
+            <image class="user_avatar " src="{{goodInfo.avatarUrl}}"/>
+            <text class="user_nickname" decode="{{true}}">{{goodInfo.nickName!=null?goodInfo.nickName:''}}&nbsp;|&nbsp;{{goodInfo.college!=null?goodInfo.college:''}}</text>
+            <text class="user_location">
+                {{goodInfo.campus!=null?goodInfo.campus:''}}
+            </text>
+        </view>
+        <!---->
+        <view class="good_cell bottom_line" hidden='{{!goodInfo.isHelp}}'>
+            <text style="font-size:16px;font-weight:bold">{{rewardLabel}}</text>
+            <text class="cell_text">{{goodInfo.reward}}</text>
+        </view>
+    </view>
+    <!--底部tab-->
+    <view class="bottom_tab_wrap">
+        <view class="bottom_tab" bindtap='bindFavorite'
+              hidden='{{goodInfo.isHelp}}'>
+            <button plain="false" style="border: none;" class="text_warp">
+                <image wx:if="{{goodInfo.myFavorite}}" class="tab_icon"
+                       src="../../images/good/f_s.png"/>
+                <image wx:else class="tab_icon" src="../../images/good/f.png"/>
+            </button>
+            <!--<text wx:if="{{goodInfo.myFavorite}}" class="text_warp">已收藏</text>-->
+            <!--<text wx:else class="text_warp">收藏</text>-->
+        </view>
+        <view class="bottom_tab" bindtap='bindSend'>
+            <button plain="false" style="border: none;" class="text_warp">
+                <image class="tab_icon" src="../../images/good/m.png"/>
+            </button>
+            <!--<text class="text_warp">私信</text>-->
+        </view>
+        <view class="bottom_tab" hidden='{{goodInfo.isHelp}}'>
+            <button plain="false" style="border: none;" class="text_warp"
+                    open-type="share">
+                <image class="tab_icon" src="../../images/good/s.png"/>
+            </button>
+            <!--<text class="text_warp">分享</text>-->
+        </view>
+    </view>
+    <!---->
+</view>
+<modal title="{{modalTitle}}" hidden="{{modalHidden}}"
+       confirm-text="{{hasUserInfo&&hasStudentInfo?'确定':'前往认证'}}"
+       cancel-text="取消" bindconfirm="modalBindConfirm"
+       bindcancel="modalBindCancel">
+    <view wx:if="{{!hasUserInfo}}">
+        <text>{{modalNoUserInfoMessage}}</text>
+    </view>
+    <view wx:elif="{{!hasStudentInfo}}">
+        <text>{{modalNoStudentInfoMessage}}</text>
+    </view>
+    <view style="display: flex;flex-direction:column" wx:else>
+        <text>{{modalContent}}</text>
+        <view wx:if="{{goodInfo.phoneNumber!=null}}"
+              style='display:flex;justify-content:space-between;font-size: 35rpx'>
+            <text bindtap="copyPhoneNumber"
+                  style='font-weight: bold;color:black'>
+                电话：{{goodInfo.phoneNumber}}（点击复制）
+            </text>
+        </view>
+        <view wx:if="{{goodInfo.weixinNumber!=null}}"
+              style='display:flex;justify-content:space-between;font-size: 35rpx'>
+            <text bindtap="copyWeixinNumber"
+                  style='font-weight: bold;color:black'>
+                微信：{{goodInfo.weixinNumber}}（点击复制）
+            </text>
+        </view>
+        <view wx:if="{{goodInfo.qqNumber!=null}}"
+              style='display:flex;justify-content:space-between;font-size: 35rpx'>
+            <text bindtap="copyQQNumber" style='font-weight: bold;color:black'>
+                QQ：{{goodInfo.qqNumber}}（点击复制）
+            </text>
+        </view>
+    </view>
+</modal>

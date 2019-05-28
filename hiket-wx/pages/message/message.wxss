@@ -1,0 +1,75 @@
+/* pages/message/message.wxss */
+.unread{
+  display: flex;
+  color: #9A9C9B;
+  height: 50rpx;
+  padding: 10rpx 40rpx;
+  text-align: left;
+  width: 670rpx;
+}
+.unread text{
+  display: inline-block;
+  line-height: 60rpx;
+  font-size: 35rpx;
+}
+.unread image{
+  display: inline-block;
+  width: 50rpx;
+  height: 50rpx;
+  vertical-align: middle;
+  margin-left:10rpx; 
+}
+
+.allRead {
+  flex: 1;
+  display: flex;
+  justify-content:flex-end;
+}
+
+.message_cells {
+  padding: 10rpx 40rpx;
+  background-color: #fff;
+}
+
+.message_cell, .message_cell_last {
+  display: flex;
+  padding: 15rpx 0;
+  align-items: center;
+}
+
+.message_cell {
+  border-bottom: 2rpx solid #e2e2e2;
+}
+
+.message_icon {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.message_title{
+  padding: 0 20rpx;
+  font-size:35rpx;
+  flex:1;
+  word-break: keep-all;
+  word-wrap: break-word;
+}
+
+.message_time{
+  flex: 1;
+  display: flex;
+  justify-content:flex-end;
+  font-size: 22rpx;
+  font-weight: lighter;
+  margin-bottom: -20rpx;
+}
+
+.message_content{
+  font-size:16px;
+  flex:1;
+}
+
+.message_empty{
+  display: flex;
+  flex-direction:column;
+  margin-top: 60rpx;
+}

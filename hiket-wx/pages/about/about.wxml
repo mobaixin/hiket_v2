@@ -1,0 +1,24 @@
+<!--pages/about/about.wxml-->
+<view class="about_container">
+    <view class="page_body">
+        <view class="page_headline">{{headline}}</view>
+        <text class="section_title">{{sectionInfo}}</text>
+        <view class="page_section" wx:for="{{section}}" wx:key="{{item.title}}">
+            <view class="section_title">{{item.title}}</view>
+            <view class="section_contents">
+            <text class="section_content">{{item.content}}</text>
+            </view>
+        </view>
+    </view>
+</view>
+<view wx:if="{{id&&id==2}}" style="display: flex;align-items:center;flex-direction:column;margin: 60rpx">
+    <text style="margin: 30rpx">　　如果你在使用的过程中遇到了任何问题，或者是有什么希望我们改进的建议，欢迎来联系我们！</text>
+    <view style='display:flex;' wx:for="{{adminInfo}}" wx:key="{{item.id}}">
+        <image style="margin: 20rpx;width:80rpx;height:80rpx;border-radius: 50%;"
+               src="{{item.adminWeixinAvatarUrl}}"/>
+        <text style="margin: 30rpx;font-size: 40rpx;width: 266rpx;">{{item.adminWeixinNumber}}
+        </text>
+        <button style="font-size: 40rpx; height: 95rpx;" bindtap="copyAdminWeixinNumber" data-id='{{item.id}}'>复制
+        </button>
+    </view>
+</view>

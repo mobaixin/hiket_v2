@@ -1,0 +1,14 @@
+<!--pages/message_info/message_info.wxml-->
+<view class="page">
+  <view class="message_cell" style="border-bottom:1px solid #e2e2e2">
+    <text class="message_title">标题</text>
+    <text  class="message_content">{{message.title}}</text>
+  </view>
+  <view class="message_cell" style="align-items: flex-start">
+    <text class="message_title">内容</text>
+    <text class="message_content">{{message.content}}</text>
+  </view>
+  <navigator url="../good/good?goodId={{message.goodId}}">
+    <button class="button_nav">点击跳转到详情页面</button>
+  </navigator>
+</view>

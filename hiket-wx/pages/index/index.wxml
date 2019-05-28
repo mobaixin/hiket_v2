@@ -1,0 +1,43 @@
+<!--index.wxml-->
+<import src="../../template/index_sections/index_sections.wxml"/>
+
+<swiper class="swiper" indicator-dots="true" autoplay="true" interval="3000"
+        duration="1000">
+    <block wx:for="{{topBanner}}">
+        <swiper-item>
+            <image src="{{item}}" style="position:absolute;z-index:1"
+                   mode="aspectFill" class="slide-image"/>
+        </swiper-item>
+    </block>
+</swiper>
+
+<view class="page">
+    <view style="background-color:#fff;padding:15rpx 0rpx">
+        <!--显示分类-->
+        <view style="width:720rpx;margin:10rpx 15rpx 7.5rpx 15rpx;display:flex">
+            <template wx:for="{{sections1}}" wx:key="idx" is="index_sections"
+                      data="{{item}}"></template>
+        </view>
+        <view style="width:720rpx;margin:7.5rpx 15rpx 5rpx 15rpx;display:flex">
+            <template wx:for="{{sections2}}" wx:key="idx" is="index_sections"
+                      data="{{item}}"></template>
+        </view>
+        <!--显示分类-->
+        <view bindtap='bindRecommend' class="recommend">
+      <text class="recommend_text">今日推荐</text>
+      <view class="mine_arrow"></view>
+      <view class="mine_arrow" style='margin-right:40rpx'></view>
+    </view>
+    </view>
+    <tabbar tabbar="{{tabbar}}"></tabbar>
+</view>
+<modal title="提示" hidden="{{modalHidden}}" confirm-text="前往认证"
+       cancel-text="暂不认证" bindconfirm="modalBindConfirm"
+       bindcancel="modalBindCancel">
+    <view wx:if="{{!hasUserInfo}}">
+        <text>检测到你未进行微信认证</text>
+    </view>
+    <view wx:elif="{{!hasStudentInfo}}">
+        <text>检测到你未进行学生认证</text>
+    </view>
+</modal>

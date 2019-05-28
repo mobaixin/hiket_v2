@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.hope.hiket.dao.MessageDao">
+    <insert id="insert" parameterType="message">
+        insert into message
+        (title,open_id
+        <if test="content != null">,content</if>
+        <if test="goodId != null">,good_id</if>)
+        values
+        (#{title},#{openId}
+        <if test="content != null">,#{content}</if>
+        <if test="goodId != null">,#{goodId}</if>)
+    </insert>
+
+    <insert id="insertSome" parameterType="message">
+        insert into message
+        (title,open_id
+        <if test="content != null">,content</if>
+        <if test="goodId != null">,good_id</if>)
+        values
+        <foreach collection="openIdList" item="item" index="index" separator=",">
+            (#{title},#{item,jdbcType=VARCHAR}
+            <if test="content != null">,#{content}</if>
+            <if test="goodId != null">,#{goodId}</if>)
+        </foreach>
+    </insert>
+
+    <select id="selectMessageByOpenId" parameterType="string" resultType="message">
+        select message_id, open_id, title, content, good_id, create_time, state
+        from message
+        where open_id = #{openId} order by create_time desc
+    </select>
+
+    <select id="selectUnread" parameterType="string" resultType="int">
+        select count(*)
+        from message
+        where open_id = #{openId} and state = 0
+    </select>
+
+    <update id="updateStateRead" parameterType="message">
+        update message set state = 1
+        where message_id = #{messageId}
+    </update>
+
+    <update id="updateStateReadAll" parameterType="string">
+        update message set state = 1
+        where open_id = #{openId}
+    </update>
+</mapper>

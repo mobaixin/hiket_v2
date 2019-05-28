@@ -1,0 +1,113 @@
+<!-- pages/release/release.wxml -->
+<view class="page">
+  <form bindsubmit='formSubmit'>
+    <!-- 标题和描述 -->
+    <view class="sell_cells">
+      <view class="sell_cell" style="border-bottom:1px solid #e2e2e2">
+        <text class="sell_title">标题</text>
+        <input value='{{goodInfo.title}}' name="title" class="sell_input" placeholder="{{isHelp?helpTitlePlaceholder:goodTitlePlaceholder}}" placeholder-class='placeholder' maxlength='15' bindinput="titleInput"/>
+      </view>
+      <view class="sell_cell" style="align-items: flex-start">
+        <text class="sell_title">描述</text>
+        <textarea value='{{goodInfo.content}}' name="describe" class="sell_input" placeholder="{{isHelp?helpDescriptionPlaceholder:goodDescriptionPlaceholder}}" placeholder-class='placeholder' maxlength='140' bindinput='contentInput'></textarea>
+      </view>
+      <!-- 字数提示，超过130字变红 -->
+      <view class="sell_cell" style="justify-content:flex-end">
+        <view wx:if="{{inputLength>130}}">
+          <text class="sell_hint_text">{{inputLength}}</text>
+          <text class="sell_text">/140</text>
+        </view>
+        <view wx:else>
+          <text class="sell_text">{{inputLength}}/140</text>
+        </view>
+      </view>
+      <!--  -->
+      <!-- 上传图片 -->
+      <view class="sell-cell_uploader">
+        <view class="sell_uploader_imgbox" wx:for="{{goodInfo.uploadImagePathList}}" wx:key="*this">
+          <image class="sell_uploader_img{{index===0?'_cover':''}}" bindtap="previewImage" src="{{item}}" data-index="{{index}}" mode="aspectFill" />
+          <image class="sell_uploader_img_del" bindtap="deleteImage" data-index="{{index}}" src="../../images/release/x.png" />
+        </view>
+        <view hidden="{{goodInfo.uploadImagePathList.length >= 3}}" class="sell_uploader_box">
+          <view class="sell_uploader_input" bindtap="chooseImage"></view>
+        </view>
+      </view>
+      <!--  -->
+    </view>
+    <!-- 是否为帮助 -->
+    <view hidden='true' class="sell_help">
+      <view class="help_text">求助</view>
+      <view>
+        <switch class="check_help" checked="{{isHelp}}" bindchange="bindHelp" />
+      </view>
+    </view>
+    <!-- 如果是帮助 -->
+    <view wx:if="{{isHelp}}">
+      <view class="sell_cells">
+        <view class="sell_cell" style="border-bottom:1px solid #e2e2e2">
+          <text class="sell_title">时间</text>
+          <picker style="flex:1;display:flex;justify-content:flex-end" bindchange="bindPeriodChange" value="{{tId}}" range="{{period}}">
+            <text class="sell_select">{{period[periodId]}}</text>
+          </picker>
+        </view>
+        <view class="sell_cell" style="border-bottom:1px solid #e2e2e2">
+          <text class="sell_title">答谢</text>
+          <input name="help_reward" class="sell_input" placeholder="选填的哦" placeholder-class='placeholder' maxlength='15' bindinput="rewardInput"/>
+        </view>
+      </view>
+    </view>
+    <!-- 价格和原价 -->
+    <view wx:else class='sell_cells'>
+      <view class="sell_cell" style="border-bottom:1px solid #e2e2e2">
+        <text class="sell_title">价格</text>
+        <input value='{{goodInfo.price}}' name="price" class="sell_input price" type="digit" placeholder="￥0.00" placeholder-class='placeholder' maxlength='15' bindinput='priceInput'/>
+      </view>
+      <view class="sell_cell">
+        <text class="sell_title">原价</text>
+        <input value='{{goodInfo.oldPrice}}' name="oriPrice" class="sell_input price" type="digit" placeholder="￥0.00" placeholder-class='placeholder' maxlength='15' bindinput='oldPriceInput'/>
+      </view>
+    </view>
+    <!--  -->
+    <!-- 分类 -->
+    <view class='sell_cells'>
+      <view class="sell_cell">
+        <text class="sell_title">分类</text>
+        <picker wx:if="{{isHelp}}" style="flex:1;display:flex;justify-content:flex-end" bindchange="bindHelpTagChange" value="{{helpTagId}}" range="{{helpTags}}">
+          <text class="sell_select">{{helpTags[helpTagId]}}</text>
+        </picker>
+        <picker wx:else style="flex:1;display:flex;justify-content:flex-end" bindchange="bindSectionChange" value="{{sectionId}}" range="{{sections}}">
+          <text class="sell_select">{{sections[sectionId]}}</text>
+        </picker>
+      </view>
+    </view>
+    <!--  -->
+    <!-- 联系方式 -->
+    <view class='sell_cells'>
+      <view class="sell_cell">
+        <input name="price" class="sell_input price" type="digit" placeholder="请填写至少一个联系方式" placeholder-class='placeholder' maxlength='15' disabled='true'/>
+      </view>
+      <view class="sell_cell" style="border-bottom:1px solid #e2e2e2">
+        <text class="sell_title">电话</text>
+        <input value='{{goodInfo.phoneNumber}}' name="phoneNumber" class="sell_input price" type="digit" placeholder="" placeholder-class='placeholder' maxlength='15' bindinput='phoneNumberInput'/>
+      </view>
+      <view class="sell_cell" style="border-bottom:1px solid #e2e2e2">
+        <text class="sell_title">微信</text>
+        <input value='{{goodInfo.weixinNumber}}' name="weixinNumber" class="sell_input price" placeholder="" placeholder-class='placeholder' maxlength='15' bindinput='weixinNumberInput'/>
+      </view>
+      <view class="sell_cell">
+        <text class="sell_title">QQ</text>
+        <input value='{{goodInfo.qqNumber}}' name="qqNumber" class="sell_input price" type="digit" placeholder="" placeholder-class='placeholder' maxlength='15' bindinput='qqNumberInput'/>
+      </view>
+    </view>
+    <!--  -->
+    <button class="sell_btn" form-type='submit'>确认发布</button>
+  </form>
+</view>
+<modal title="{{modalTitle}}" hidden="{{modalHidden}}" confirm-text="{{hasUserInfo&&hasStudentInfo?'确定':'前往认证'}}" cancel-text="取消" bindconfirm="modalBindConfirm" bindcancel="modalBindCancel">
+  <view wx:if="{{!hasUserInfo}}">
+    <text>{{modalNoUserInfoMessage}}</text>
+  </view>
+  <view wx:elif="{{!hasStudentInfo}}">
+    <text>{{modalNoStudentInfoMessage}}</text>
+  </view>
+</modal>

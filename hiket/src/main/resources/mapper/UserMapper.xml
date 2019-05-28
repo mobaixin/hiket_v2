@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.hope.hiket.dao.UserDao">
+    <insert id="insert" parameterType="string">
+         insert into user (open_id) values (#{openId})
+    </insert>
+
+    <update id="updateWeixinInfo" parameterType="user">
+        update user set
+        nick_name=#{nickName},
+        gender=#{gender},
+        avatar_url=#{avatarUrl}
+        where open_id=#{openId}
+    </update>
+
+    <update id="updateStudentInfo" parameterType="user">
+        update user set
+        <if test="number!=null">number=#{number},</if>
+        <if test="campus!=null">campus=#{campus},</if>
+        <if test="college!=null">college=#{college},</if>
+        role=1
+        where open_id=#{openId}
+    </update>
+
+    <update id="updateGraduateStudentInfo" parameterType="user">
+        update user set
+        <if test="number!=null">number=#{number},</if>
+        <if test="campus!=null">campus=#{campus},</if>
+        <if test="college!=null">college=#{college},</if>
+        role=2
+        where open_id=#{openId}
+    </update>
+
+    <update id="updateUserInfo" parameterType="user">
+        update user set
+        <if test="nickName!=null">nick_name=#{nickName},</if>
+        <if test="gender!=null">gender=#{gender},</if>
+        <if test="avatarUrl!=null">avatar_url=#{avatarUrl},</if>
+        <if test="number!=null">number=#{number},</if>
+        <if test="campus!=null">campus=#{campus},</if>
+        <if test="college!=null">college=#{college},</if>
+        role=role
+        where open_id=#{openId}
+    </update>
+
+    <select id="selectUserInfoByOpenId" parameterType="string" resultType="user">
+        select open_id,nick_name,gender,avatar_url,campus,college,role from user where open_id=#{openId}
+    </select>
+
+</mapper>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.hope.hiket.dao.GoodDao">
+    <!--上传-->
+    <insert id="insert" parameterType="good" useGeneratedKeys="true" keyProperty="goodId">
+        insert into good
+        (
+        seller_open_id, title, content,
+        <if test="phoneNumber != null">phone_number,</if>
+        <if test="weixinNumber != null">weixin_number,</if>
+        <if test="qqNumber != null">qq_number,</if>
+        <if test="price != null">price,</if>
+        <if test="oldPrice != null">old_price,</if>
+        <if test="section != null">section,</if>
+        <if test="helpTag != null">help_tag,</if>
+        <if test="reward != null">reward,</if>
+        <if test="period != null">period,</if>
+        type
+        )
+        values
+        (
+        #{sellerOpenId}, #{title}, #{content},
+        <if test="phoneNumber != null">#{phoneNumber},</if>
+        <if test="weixinNumber != null">#{weixinNumber},</if>
+        <if test="qqNumber != null">#{qqNumber},</if>
+        <if test="price != null">#{price},</if>
+        <if test="oldPrice != null">#{oldPrice},</if>
+        <if test="section != null">#{section},</if>
+        <if test="helpTag != null">#{helpTag},</if>
+        <if test="reward != null">#{reward},</if>
+        <if test="period != null">#{period},</if>
+        #{type}
+        )
+    </insert>
+
+    <insert id="insertUploadImagePath">
+        insert into good_images (good_id, image_path)
+        values
+        <foreach collection="uploadImagePathList" item="item" index="index" separator=",">
+            (#{goodId}, #{item,jdbcType=VARCHAR})
+        </foreach>
+    </insert>
+
+    <update id="deleteUploadImagePath" parameterType="long">
+        update good_images
+        set state = 1
+        where good_id = #{goodId}
+    </update>
+    <!--上传-->
+
+    <!--搜索-->
+    <select id="select" resultType="good" parameterType="long">
+    select good_id, seller_open_id, nick_name, gender, avatar_url, campus, college, title, content, phone_number, weixin_number, qq_number, create_time, price, old_price, section,state
+    from good_info
+    where good_id=#{goodId}
+    </select>
+
+    <select id="selectActiveGood" resultType="good">
+        select good_id, nick_name, gender, avatar_url, campus, college, title, content, phone_number, weixin_number, qq_number, create_time, price, old_price, section,state
+        from good_info
+        where state = 0
+        <if test="section!=null and section!=-1">and section = #{section}</if>
+        <if test="title!=null and title!=''">and (title like "%"#{title}"%" or campus like "%"#{title}"%" or content like "%"#{title}"%")</if>
+        order by
+        <choose>
+            <when test="section==-1">
+                rand()
+            </when>
+            <otherwise>
+                create_time desc
+            </otherwise>
+        </choose>
+        <if test="beginIndex!=null and beginIndex!=-1 and numberIndex!=null and numberIndex!=-1">limit #{beginIndex},#{numberIndex}</if>
+    </select>
+
+    <select id="selectUploadImagePathByGoodId" parameterType="long" resultType="string">
+        select image_path from good_images
+        where
+        good_id = #{goodId}
+        and state = 0
+    </select>
+
+    <select id="selectGoodByGoodIdList" resultType="good">
+        select good_id, nick_name, gender, avatar_url, campus, college, title, content, phone_number, weixin_number, qq_number, create_time, price, old_price, section,state
+        from good_info
+        where
+        <foreach collection="goodIdList" item="item" index="index" separator=" or ">
+            good_id=#{item,jdbcType=BIGINT}
+        </foreach>
+    </select>
+    <!--搜索-->
+
+    <!--收藏-->
+    <select id="selectGoodFavoriteNumberByGoodId" parameterType="long" resultType="int">
+        select count(*) from user_favorite_good
+        where good_id = #{goodId}
+    </select>
+
+    <select id="selectGoodFavoriteOpenIdListByGoodId" parameterType="long" resultType="string">
+        select open_id from user_favorite_good
+        where good_id = #{goodId}
+    </select>
+
+    <insert id="insertGoodFavorite">
+        insert into user_favorite_good
+        (good_id, open_id)
+        values
+        (#{goodId}, #{openId})
+    </insert>
+
+    <delete id="deleteGoodFavorite">
+        delete from user_favorite_good
+        where open_id=#{openId} and good_id=#{goodId}
+    </delete>
+
+    <select id="selectFavoriteGoodId" parameterType="string" resultType="long">
+        select good_id from user_favorite_good where open_id=#{openId}
+    </select>
+
+    <select id="selectIsMyFavorite" resultType="int">
+        select count(*) from user_favorite_good where open_id=#{openId} and good_id=#{goodId}
+    </select>
+    <!--收藏-->
+
+    <!--我的-->
+    <select id="selectMyGood" parameterType="string" resultType="good">
+        select good_id, nick_name, gender, avatar_url, campus, college, title, content, phone_number, weixin_number, qq_number, create_time, price, old_price, section,state
+        from good_info where seller_open_id=#{openId} order by create_time desc
+    </select>
+
+    <select id="selectIsMine" resultType="int">
+        select count(*) from good where seller_open_id=#{openId} and good_id=#{goodId}
+    </select>
+
+    <update id="updateState">
+        update good set
+        state = #{state}
+        where good_id = #{goodId}
+    </update>
+
+    <update id="update" parameterType="good">
+        update good set
+        <if test="title != null">title=#{title},</if>
+        <if test="content != null">content=#{content},</if>
+        <if test="phoneNumber != null">phone_number=#{phoneNumber},</if>
+        <if test="weixinNumber != null">weixin_number=#{weixinNumber},</if>
+        <if test="qqNumber != null">qq_number=#{qqNumber},</if>
+        <if test="type != null">type=#{type},</if>
+        <if test="price != null">price=#{price},</if>
+        <if test="oldPrice != null">old_price=#{oldPrice},</if>
+        <if test="section != null">section=#{section},</if>
+        <if test="helpTag != null">help_tag=#{helpTag},</if>
+        <if test="reward != null">reward=#{reward},</if>
+        <if test="period != null">period=#{period},</if>
+        state=0
+        where good_id=#{goodId}
+    </update>
+    <!--我的-->
+
+</mapper>

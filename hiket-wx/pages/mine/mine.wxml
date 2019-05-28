@@ -1,0 +1,104 @@
+<!--pages/mine/mine.wxml-->
+<view class="page">
+    <view class="mine_top">
+        <view class="mine_index">
+            <view style="flex:0.3"></view>
+            <view class="mine_avatar_bd">
+                <image wx:if="{{hasUserInfo}}" class="mine_avatar"
+                       src="{{userInfo.avatarUrl}}"/>
+                <image wx:else class="mine_avatar"
+                       src="../../images/mine/avatar.png"/>
+            </view>
+            <view class="mine_nickName">
+                <view wx:if="{{hasUserInfo}}">
+                    <view style="display:flex;justify-content:center;margin:0 0 10rpx 0">
+                        <text style="font-weight:bold;font-size: 40rpx">{{userInfo.nickName!=null?userInfo.nickName:''}}
+                        </text>
+                    </view>
+                    <view wx:if="{{hasStudentInfo}}"
+                          style="display:flex;justify-content:center;">
+                        <text wx:if="{{!studentInfo.campus}}"
+                              bindtap="bindChooseCampus"
+                              style="font-size:30rpx">设置校区
+                        </text>
+                        <text wx:else style="font-size:30rpx"
+                              bindtap="bindChooseCampus">{{studentInfo.campus!=null?studentInfo.campus:''}}
+                        </text>
+                        <text decode="{{true}}" style="font-size:30rpx">&nbsp;|&nbsp;{{studentInfo.college}}</text>
+                    </view>
+                    <view style="font-weight:bold;font-size: 40rpx;color:black" wx:else bindtap='bindAuthorize'>点击进行学生认证</view>
+                </view>
+                <button wx:if="{{!hasUserInfo && canIUse}}"
+                        class="mine_login_button"
+                        open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+                    微信认证
+                </button>
+            </view>
+        </view>
+    </view>
+
+    <view class='mine_cells'>
+        <navigator url="{{item.url}}" wx:for="{{mine1}}" wx:key="item.id"
+                   class="mine_cell{{item.id==3?'_last':''}}">
+            <image class="mine_icon" src="../../images/mine/m_{{item.id}}.png"/>
+            <text class="mine_title">{{item.name}}</text>
+            <view class="mine_arrow"></view>
+        </navigator>
+    </view>
+
+    <view class='mine_cells'>
+        <navigator url="{{item.url}}" wx:for="{{mine2}}" wx:key="item.id"
+                   class="mine_cell{{item.id==6?'_last':''}}">
+            <image class="mine_icon" src="../../images/mine/m_{{item.id}}.png"/>
+            <text class="mine_title">{{item.name}}</text>
+            <view class="mine_arrow"></view>
+        </navigator>
+    </view>
+    <tabbar tabbar="{{tabbar}}"></tabbar>
+</view>
+<modal title="学生认证" hidden="{{modalHidden}}" confirm-text="确定"
+       cancel-text="取消" bindconfirm="modalBindConfirm"
+       bindcancel="modalBindCancel">
+    <view wx:if="{{modalErrorCount!=0}}">
+        <text decode="{{true}}" style="color:red"
+              hidden="{{modalErrorCount==5}}">
+            {{modalErrorBeginMessage}}{{modalErrorCount}}{{modalErrorEndMessage}}
+        </text>
+        <view style='display:flex'>
+            <text style='width:150rpx;font-size: 35rpx;font-weight: bold;color:black'>学号：
+            </text>
+            <input type="number" name="studentNumber" placeholder="请输入学号" maxlength='16' bindinput='studentNumberInput'/>
+        </view>
+        <view style='display:flex'>
+            <text style='width:150rpx;font-size: 35rpx;font-weight: bold;color:black'>密码：
+            </text>
+            <input password="true" name="studentPassword" placeholder="请输入选课系统密码" maxlength='16'
+                   bindinput='studentPasswordInput'/>
+        </view>
+    </view>
+    <view wx:else>
+        <text style="margin-left: 60rpx">{{adminContent}}</text>
+        <view style='margin-left: 60rpx;display:flex;align-items:center'>
+            <image style="width:80rpx;height:80rpx;border-radius: 50%;"
+                   src="{{adminWeixinAvatarUrl}}"/>
+            <text style="margin: 20rpx;font-size: 40rpx">{{adminWeixinNumber}}
+            </text>
+            <view style="font-size: 40rpx" bindtap="copyAdminWeixinNumber">复制
+            </view>
+        </view>
+    </view>
+</modal>
+<action-sheet hidden="{{!chooseCampus}}">
+    <block>
+        <action-sheet-item bindtap="chooseCampusBalitai">八里台校区
+        </action-sheet-item>
+    </block>
+    <block>
+        <action-sheet-item bindtap="chooseCampusJinnan">津南校区</action-sheet-item>
+    </block>
+    <block>
+        <action-sheet-item bindtap="chooseCampusTaida">泰达校区</action-sheet-item>
+    </block>
+    <action-sheet-cancel bindtap="chooseCampusCancel" class="cancel">取消
+    </action-sheet-cancel>
+</action-sheet>

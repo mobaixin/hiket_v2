@@ -1,0 +1,22 @@
+<!--pages/message/message.wxml-->
+<scroll-view scroll-y="true"  class='page'>
+  <view class="unread">
+    <text>消息列表</text>
+    <view class='allRead' bindtap='readAllMessage'>
+      <text>全部已读</text>
+      <image wx:if="{{messageUnRead}}" src="../../images/messages/allread_selected.png" bindtap="readAllMessage"></image>
+      <image wx:else src="../../images/messages/allread.png"></image>
+    </view>
+  </view>
+  <view wx:if="{{messages.length!=0}}" class='message_cells'>
+    <view wx:for="{{messages}}" class="message_cell{{index==messages.length-1?'_last':''}}" wx:key="{{item.message_id}}"
+    bindtap='bindMessage' data-index='{{index}}'>
+      <image class="message_icon" src="{{item.state?'../../images/messages/message.png':'../../images/messages/message_1.png'}}" />
+      <text class="message_title">{{item.title}}</text>
+      <text decode="{{true}}" class="message_time">{{item.timePast}}</text>
+    </view>
+  </view>
+  <view style="display:flex;justify-content:center;align-items:center;margin:40rpx 0">
+    <text style="color:#979795">没有更多了</text>
+  </view>
+</scroll-view>

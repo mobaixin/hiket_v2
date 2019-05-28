@@ -1,0 +1,22 @@
+get /etc/nginx/nginx.conf /Users/xuanchuanbu/Desktop
+
+put /Users/xuanchuanbu/Desktop/nginx.conf /etc/nginx
+
+certbot certonly --webroot -w /www/web/nk -d werehunter.com -d www.werehunter.com
+
+put /Users/xuanchuanbu/Desktop/aliyun.jar /www/web/nk/jars
+
+put /Users/xuanchuanbu/Desktop/kill.sh /www/web/nk/jars
+
+get /www/web/nk/jars/nohup.out /Users/xuanchuanbu/Desktop
+
+get /www/web/nk/jars/aliyun.jar /Users/xuanchuanbu/Desktop
+
+
+nohup java -jar hiket.jar --server.port=8000 &
+
+
+
+
+
+
