@@ -15,9 +15,6 @@ Page({
         modalErrorBeginMessage: '学号或密码错误，你还可尝试&nbsp;',
         modalErrorEndMessage: '&nbsp;次',
         modalErrorCount: 5,
-        adminContent: '多次认证失败，可加管理员微信进行人工审核。',
-        adminWeixinAvatarUrl: "https://wx.qlogo.cn/mmopen/vi_32/owcQAbjUWRRMaywxzMArsxzm2iaWtC07ZeJL4aT7fqsDQsFNrZLlvnzPCibw3rGkdHZXKONgsy6A6QCEAXkatmAg/132",
-        adminWeixinNumber: 'F_Mortal',
         chooseCampus: false,
         tabbar: {},
         mine1: [

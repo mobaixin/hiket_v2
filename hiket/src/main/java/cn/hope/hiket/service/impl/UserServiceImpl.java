@@ -71,11 +71,11 @@ public class UserServiceImpl implements UserService {
         String number = user.getNumber();
         String password = user.getPassword();
 
-        String college ;
+        String college;
         if (number.length() == 10) {
-            college = NKUUtil.nkuEamisLogin(number, password);
-        }else {
             college = NKUUtil.nkuUrpLogin(number, password);
+        }else {
+            college = NKUUtil.nkuEamisLogin(number, password);
         }
         user.setCollege(college);
     }

@@ -48,15 +48,18 @@
 
     <view class='mine_cells'>
         <navigator url="{{item.url}}" wx:for="{{mine2}}" wx:key="item.id"
-                   class="mine_cell{{item.id==6?'_last':''}}">
+                   class="mine_cell">
             <image class="mine_icon" src="../../images/mine/m_{{item.id}}.png"/>
             <text class="mine_title">{{item.name}}</text>
             <view class="mine_arrow"></view>
         </navigator>
+        <navigator>
+            <button  plain="false" style="border: none;"open-type="contact">联系客服</button>
+        </navigator>
     </view>
     <tabbar tabbar="{{tabbar}}"></tabbar>
 </view>
-<modal title="学生认证" hidden="{{modalHidden}}" confirm-text="确定"
+<modal title="{{modalErrorCount!=0?'学生认证':'多次认证失败，可联系客服处理'}}" hidden="{{modalHidden}}" confirm-text="确定"
        cancel-text="取消" bindconfirm="modalBindConfirm"
        bindcancel="modalBindCancel">
     <view wx:if="{{modalErrorCount!=0}}">
@@ -77,15 +80,7 @@
         </view>
     </view>
     <view wx:else>
-        <text style="margin-left: 60rpx">{{adminContent}}</text>
-        <view style='margin-left: 60rpx;display:flex;align-items:center'>
-            <image style="width:80rpx;height:80rpx;border-radius: 50%;"
-                   src="{{adminWeixinAvatarUrl}}"/>
-            <text style="margin: 20rpx;font-size: 40rpx">{{adminWeixinNumber}}
-            </text>
-            <view style="font-size: 40rpx" bindtap="copyAdminWeixinNumber">复制
-            </view>
-        </view>
+        <button plain="false" style="border: none;background-color: #e2e2e2" open-type="contact">联系客服</button>
     </view>
 </modal>
 <action-sheet hidden="{{!chooseCampus}}">

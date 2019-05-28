@@ -82,6 +82,33 @@ Page({
             this.myGoods()
         }
     },
+    onShow: function () {
+        let that = this;
+        wx.getStorage({
+            key: 'good',
+            success: function (res) {
+                console.log(res);
+                if (res.data) {
+                    let goodInfo = res.data.goodInfo;
+                    let col = res.data.col;
+                    let index = res.data.index;
+                    if(col==0) {
+                        that.data.col1[index] = goodInfo;
+                    }else if(col==1){
+                        that.data.col2[index] = goodInfo;
+                    }
+                    that.setData({
+                        goods: that.data.goods,
+                        col1:that.data.col1,
+                        col2:that.data.col2
+                    })
+                }
+                wx.removeStorage({
+                    key: 'good',
+                })
+            }
+        })
+    },
     onPullDownRefresh: function () {
         this.setData({
             Loading: true
@@ -164,7 +191,11 @@ Page({
         }
         wx.setStorage({
             key: "good",
-            data: good
+            data: {
+                goodInfo: good,
+                col:e.currentTarget.dataset.col,
+                index: e.currentTarget.dataset.index
+            }
         });
         if(good!=null){
             wx.navigateTo({

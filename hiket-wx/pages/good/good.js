@@ -5,6 +5,8 @@ Page({
     data: {
         rewardLabel: '答谢：',
         goodInfo: null,
+        col:null,
+        index:null,
         swiperCurrent: 0,
         userInfo: null,
         studentInfo: null,
@@ -106,7 +108,12 @@ Page({
             key: 'good',
             success: function (res) {
                 that.setData({
-                    goodInfo: res.data
+                    goodInfo: res.data.goodInfo,
+                    col:res.data.col,
+                    index: res.data.index
+                });
+                wx.removeStorage({
+                    key: 'good'
                 });
                 wx.hideLoading();
             },
@@ -384,6 +391,14 @@ Page({
                     that.data.goodInfo.state = newState;
                     that.setData({
                         goodInfo: that.data.goodInfo
+                    });
+                    wx.setStorage({
+                        key: "good",
+                        data: {
+                            goodInfo: that.data.goodInfo,
+                            col: that.data.col,
+                            index: that.data.index
+                        }
                     });
                     wx.showToast({
                         title: '操作成功',
