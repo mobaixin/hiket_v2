@@ -46,7 +46,7 @@
     <!--首页推荐-->
     <!--分类商品-->
     <view wx:else style="background-color: white">
-        <view style="display: flex;justify-content:space-around;margin: 10rpx 0">
+        <view style="display: flex;justify-content:space-around;padding: 10rpx 0">
             <view wx:for="{{sectionTags[currentTab]}}" wx:if="{{index<4}}"
                   style="width: 120rpx;height: 160rpx;display: flex;flex-direction:column">
                 <image style="width: 120rpx;height: 120rpx"
@@ -57,7 +57,7 @@
                 </text>
             </view>
         </view>
-        <view style="display: flex;justify-content:space-around;margin: 10rpx 0">
+        <view style="display: flex;justify-content:space-around;padding: 10rpx 0">
             <view wx:for="{{sectionTags[currentTab]}}" wx:if="{{index>3}}"
                   style="width: 120rpx;height: 160rpx;display: flex;flex-direction:column">
                 <image style="width: 120rpx;height: 120rpx"
@@ -73,6 +73,9 @@
     <!--两栏展示商品-->
     <template is="img_col" data="{{goods,Loading}}"></template>
     <!--两栏展示商品-->
+    <!--占位符-->
+    <view style="height: 100rpx"></view>
+    <!--占位符-->
     <tabbar tabbar="{{tabbar}}"></tabbar>
 </view>
 <modal title="提示" hidden="{{modalHidden}}" confirm-text="前往认证"

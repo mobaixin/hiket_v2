@@ -24,8 +24,9 @@ Page({
             ["耳机", "键盘", "体育装备", "运动器械", "智能设备", "健身卡", "音响", "其它"],
             ["膨化食品", "咖啡", "坚果类", "奶制品", "饮料", "速食品", "水果", "其它"]
         ],
-        Loading: true, //是否加载
+        Loading: false, //是否加载
         searchValue: null,
+        search: null,
         goods: [],
     },
     load: function () {
@@ -53,7 +54,7 @@ Page({
                 userInfo: app.globalData.userInfo,
                 hasUserInfo: true
             })
-        }else {
+        } else {
             app.userInfoReadyCallback = userInfo => {
                 this.setData({
                     userInfo: userInfo,
@@ -66,7 +67,7 @@ Page({
                 studentInfo: app.globalData.studentInfo,
                 hasStudentInfo: true,
             })
-        }else{
+        } else {
             app.studentInfoReadyCallback = studentInfo => {
                 this.setData({
                     studentInfo: studentInfo,
@@ -115,8 +116,8 @@ Page({
         };
         if (app.globalData.openId) {
             this.searchRecommend();
-        }else {
-            app.searchRecommendCallback = res=> {
+        } else {
+            app.searchRecommendCallback = res => {
                 this.searchRecommend();
             }
         }
@@ -145,19 +146,26 @@ Page({
     },
     onPullDownRefresh: function () {
         this.load();
+        let search = this.data.search;
+        this.searchGoods(search, false);
         wx.stopPullDownRefresh();
+    },
+    onReachBottom: function () {
+        let search = this.data.search;
+        search.beginIndex = this.data.goods.length;
+        this.searchGoods(search, true);
     },
     bindTab: function (e) {
         let current = e.target.dataset.current;
         this.setData({
             currentTab: current
-        })
-    },
-    bindSectionTap: function (e) {
-        let sectionId = e.currentTarget.id;
-        wx.navigateTo({
-            url: '../sections/sections?sectionId=' + sectionId
         });
+        if (this.data.currentTab == -1) {
+            this.searchRecommend();
+        } else {
+            let search = this.getSearch();
+            this.searchGoods(search, false);
+        }
     },
     modalBindConfirm: function () {
         this.setData({
@@ -180,8 +188,7 @@ Page({
     searchRecommend: function () {
         let search = this.getSearch();
         search.orderByBrowseNumber = 1;
-        this.searchGoods(search, true);
-        // console.log(search);
+        this.searchGoods(search, false);
     },
     getSearch: function () {
         return {
@@ -192,9 +199,18 @@ Page({
             numberIndex: 20,
             orderByBrowseNumber: 0,
             orderByCreateTime: 0
-        }
+        };
     },
     searchGoods: function (search, connect) {
+        if (!connect) {
+            this.data.goods = null;
+        }
+        // 保存上次搜索状态
+        this.setData({
+            search: search,
+            Loading: true,
+            goods: this.data.goods
+        });
         let that = this;
         wx.request({
             url: app.globalData.searchActiveGoodUrl,
@@ -229,21 +245,16 @@ Page({
         })
     },
     bindGoodTap: function (e) {
-        let good = null;
-        if (e.currentTarget.dataset.col == 0) {
-            good = this.data.col1[e.currentTarget.dataset.index];
-        } else if (e.currentTarget.dataset.col == 1) {
-            good = this.data.col2[e.currentTarget.dataset.index];
-        }
+        let index = e.currentTarget.dataset.index;
+        let good = this.data.goods[index];
         wx.setStorage({
             key: "good",
             data: {
                 goodInfo: good,
-                col: e.currentTarget.dataset.col,
-                index: e.currentTarget.dataset.index
+                index: index
             }
         });
-        if (good != null) {
+        if (good) {
             wx.navigateTo({
                 url: '../good/good',
             })

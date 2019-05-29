@@ -13,7 +13,7 @@
   display: flex;
   width: 100%;
   height: 100rpx;
-  background: linear-gradient(to right, rgb(247, 92, 115), rgb(250, 166, 166));
+  background: linear-gradient(to right, #FA4F7D, rgb(250, 166, 166));
   align-items:center;
 }
 

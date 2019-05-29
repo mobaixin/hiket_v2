@@ -14,8 +14,8 @@
                 <!--个人信息-->
                 <!--物品图片-->
                 <image src="{{item.uploadImagePathList[0]}}"
-                       bindtap='bindGoodTap' id='{{item.goodId}}'
-                       data-col="{{0}}" data-index="{{index}}"
+                       bindtap='bindGoodTap' data-goodId='{{item.goodId}}'
+                       data-index="{{index}}"
                        style="width:100%" mode="widthFix"></image>
                 <!--物品图片-->
                 <!--物品描述-->
@@ -52,8 +52,8 @@
                 <!--个人信息-->
                 <!--物品图片-->
                 <image src="{{item.uploadImagePathList[0]}}"
-                       bindtap='bindGoodTap' id='{{item.goodId}}'
-                       data-col="{{1}}" data-index="{{index}}"
+                       bindtap='bindGoodTap' data-goodId='{{item.goodId}}'
+                       data-index="{{index}}"
                        style="width:100%" mode="widthFix"></image>
                 <!--物品图片-->
                 <!--物品描述-->

@@ -137,7 +137,6 @@ Page({
                 wx.hideLoading();
                 that.setData({
                     goodInfo: res.data.goodInfo,
-                    col: res.data.col,
                     index: res.data.index
                 });
                 that.browse();

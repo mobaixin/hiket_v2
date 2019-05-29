@@ -77,7 +77,7 @@
         order by
         <choose>
             <when test="orderByBrowseNumber!=null and orderByBrowseNumber==1">
-                browse_number
+                browse_number desc
             </when>
             <when test="orderByCreateTime!=null and orderByCreateTime==1">
                 create_time desc
