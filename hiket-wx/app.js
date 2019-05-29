@@ -35,6 +35,9 @@ App({
                                 if (that.openIdReadyCallback) {
                                     that.openIdReadyCallback();
                                 }
+                                if (that.searchRecommendCallback) {
+                                    that.searchRecommendCallback();
+                                }
                                 if (res.data.data.role && res.data.data.role != 0) {
                                     that.globalData.studentInfo = res.data.data;
                                     that.globalData.userInfo = res.data.data;

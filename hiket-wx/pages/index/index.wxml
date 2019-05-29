@@ -2,8 +2,8 @@
 <!--<import src="../../template/index_sections/index_sections.wxml"/>-->
 <import src="../../template/img_col/img_col.wxml"/>
 
-<view class="page" style="background-color: white">
-
+<view class="page">
+    <!--搜索框-->
     <view class='page_row'>
         <view class="search">
             <view class="search_arr">
@@ -14,52 +14,65 @@
             </view>
         </view>
     </view>
-
+    <!--搜索框-->
+    <!--选项卡-->
     <view class='tab'>
         <scroll-view scroll-x="true" class="tab-scroll">
             <view class="tab-item {{currentTab==-1?'active':''}}"
                   data-current="-1" bindtap="bindTab">首页
             </view>
-            <view wx:for="{{sections}}" class="tab-item {{currentTab==index?'active':''}}" data-current="{{index}}" bindtap="bindTab">{{item}}</view>
+            <view wx:for="{{sections}}"
+                  class="tab-item {{currentTab==index?'active':''}}"
+                  data-current="{{index}}" bindtap="bindTab">{{item}}
+            </view>
         </scroll-view>
     </view>
-
-    <swiper wx:if="{{currentTab==-1}}" class="swiper" indicator-dots="true"
-            autoplay="true" interval="3000" duration="1000">
-        <block wx:for="{{topBanner}}">
-            <swiper-item>
-                <image src="{{item}}" style="position:absolute;z-index:1"
-                       mode="aspectFill" class="slide-image"/>
-            </swiper-item>
-        </block>
-    </swiper>
-
-    <view wx:else>
+    <!--选项卡-->
+    <!--首页推荐-->
+    <view wx:if="{{currentTab==-1}}">
+        <swiper class="swiper" indicator-dots="true"
+                autoplay="true" interval="3000" duration="1000">
+            <block wx:for="{{topBanner}}">
+                <swiper-item>
+                    <image src="{{item}}" style="position:absolute;z-index:1"
+                           mode="aspectFill" class="slide-image"/>
+                </swiper-item>
+            </block>
+        </swiper>
+        <view class="recommend">
+            <text class="recommend_text">今日爆款</text>
+        </view>
+    </view>
+    <!--首页推荐-->
+    <!--分类商品-->
+    <view wx:else style="background-color: white">
         <view style="display: flex;justify-content:space-around;margin: 10rpx 0">
-            <view wx:for="{{sectionTags[currentTab]}}" wx:if="{{index<4}}" style="width: 120rpx;height: 160rpx;display: flex;flex-direction:column">
-                <image style="width: 120rpx;height: 120rpx" src="{{'../../images/index/tag/'+item+'.jpg'}}"
+            <view wx:for="{{sectionTags[currentTab]}}" wx:if="{{index<4}}"
+                  style="width: 120rpx;height: 160rpx;display: flex;flex-direction:column">
+                <image style="width: 120rpx;height: 120rpx"
+                       src="{{'../../images/index/tag/'+item+'.jpg'}}"
                        mode="scaleToFill"/>
-                <text style="width: 120rpx;color: darkgray;text-align: center">{{item}}</text>
+                <text style="width: 120rpx;color: darkgray;text-align: center">
+                    {{item}}
+                </text>
             </view>
         </view>
         <view style="display: flex;justify-content:space-around;margin: 10rpx 0">
-            <view wx:for="{{sectionTags[currentTab]}}" wx:if="{{index>3}}" style="width: 120rpx;height: 160rpx;display: flex;flex-direction:column">
-                <image style="width: 120rpx;height: 120rpx" src="{{'../../images/index/tag/'+item+'.jpg'}}"
+            <view wx:for="{{sectionTags[currentTab]}}" wx:if="{{index>3}}"
+                  style="width: 120rpx;height: 160rpx;display: flex;flex-direction:column">
+                <image style="width: 120rpx;height: 120rpx"
+                       src="{{'../../images/index/tag/'+item+'.jpg'}}"
                        mode="scaleToFill"/>
-                <text style="width: 120rpx;color: darkgray;text-align: center">{{item}}</text>
+                <text style="width: 120rpx;color: darkgray;text-align: center">
+                    {{item}}
+                </text>
             </view>
         </view>
     </view>
-
+    <!--分类商品-->
     <!--两栏展示商品-->
-    <template is="img_col" data="{{col1,col2,Loading}}"></template>
+    <template is="img_col" data="{{goods,Loading}}"></template>
     <!--两栏展示商品-->
-
-        <view bindtap='bindRecommend' class="recommend">
-            <text class="recommend_text">今日推荐</text>
-            <view class="mine_arrow"></view>
-            <view class="mine_arrow" style='margin-right:40rpx'></view>
-        </view>
     <tabbar tabbar="{{tabbar}}"></tabbar>
 </view>
 <modal title="提示" hidden="{{modalHidden}}" confirm-text="前往认证"

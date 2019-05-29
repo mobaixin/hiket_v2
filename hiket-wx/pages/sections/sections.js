@@ -176,10 +176,11 @@ Page({
         })
     },
     sliceGoods: function () {
-        let length = Math.ceil(this.data.goods.length / 2);
+        // let length = Math.ceil(this.data.goods.length / 2);
         this.setData({
-            col1: this.data.goods.slice(0, length),
-            col2: this.data.goods.slice(length)
+            col1: this.data.goods,
+            goods: this.data.goods
+            // col2: this.data.goods.slice(length)
         })
     },
     bindGoodTap: function (e) {

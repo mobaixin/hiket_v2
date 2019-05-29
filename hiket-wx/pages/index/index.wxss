@@ -14,8 +14,6 @@
   width: 100%;
   height: 100rpx;
   background: linear-gradient(to right, rgb(247, 92, 115), rgb(250, 166, 166));
-  margin-top: 30rpx;
-  margin-bottom: 60rpx;
   align-items:center;
 }
 

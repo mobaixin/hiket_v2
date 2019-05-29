@@ -1,81 +1,92 @@
 <template name="img_col">
-  <view class="img_container">
-
-    <!--商品左列-->
-    <view class="img_col1">
-      <view class="img_col_item" wx:for="{{col1}}">
-        
-        <view class="img_cell">
-          <image class="user_avatar" src="{{item.avatarUrl}}"></image>
-          <text wx:if="{{item.mine}}" style='color:#FF4F64' class="user_nickname">我</text>
-          <text wx:else class="user_nickname">{{item.nickName}}</text>
-          <text class="user_location">{{item.campus!=null?item.campus:'未知校区'}}</text>
+    <view class="img_container">
+        <!--商品左列-->
+        <view class="img_col1">
+            <view class="img_col_item" wx:for="{{goods}}" wx:if="{{index%2==0}}"
+                  wx:key="{item.goodId}}">
+                <!--个人信息-->
+                <view class="img_cell">
+                    <image class="user_avatar" src="{{item.avatarUrl}}"></image>
+                    <text wx:if="{{item.mine}}" style='color:#FF4F64' class="user_nickname">我</text>
+                    <text wx:else class="user_nickname">{{item.nickName}}</text>
+                    <text class="user_location">{{item.campus!=null?item.campus:'未知校区'}}</text>
+                </view>
+                <!--个人信息-->
+                <!--物品图片-->
+                <image src="{{item.uploadImagePathList[0]}}"
+                       bindtap='bindGoodTap' id='{{item.goodId}}'
+                       data-col="{{0}}" data-index="{{index}}"
+                       style="width:100%" mode="widthFix"></image>
+                <!--物品图片-->
+                <!--物品描述-->
+                <view class="item_description">
+                    <text wx:if="{{item.state==1}}" style='color:#FF4F64'>（已下架）</text>
+                    <text wx:elif="{{item.state==2}}" style='color:#FF4F64'>（已卖出）</text>
+                    <text wx:elif="{{item.state==3}}" style='color:#FF4F64'>（被举报）</text>
+                    <text wx:elif="{{item.state==4}}" style='color:#FF4F64'>（审核中）</text>
+                    <text wx:elif="{{item.state==5}}" style='color:#FF4F64'>（已过期）</text>
+                    <text wx:if="{{item.sectionTag&&item.sectionTag!=''}}" decode="{{true}}" style='color:#50B2F3'>#{{item.sectionTag}}&nbsp;</text>
+                    <text>{{item.title}}</text>
+                </view>
+                <view class="img_cell">
+                    <text class="item_price">￥{{item.price}}</text>
+                    <text class="item_price_before">￥{{item.oldPrice}}</text>
+                    <text decode="{{true}}" class="item_date">浏览&nbsp;{{item.browseNumber}}&nbsp;</text>
+                    <!--<text decode="{{true}}" class="item_date">{{item.timePast}}</text>-->
+                </view>
+                <!--物品描述-->
+            </view>
         </view>
-
-        <!--物品图片-->
-        <image src="{{item.uploadImagePathList[0]}}" bindtap='bindGoodTap' id='{{item.goodId}}'  data-col="{{0}}" data-index="{{index}}" style="width:100%" mode="widthFix"></image>
-        <!--物品图片-->
-
-        <view class="item_description">
-          <text decode="{{true}}" style='color:#50B2F3'>#{{item.sectionTag==null?'':item.sectionTag}}&nbsp;</text>
-          <text wx:if="{{item.state==1}}" style='color:#FF4F64'>（已下架）</text>
-          <text wx:elif="{{item.state==2}}" style='color:#FF4F64'>（已卖出）</text>
-          <text wx:elif="{{item.state==3}}" style='color:#FF4F64'>（被举报）</text>
-          <text wx:elif="{{item.state==4}}" style='color:#FF4F64'>（审核中）</text>
-          <text wx:elif="{{item.state==5}}" style='color:#FF4F64'>（已过期）</text>
-          <text>{{item.title}}</text>
+        <!--商品左列-->
+        <!--商品右列-->
+        <view class="img_col2">
+            <view class="img_col_item" wx:for="{{goods}}" wx:if="{{index%2==1}}"
+                  wx:key="{item.goodId}}">
+                <!--个人信息-->
+                <view class="img_cell">
+                    <image class="user_avatar" src="{{item.avatarUrl}}"></image>
+                    <text wx:if="{{item.mine}}" style='color:#FF4F64' class="user_nickname">我</text>
+                    <text wx:else class="user_nickname">{{item.nickName}}</text>
+                    <text class="user_location">{{item.campus!=null?item.campus:'未知校区'}}</text>
+                </view>
+                <!--个人信息-->
+                <!--物品图片-->
+                <image src="{{item.uploadImagePathList[0]}}"
+                       bindtap='bindGoodTap' id='{{item.goodId}}'
+                       data-col="{{1}}" data-index="{{index}}"
+                       style="width:100%" mode="widthFix"></image>
+                <!--物品图片-->
+                <!--物品描述-->
+                <view class="item_description">
+                    <text wx:if="{{item.state==1}}" style='color:#FF4F64'>（已下架）</text>
+                    <text wx:elif="{{item.state==2}}" style='color:#FF4F64'>（已卖出）</text>
+                    <text wx:elif="{{item.state==3}}" style='color:#FF4F64'>（被举报）</text>
+                    <text wx:elif="{{item.state==4}}" style='color:#FF4F64'>（审核中）</text>
+                    <text wx:elif="{{item.state==5}}" style='color:#FF4F64'>（已过期）</text>
+                    <text wx:if="{{item.sectionTag&&item.sectionTag!=''}}" decode="{{true}}" style='color:#50B2F3'>#{{item.sectionTag}}&nbsp;</text>
+                    <text>{{item.title}}</text>
+                </view>
+                <view class="img_cell">
+                    <text class="item_price">￥{{item.price}}</text>
+                    <text class="item_price_before">￥{{item.oldPrice}}</text>
+                    <text decode="{{true}}" class="item_date">浏览&nbsp;{{item.browseNumber}}&nbsp;</text>
+                    <!--<text decode="{{true}}" class="item_date">{{item.timePast}}</text>-->
+                </view>
+                <!--物品描述-->
+            </view>
         </view>
-        <view class="img_cell">
-          <text class="item_price">￥{{item.price}}</text>
-          <text class="item_price_before">￥{{item.oldPrice}}</text>
-          <text decode="{{true}}" class="item_date">浏览&nbsp;{{item.browseNumber}}&nbsp;</text>
-          <!--<text decode="{{true}}" class="item_date">{{item.timePast}}</text>-->
+        <!--商品右列-->
+        <!--底栏-->
+        <view wx:if="{{Loading}}"
+              style="display:flex;justify-content:center;align-items:center;margin:40rpx 0">
+            <image class="loading"
+                   src="../../images/sections/loading.png"></image>
+            <text style="color:#979795">正在载入更多...</text>
         </view>
-      </view>
+        <view wx:if="{{!Loading}}"
+              style="display:flex;justify-content:center;align-items:center;margin:40rpx 0">
+            <text style="color:#979795">没有更多了</text>
+        </view>
+        <!--底栏-->
     </view>
-    <!--商品左列-->
-
-    <!--商品右列-->
-    <view class="img_col2">
-      <view class="img_col_item" wx:for="{{col2}}" wx:key="id">
-        <view class="img_cell">
-          <image class="user_avatar" src="{{item.avatarUrl}}"></image>
-          <text wx:if="{{item.mine}}" style='color:#FF4F64' class="user_nickname">我</text>
-          <text wx:else class="user_nickname">{{item.nickName}}</text>
-          <text class="user_location">{{item.campus!=null?item.campus:'未知校区'}}</text>
-        </view>
-
-        <!--物品图片-->
-        <image src="{{item.uploadImagePathList[0]}}" bindtap='bindGoodTap' id='{{item.goodId}}' data-col="{{1}}" data-index="{{index}}" style="width:100%" mode="widthFix"></image>
-        <!--物品图片-->
-
-        <view class="item_description">
-          <text decode="{{true}}" style='color:#50B2F3'>#{{item.sectionTag==null?'':item.sectionTag}}&nbsp;</text>
-          <text wx:if="{{item.state==1}}" style='color:#FF4F64'>（已下架）</text>
-          <text wx:elif="{{item.state==2}}" style='color:#FF4F64'>（已卖出）</text>
-          <text wx:elif="{{item.state==3}}" style='color:#FF4F64'>（被举报）</text>
-          <text wx:elif="{{item.state==4}}" style='color:#FF4F64'>（审核中）</text>
-          <text wx:elif="{{item.state==5}}" style='color:#FF4F64'>（已过期）</text>
-          <text>{{item.title}}</text>
-        </view>
-        <view class="img_cell">
-          <text class="item_price">￥{{item.price}}</text>
-          <text class="item_price_before">￥{{item.oldPrice}}</text>
-          <text decode="{{true}}" class="item_date">浏览&nbsp;{{item.browseNumber}}&nbsp;</text>
-          <!--<text decode="{{true}}" class="item_date">{{item.timePast}}</text>-->
-        </view>
-
-      </view>
-    </view>
-    <!--商品右列-->
-
-    <view wx:if="{{Loading}}" style="display:flex;justify-content:center;align-items:center;margin:40rpx 0">
-      <image class="loading" src="../../images/sections/loading.png"></image>
-      <text style="color:#979795">正在载入更多...</text>
-    </view>
-    <view wx:if="{{!Loading}}" style="display:flex;justify-content:center;align-items:center;margin:40rpx 0">
-      <text style="color:#979795">没有更多了</text>
-    </view>
-  </view>
-
 </template>
