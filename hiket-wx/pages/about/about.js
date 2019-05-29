@@ -3,21 +3,6 @@ const app = getApp();
 
 Page({
     data: {
-        adminInfo: [
-            {
-                adminWeixinAvatarUrl: "https://wx.qlogo.cn/mmopen/vi_32/owcQAbjUWRRMaywxzMArsxzm2iaWtC07ZeJL4aT7fqsDQsFNrZLlvnzPCibw3rGkdHZXKONgsy6A6QCEAXkatmAg/132",
-                adminWeixinNumber: 'F_Mortal',
-                id: 0,
-            },
-            {
-                adminWeixinAvatarUrl: "https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83epibWGBicjxNBLP339CKrEHo5icI7Bp9JhQ8TDAQwyh2XKvxic262rrqPxXt6LcRjjN9ftZHneGia5QMyQ/132",
-                adminWeixinNumber: "Mo-Bai-Xin",
-                id: 1,
-            }
-        ],
-
-
-        modalCopySuccessMessage: '复制成功',
         headlines: ['防骗指南', '嗨市用户服务协议', '关于我们'],
         sectionInfos: [
             '　　我们的平台用户是经过校园身份实名认证的，这很大程度地保障了交易的安全，但百密一疏，用户仍然应该对网络交易保持警惕，不能掉以轻心。下面是为用户总结的防骗指南。',
