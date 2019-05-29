@@ -49,4 +49,9 @@ public class HiketApplicationTests {
 //    public void graduateErrorTest() {
 //        System.out.println(NKUUtil.nkuUrpLogin("212182362", "14159"));
 //    }
+
+    @Test
+    public void test() {
+        System.out.println(NKUUtil.t());
+    }
 }

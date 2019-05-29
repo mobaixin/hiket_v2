@@ -16,6 +16,12 @@ ssh root@118.25.159.178
 
 sftp root@118.25.159.178
 
+ssh root@192.168.9.82
+
+sftp root@192.168.9.82
+
+XCB#519519519
+
 shiwenxuan2003@aliyun.com/station307
 
 那用我的公司账号发布：shiwx@nankai.edu.cn/station307

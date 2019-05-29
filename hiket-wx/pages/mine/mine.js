@@ -219,6 +219,10 @@ Page({
                 });
                 this.bindAuthorize()
             } else {
+                wx.showLoading({
+                    title: '校验中',
+                    mask: true
+                });
                 let that = this;
                 wx.request({
                     url: app.globalData.userStudentRegisterUrl,
@@ -230,6 +234,7 @@ Page({
                     method: 'POST',
                     success: function (res) {
                         console.log(res);
+                        wx.hideLoading();
                         if (res.data.success) {
                             wx.showToast({
                                 title: '学生认证成功',
@@ -248,6 +253,7 @@ Page({
                         }
                     },
                     fail: function () {
+                        wx.hideLoading();
                         wx.showToast({
                             title: '服务器维护中',
                             icon: 'none'

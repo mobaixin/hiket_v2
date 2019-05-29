@@ -1,7 +1,7 @@
 //app.js
 // const serverUrl = "http://localhost:8080";
-const serverUrl = "http://39.104.108.69:8080";
-// const serverUrl = "https://www.werehunter.com";
+// const serverUrl = "http://39.104.108.69:8080";
+const serverUrl = "https://www.werehunter.com";
 
 
 App({
@@ -186,7 +186,7 @@ App({
         userGetTopBannerUrl: serverUrl + '/user/getTopBanner',
         userRegisterUrl: serverUrl + '/user/register',
         userWeixinRegisterUrl: serverUrl + '/user/weixinRegister',
-        userStudentRegisterUrl: serverUrl + '/user/studentRegister',
+        userStudentRegisterUrl:serverUrl+ '/user/studentRegister',
         userUpdateUserInfoUrl: serverUrl + '/user/updateUserInfo',
         releaseUploadImageUrl: 'https://www.werehunter.com' + '/release/uploadImage',
         releaseReleaseGoodUrl: serverUrl + '/release/releaseGood',

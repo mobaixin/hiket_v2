@@ -22,7 +22,6 @@ public class MessageServiceImpl implements MessageService {
         message.setContent(content);
         message.setGoodId(goodId);
         message.setTriggerOpenId(triggerOpenId);
-        System.out.println(message);
         int ret = messageDao.insert(message);
         return ret > 0;
     }

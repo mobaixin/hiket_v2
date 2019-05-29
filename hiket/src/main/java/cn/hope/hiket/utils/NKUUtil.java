@@ -110,4 +110,10 @@ public class NKUUtil {
         }
         throw new RuntimeException("未知错误");
     }
+
+    public static String t() {
+        System.setProperty("javax.net.ssl.trustStore","./jssecacerts");
+        CloseableHttpClient client = HttpClients.createDefault();
+        return URLFecter.t(client);
+    }
 }

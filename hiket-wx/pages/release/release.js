@@ -294,7 +294,6 @@ Page({
             sectionTagId: 0
         });
         this.data.goodInfo.section = this.data.sectionId;
-        this.data.goodInfo.sectionTag = this.data.sectionTags[this.data.sectionId][this.data.sectionTagId];
         this.setData({
             goodInfo: this.data.goodInfo
         });

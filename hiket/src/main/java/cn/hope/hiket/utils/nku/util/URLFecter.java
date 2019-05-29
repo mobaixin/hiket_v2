@@ -12,6 +12,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class URLFecter {
+    public static String t(CloseableHttpClient client) {
+        return HttpUtils.postgraduateLogin(client);
+    }
 
     public static void graduateLogin(CloseableHttpClient client, Student s) throws PasswordError, Success, UnknownError {
         BufferedReader reader;
@@ -25,7 +28,7 @@ public class URLFecter {
                 throw new Success();
             } else if (result == 13) {
                 throw new PasswordError();
-            }else {
+            } else {
                 throw new RuntimeException("未知错误");
             }
         } catch (IOException e) {
