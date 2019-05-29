@@ -57,6 +57,9 @@
             <button  plain="false" style="border: none;"open-type="contact">联系客服</button>
         </navigator>
     </view>
+    <!--占位符-->
+    <view style="height: 100rpx"></view>
+    <!--占位符-->
     <tabbar tabbar="{{tabbar}}"></tabbar>
 </view>
 <modal title="{{modalErrorCount!=0?'学生认证':'多次认证失败，可联系客服处理'}}" hidden="{{modalHidden}}" confirm-text="确定"

@@ -103,6 +103,7 @@ Page({
             title: '加载中',
             mask: true
         });
+        console.log(goodId);
         wx.request({
             url: app.globalData.searchGetGoodUrl,
             header: {

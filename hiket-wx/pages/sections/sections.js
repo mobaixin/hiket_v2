@@ -35,44 +35,10 @@ Page({
                 })
             };
         }
-        // 选择类别
-        // 今日推荐
-        // 我的收藏
-        // 我的发布
-        if (options.sectionId) {
-            wx.setNavigationBarTitle({
-                title: this.data.sections[options.sectionId],
-            });
-            this.setData({
-                sectionId: options.sectionId
-            });
-            this.searchGoods(this.data.sectionId, null, this.data.goods.length, this.data.numberIndex, true);
-        } else if (options.recommend) {
-            wx.setNavigationBarTitle({
-                title: "今日推荐",
-            });
-            this.setData({
-                recommend: true
-            });
-            this.searchGoods(this.data.sectionId, null, this.data.goods.length, this.data.numberIndex, true);
-        } else if (options.favorite) {
-            wx.setNavigationBarTitle({
-                title: "我的收藏",
-            });
-            this.setData({
-                hideSearch: true,
-                favorite: true
-            });
-            this.myFavoriteGoods()
-        } else if (options.my) {
-            wx.setNavigationBarTitle({
-                title: "我的发布",
-            });
-            this.setData({
-                hideSearch: true,
-                my: true
-            });
-            this.myGoods()
+        if (options.my) {
+            this.myGoods();
+        }else if (options.favorite) {
+            this.myFavoriteGoods();
         }
     },
     onShow: function () {
@@ -81,131 +47,47 @@ Page({
             key: 'good',
             success: function (res) {
                 console.log(res);
-                if (res.data) {
-                    let goodInfo = res.data.goodInfo;
-                    let col = res.data.col;
-                    let index = res.data.index;
-                    let change = res.data.change;
-                    if(change){
-                        if(col==0) {
-                            that.data.col1[index] = goodInfo;
-                        }else if(col==1){
-                            that.data.col2[index] = goodInfo;
-                        }
-                        that.setData({
-                            goods: that.data.goods,
-                            col1: that.data.col1,
-                            col2: that.data.col2
-                        });
-                    }
+                let goodInfo = res.data.goodInfo;
+                let index = res.data.index;
+                let change = res.data.change;
+                if (change) {
+                    that.data.goods[index] = goodInfo;
+                    that.setData({
+                        goods: that.data.goods,
+                    });
                 }
+                wx.removeStorage({key: 'good'})
             }
         })
-    },
-    onPullDownRefresh: function () {
-        this.setData({
-            Loading: true
-        });
-        if (this.data.favorite) {
-            this.myFavoriteGoods();
-        } else if (this.data.my) {
-            this.myGoods();
-        } else {
-            let number = this.data.numberIndex > this.data.goods.length ? this.data.numberIndex : this.data.goods;
-            this.searchGoods(this.data.sectionId, this.data.searchValue, 0, number, false);
-        }
-        wx.stopPullDownRefresh();
-    },
-    onReachBottom: function () {
-        if (!this.data.favorite && !this.data.my) {
-            this.setData({
-                Loading: true
-            });
-            this.searchGoods(this.data.sectionId, this.data.searchValue, this.data.goods.length, this.data.numberIndex, true)
-        }
     },
     onShareAppMessage: function () {
         return app.onShareAppMessage();
     },
-    searchGoods: function (section, title, beginIndex, numberIndex, connect) {
-        let that = this;
-        wx.request({
-            url: app.globalData.searchActiveGoodUrl,
-            data: JSON.stringify({
-                openId: app.globalData.openId,
-                section: section,
-                title: title,
-                beginIndex: beginIndex,
-                numberIndex: numberIndex
-            }),
-            method: 'POST',
-            success: function (res) {
-                console.log(res);
-                if (res.data.success) {
-                    if (connect) {
-                        that.setData({
-                            goods: that.data.goods.concat(res.data.data)
-                        });
-                    } else {
-                        that.setData({
-                            goods: res.data.data
-                        });
-                    }
-                    that.sliceGoods()
-                }
-                that.setData({
-                    Loading: false
-                })
-            },
-            fail: function () {
-                wx.showToast({
-                    title: '服务器维护中',
-                    icon: 'none'
-                });
-                that.setData({
-                    Loading: false
-                })
-            }
-        })
-    },
-    sliceGoods: function () {
-        // let length = Math.ceil(this.data.goods.length / 2);
-        this.setData({
-            col1: this.data.goods,
-            goods: this.data.goods
-            // col2: this.data.goods.slice(length)
-        })
-    },
     bindGoodTap: function (e) {
-        let good = null;
-        if(e.currentTarget.dataset.col==0) {
-            good = this.data.col1[e.currentTarget.dataset.index];
-        }else if(e.currentTarget.dataset.col==1){
-            good = this.data.col2[e.currentTarget.dataset.index];
-        }
+        let index = e.currentTarget.dataset.index;
+        let good = this.data.goods[index];
         wx.setStorage({
             key: "good",
             data: {
                 goodInfo: good,
-                col:e.currentTarget.dataset.col,
-                index: e.currentTarget.dataset.index
+                index: index
             }
         });
-        if(good!=null){
+        if (good) {
             wx.navigateTo({
                 url: '../good/good',
             })
         }
     },
-    searchValueInput: function (e) {
-        this.setData({
-            searchValue: e.detail.value
-        })
-    },
-    bindSearch: function () {
-        this.searchGoods(this.data.sectionId, this.data.searchValue, 0, this.data.numberIndex, false)
-    },
     myFavoriteGoods: function () {
+        wx.setNavigationBarTitle({
+            title: '我的收藏',
+        });
+        this.setData({
+            Loading: true,
+            goods: null,
+            favorite: true
+        });
         let that = this;
         wx.request({
             url: app.globalData.favoriteMyFavoriteGoodUrl,
@@ -222,7 +104,6 @@ Page({
                     that.setData({
                         goods: res.data.data
                     });
-                    that.sliceGoods()
                 } else {
                     wx.showToast({
                         title: '获取信息失败',
@@ -245,6 +126,14 @@ Page({
         })
     },
     myGoods: function () {
+        wx.setNavigationBarTitle({
+            title: '我的发布',
+        });
+        this.setData({
+            Loading: true,
+            goods: null,
+            my: true
+        });
         let that = this;
         wx.request({
             url: app.globalData.operationMyGoodUrl,
@@ -261,7 +150,6 @@ Page({
                     that.setData({
                         goods: res.data.data
                     });
-                    that.sliceGoods()
                 } else {
                     wx.showToast({
                         title: '获取信息失败',

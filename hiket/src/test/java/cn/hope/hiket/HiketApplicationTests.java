@@ -35,18 +35,18 @@ public class HiketApplicationTests {
         System.out.println(NKUUtil.nkuEamisLogin("1612860", "119041"));
     }
 
-    @Test
-    public void studentErrorTest() {
-        System.out.println(NKUUtil.nkuEamisLogin("161260", "11904"));
-    }
+//    @Test
+//    public void studentErrorTest() {
+//        System.out.println(NKUUtil.nkuEamisLogin("161260", "11904"));
+//    }
 
     @Test
     public void graduateTest() {
         System.out.println(NKUUtil.nkuUrpLogin("2120182362", "141592"));
     }
 
-    @Test
-    public void graduateErrorTest() {
-        System.out.println(NKUUtil.nkuUrpLogin("212182362", "14159"));
-    }
+//    @Test
+//    public void graduateErrorTest() {
+//        System.out.println(NKUUtil.nkuUrpLogin("212182362", "14159"));
+//    }
 }

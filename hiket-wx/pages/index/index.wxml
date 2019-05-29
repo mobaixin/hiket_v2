@@ -22,7 +22,8 @@
             <view class="tab-item {{currentTab==-1?'active':''}}"
                   data-current="-1" bindtap="bindTopTab" id="toptab_-1">嗨市首页
             </view>
-            <view wx:for="{{sections}}" wx:key="{{index}}" id="{{'toptab_'+index}}"
+            <view wx:for="{{sections}}" wx:key="{{index}}"
+                  id="{{'toptab_'+index}}"
                   class="tab-item {{currentTab==index?'active':''}}"
                   data-current="{{index}}" bindtap="bindTopTab">{{item}}
             </view>
@@ -35,24 +36,27 @@
                 autoplay="true" interval="3000" duration="1000">
             <block wx:for="{{topBanner}}" wx:key="{{index}}">
                 <swiper-item>
-                    <image src="{{item}}" style="position:absolute;z-index:1"
+                    <image src="{{item}}"
+                           style="position:absolute;z-index:1"
                            mode="scaleToFill" class="slide-image"/>
                 </swiper-item>
             </block>
         </swiper>
         <view class="recommend">
+            <image src='../../images/index/down.png' class='recommend_img' style='margin-left: 30%'></image>
             <text class="recommend_text">今日爆款</text>
+            <image src='../../images/index/down.png' class='recommend_img' style='margin-right: 30%'></image>
         </view>
     </view>
     <!--首页推荐-->
     <!--分类商品-->
     <view wx:else style="background-color: white">
         <view style="display: flex;justify-content:space-around;padding: 10rpx 0">
-            <view wx:for="{{sectionTags[currentTab]}}" wx:if="{{index<4}}" wx:key="{{index}}"
-                  style="width: 120rpx;height: 160rpx;display: flex;flex-direction:column"
-                  data-pattern="{{item}}" bindtap="bindTag">
+            <view wx:for="{{sectionTags[currentTab]}}" wx:if="{{index<4}}"
+                  wx:key="{{index}}"
+                  style="width: 120rpx;height: 160rpx;display: flex;flex-direction:column" data-pattern="{{item}}" bindtap="bindTag">
                 <image style="width: 120rpx;height: 120rpx"
-                       src="{{'../../images/index/tag/'+item+'.jpg'}}"
+                       src="{{'../../images/index/tag/'+sectionTagImages[currentTab][index]+'.jpg'}}"
                        mode="scaleToFill"/>
                 <text style="width: 120rpx;color: darkgray;text-align: center">
                     {{item}}
@@ -60,11 +64,11 @@
             </view>
         </view>
         <view style="display: flex;justify-content:space-around;padding: 10rpx 0">
-            <view wx:for="{{sectionTags[currentTab]}}" wx:if="{{index>3}}" wx:key="{{index}}"
-                  style="width: 120rpx;height: 160rpx;display: flex;flex-direction:column">
+            <view wx:for="{{sectionTags[currentTab]}}" wx:if="{{index>3}}"
+                  wx:key="{{index}}"
+                  style="width: 120rpx;height: 160rpx;display: flex;flex-direction:column" data-pattern="{{item}}" bindtap="bindTag">
                 <image style="width: 120rpx;height: 120rpx"
-                       src="{{'../../images/index/tag/'+item+'.jpg'}}"
-                       data-pattern="{{item}}" bindtap="bindTag"
+                       src="{{'../../images/index/tag/'+sectionTagImages[currentTab][index]+'.jpg'}}"
                        mode="scaleToFill"/>
                 <text style="width: 120rpx;color: darkgray;text-align: center">
                     {{item}}
