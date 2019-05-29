@@ -22,8 +22,29 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HttpUtils {
-    public static String postgraduateLogin(CloseableHttpClient client) {
+public class HttpUtil {
+    public static CloseableHttpResponse ssoLogin(CloseableHttpClient client, Student s)  {
+        HttpPost httpPost = new HttpPost("https://sso.nankai.edu.cn/sso/checkRole");
+        httpPost.addHeader("User-Agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.160 Safari/537.22");
+        String password;
+        CloseableHttpResponse response = null;
+        try {
+            password = MD5Util.GetMD5Code(s.getPassword());
+            List<NameValuePair> nvps = new ArrayList<>();
+            nvps.add(new BasicNameValuePair("username", s.getNumber()));
+            nvps.add(new BasicNameValuePair("password", password));
+            nvps.add(new BasicNameValuePair("ssoLogin", "")); //ÃÜÂë¼ÓÃÜ
+            nvps.add(new BasicNameValuePair("rand", ""));
+            nvps.add(new BasicNameValuePair("service", "https://i.nankai.edu.cn/user/simpleSSOLogin"));
+            httpPost.setEntity(new UrlEncodedFormEntity(nvps));
+             response = client.execute(httpPost);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return response;
+    }
+
+    public static String getRand(CloseableHttpClient client) {
         HttpPost httpPost = new HttpPost("https://sso.nankai.edu.cn/sso/loadcode");
         CloseableHttpResponse response;
         httpPost.addHeader("User-Agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.160 Safari/537.22");
@@ -43,12 +64,11 @@ public class HttpUtils {
         return result;
     }
 
-    public static CloseableHttpResponse graduateLogin(CloseableHttpClient client, Student s) {
-        HttpPost httpPost = new HttpPost(Url.GRADUATE_LOGIN_URL);
+    public static CloseableHttpResponse urpLogin(CloseableHttpClient client, Student s) {
+        HttpPost httpPost = new HttpPost("http://urp.nankai.edu.cn/userPasswordValidate1.portal");
         List<NameValuePair> nvps = new ArrayList<>();
         nvps.add(new BasicNameValuePair("Login.Token1", s.getNumber()));
         nvps.add(new BasicNameValuePair("Login.Token2", s.getPassword()));
-
         httpPost.addHeader("User-Agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.160 Safari/537.22");
         CloseableHttpResponse response = null;
         try {
@@ -60,7 +80,7 @@ public class HttpUtils {
         return response;
     }
 
-    public static CloseableHttpResponse login(CloseableHttpClient client, Student s) {
+    public static CloseableHttpResponse eamisLogin(CloseableHttpClient client, Student s) {
         HttpPost httpPost = new HttpPost(Url.LOGIN_URL);
         List<NameValuePair> nvps = new ArrayList<>();
         nvps.add(new BasicNameValuePair("username", s.getNumber()));

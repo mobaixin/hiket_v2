@@ -38,9 +38,9 @@ public class UserController {
         LOG.info("openId=" + openId + ": register with openId: " + openId);
         boolean ret = userService.register(openId);
         LOG.info("openId=" + openId + ": register with openId: " + openId + ", success with: " + ret);
-        LOG.info("openId=" + openId + ": login with openId: " + openId);
+        LOG.info("openId=" + openId + ": eamisLogin with openId: " + openId);
         User user = userService.login(openId);
-        LOG.info("openId=" + openId + ": login with openId: " + openId + ", success with: " + user);
+        LOG.info("openId=" + openId + ": eamisLogin with openId: " + openId + ", success with: " + user);
         return FormatResponseUtil.adapter(user, ret && user != null);
     }
 

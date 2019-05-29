@@ -1,5 +1,6 @@
 package cn.hope.hiket.utils.nku.util;
 
+import cn.hope.hiket.utils.CommonUtil;
 import cn.hope.hiket.utils.nku.Throw.PasswordError;
 import cn.hope.hiket.utils.nku.Throw.Success;
 import cn.hope.hiket.utils.nku.model.Student;
@@ -12,14 +13,33 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class URLFecter {
-    public static String t(CloseableHttpClient client) {
-        return HttpUtils.postgraduateLogin(client);
-    }
-
-    public static void graduateLogin(CloseableHttpClient client, Student s) throws PasswordError, Success, UnknownError {
+    public static void ssoLogin(CloseableHttpClient client, Student s) throws Success, PasswordError {
         BufferedReader reader;
         try {
-            CloseableHttpResponse response = HttpUtils.graduateLogin(client, s);
+            CloseableHttpResponse response = HttpUtil.ssoLogin(client, s);
+            HttpEntity entity = response.getEntity();
+            StringBuffer responseContent = new StringBuffer();
+            reader = new BufferedReader(
+                    new InputStreamReader(
+                            entity.getContent(), "utf-8"));
+            String result = reader.readLine();
+            String resultMessage = CommonUtil.jsonToMap(result).get("message");
+            if (resultMessage.equals("")) {
+                throw new Success();
+            } else if (resultMessage.equals("用户名或密码不正确")) {
+                throw new PasswordError();
+            } else {
+                throw new RuntimeException("未知错误");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void urpLogin(CloseableHttpClient client, Student s) throws PasswordError, Success {
+        BufferedReader reader;
+        try {
+            CloseableHttpResponse response = HttpUtil.urpLogin(client, s);
             HttpEntity entity = response.getEntity();
             reader = new BufferedReader(new InputStreamReader(
                     entity.getContent(), "utf-8"));
@@ -36,8 +56,8 @@ public class URLFecter {
         }
     }
 
-    public static void login(CloseableHttpClient client, Student s) throws PasswordError, Success, UnknownError {
-        CloseableHttpResponse response = HttpUtils.login(client, s);
+    public static void eamisLogin(CloseableHttpClient client, Student s) throws PasswordError, Success {
+        CloseableHttpResponse response = HttpUtil.eamisLogin(client, s);
         int StatusCode = response.getStatusLine().getStatusCode();
 
         if (StatusCode == 200) {
@@ -50,7 +70,7 @@ public class URLFecter {
     }
 
     public static void getStudentInfo(CloseableHttpClient client, Student s) {
-        s.setInfo(HttpUtils.getInfo(client));
+        s.setInfo(HttpUtil.getInfo(client));
     }
 }
 

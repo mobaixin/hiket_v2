@@ -1,4 +1,4 @@
-package cn.hope.hiket.utils.nku;
+package cn.hope.hiket.utils.nku.util;
 
 import javax.net.ssl.*;
 import java.io.*;
@@ -25,11 +25,11 @@ public class InstallCert {
             System.out.println("Usage: java InstallCert <host>[:port] [passphrase]");
             return;
         }
-        File file = new File("jssecacerts");
+        File file = new File("cn/hope/hiket/utils/nku/util/jssecacerts");
         if (file.isFile() == false) {
             char SEP = File.separatorChar;
             File dir = new File(System.getProperty("java.home") + SEP + "lib" + SEP + "security");
-            file = new File(dir, "jssecacerts");
+            file = new File(dir, "cn/hope/hiket/utils/nku/util/jssecacerts");
             if (file.isFile() == false) {
                 file = new File(dir, "cacerts");
             }
@@ -96,7 +96,7 @@ public class InstallCert {
         X509Certificate cert = chain[k];
         String alias = host + "-" + (k + 1);
         ks.setCertificateEntry(alias, cert);
-        OutputStream out = new FileOutputStream("jssecacerts");
+        OutputStream out = new FileOutputStream("cn/hope/hiket/utils/nku/util/jssecacerts");
         ks.store(out, passphrase);
         out.close();
         System.out.println();

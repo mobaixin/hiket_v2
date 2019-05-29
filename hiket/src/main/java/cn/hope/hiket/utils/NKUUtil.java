@@ -33,7 +33,7 @@ public class NKUUtil {
         WebDriver driver = new FirefoxDriver();
         Map<String, String> info;
         try {
-            driver.get("http://eamis.nankai.edu.cn/eams/login.action");
+            driver.get("http://eamis.nankai.edu.cn/eams/eamisLogin.action");
             WebElement userNameInput = driver.findElement(By.id("username"));
             WebElement passwordInput = driver.findElement(By.id("password"));
             for (int i = 0; i < number.length(); i++) {
@@ -80,7 +80,7 @@ public class NKUUtil {
         s.setNumber(number);
         s.setPassword(password);
         try {
-            URLFecter.login(client, s);
+            URLFecter.eamisLogin(client, s);
         } catch (Success success) {
             URLFecter.getStudentInfo(client, s);
             college = s.getInfo().getFaculty();
@@ -100,7 +100,7 @@ public class NKUUtil {
         s.setNumber(number);
         s.setPassword(password);
         try {
-            URLFecter.graduateLogin(client, s);
+            URLFecter.urpLogin(client, s);
         } catch (Success success) {
             return "研究生";
         } catch (PasswordError passwordError) {
@@ -111,9 +111,22 @@ public class NKUUtil {
         throw new RuntimeException("未知错误");
     }
 
-    public static String t() {
-        System.setProperty("javax.net.ssl.trustStore","./jssecacerts");
+    public static String nkuSsoLogin(String number, String password) {
+//        System.setProperty("javax.net.ssl.trustStore", "cn/hope/hiket/utils/nku/util/jssecacerts");
+        System.setProperty("javax.net.ssl.trustStore", "/Users/xuanchuanbu/hiket_v2/hiket/src/main/java/cn/hope/hiket/utils/nku/util/jssecacerts");
         CloseableHttpClient client = HttpClients.createDefault();
-        return URLFecter.t(client);
+        Student s = new Student();
+        s.setNumber(number);
+        s.setPassword(password);
+        try {
+            URLFecter.ssoLogin(client,s);
+        } catch (Success success) {
+            return "研究生";
+        } catch (PasswordError passwordError) {
+            throw new RuntimeException("用户名或密码错误");
+        } catch (Exception e) {
+            throw new RuntimeException("未知错误");
+        }
+        throw new RuntimeException("未知错误");
     }
 }
