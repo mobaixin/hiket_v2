@@ -61,6 +61,20 @@ Page({
         });
     },
     onLoad: function (options) {
+        // 如果是通过分享链接跳转进来的
+        if (options.goodId) {
+            if (app.globalData.openId) {
+                wx.navigateTo({
+                    url: '../good/good?goodId=' + options.goodId
+                });
+            }else {
+                app.gotoGoodCallback = res => {
+                    wx.navigateTo({
+                        url: '../good/good?goodId=' + options.goodId
+                    });
+                }
+            }
+        }
         this.load();
         app.editTabbar();
         if (app.globalData.userInfo) {
@@ -95,12 +109,6 @@ Page({
             this.setData({
                 modalHidden: false
             })
-        }
-        // 如果是通过分享链接跳转进来的
-        if (options.goodId) {
-            wx.navigateTo({
-                url: '../good/good?goodId' + options.goodId
-            });
         }
         if (app.globalData.messageUnRead) {
             this.setData({

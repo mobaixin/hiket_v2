@@ -39,6 +39,9 @@ App({
                                 if (that.searchRecommendCallback) {
                                     that.searchRecommendCallback();
                                 }
+                                if (that.gotoGoodCallback) {
+                                    that.gotoGoodCallback();
+                                }
                                 if (res.data.data.role && res.data.data.role != 0) {
                                     that.globalData.studentInfo = res.data.data;
                                     that.globalData.userInfo = res.data.data;
