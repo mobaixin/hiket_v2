@@ -55,23 +55,11 @@
     <template is="img_col" data="{{col1,col2,Loading}}"></template>
     <!--两栏展示商品-->
 
-    <!--<view style="background-color:#fff;padding:15rpx 0rpx">-->
-        <!--显示分类-->
-        <!--<view style="width:720rpx;margin:10rpx 15rpx 7.5rpx 15rpx;display:flex">-->
-            <!--<template wx:for="{{sections1}}" wx:key="idx" is="index_sections"-->
-                      <!--data="{{item}}"></template>-->
-        <!--</view>-->
-        <!--<view style="width:720rpx;margin:7.5rpx 15rpx 5rpx 15rpx;display:flex">-->
-            <!--<template wx:for="{{sections2}}" wx:key="idx" is="index_sections"-->
-                      <!--data="{{item}}"></template>-->
-        <!--</view>-->
-        <!--显示分类-->
         <view bindtap='bindRecommend' class="recommend">
             <text class="recommend_text">今日推荐</text>
             <view class="mine_arrow"></view>
             <view class="mine_arrow" style='margin-right:40rpx'></view>
         </view>
-    <!--</view>-->
     <tabbar tabbar="{{tabbar}}"></tabbar>
 </view>
 <modal title="提示" hidden="{{modalHidden}}" confirm-text="前往认证"

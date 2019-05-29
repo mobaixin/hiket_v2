@@ -24,38 +24,6 @@ Page({
             [ "耳机", "键盘", "体育装备", "运动器械", "智能设备", "健身卡", "音响","其它"],
             [ "膨化食品", "咖啡", "坚果类", "奶制品", "饮料", "速食品", "水果","其它"]
         ],
-        sections1: [{
-            url: "../../images/index/s_1.png",
-            title: "学习用品",
-            idx: 0
-        },
-            {
-                url: "../../images/index/s_2.png",
-                title: "动植物",
-                idx: 1
-            },
-            {
-                url: "../../images/index/s_3.png",
-                title: "生活美妆",
-                idx: 2
-            },
-        ],
-        sections2: [{
-            url: "../../images/index/s_4.png",
-            title: "吃喝玩乐",
-            idx: 3
-        },
-            {
-                url: "../../images/index/s_5.png",
-                title: "电子设备",
-                idx: 4
-            },
-            {
-                url: "../../images/index/s_6.png",
-                title: "时尚穿搭",
-                idx: 5
-            },
-        ]
     },
     load: function () {
         let that = this;
