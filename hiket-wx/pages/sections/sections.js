@@ -3,19 +3,10 @@ const app = getApp();
 
 Page({
     data: {
-        sections: ["学习用品", "动植物", "生活美妆", "吃喝玩乐", "电子设备", "时尚穿搭"],
-        Loading: true, //是否加载
-        beginIndex: 0,
-        numberIndex: 20, //每次加载的数据量
-        sectionId: -1,
-        recommend: false,
-        favorite: false,
-        my: false,
-        searchValue: null,
-        hideSearch: false,
+        Loading: false, //是否加载
         goods: [],
-        col1: [],
-        col2: [],
+        favorite: false,
+        my: false
     },
     onLoad: function (options) {
         if (app.globalData.userInfo) {
@@ -23,25 +14,27 @@ Page({
                 userInfo: app.globalData.userInfo,
                 hasUserInfo: true
             })
+        }else {
+            app.userInfoReadyCallback = res => {
+                this.setData({
+                    userInfo: res.userInfo,
+                    hasUserInfo: true
+                })
+            };
         }
         if (app.globalData.studentInfo) {
             this.setData({
                 studentInfo: app.globalData.studentInfo,
                 hasStudentInfo: true
             })
+        }else {
+            app.studentInfoReadyCallback = studentInfo => {
+                this.setData({
+                    studentInfo: studentInfo,
+                    hasStudentInfo: true,
+                })
+            };
         }
-        app.userInfoReadyCallback = res => {
-            this.setData({
-                userInfo: res.userInfo,
-                hasUserInfo: true
-            })
-        };
-        app.studentInfoReadyCallback = studentInfo => {
-            this.setData({
-                studentInfo: studentInfo,
-                hasStudentInfo: true,
-            })
-        };
         // 选择类别
         // 今日推荐
         // 我的收藏

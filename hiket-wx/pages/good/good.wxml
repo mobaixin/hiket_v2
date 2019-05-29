@@ -22,7 +22,7 @@
                 <text class="item_price_before">￥{{goodInfo.oldPrice}}</text>
             </view>
             <view class="cell_flex" style="justify-content:center">
-                <block wx:for="{{goodInfo.uploadImagePathList}}">
+                <block wx:for="{{goodInfo.uploadImagePathList}}" wx:key="{{index}}">
                     <view class="dot{{index==swiperCurrent?' active':''}}"></view>
                 </block>
             </view>

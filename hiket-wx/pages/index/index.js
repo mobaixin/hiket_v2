@@ -140,6 +140,22 @@ Page({
                 'tabbar.list[2].selectedIconPath': 'icon/mine_selected.png'
             })
         }
+        let that = this;
+        wx.getStorage({
+            key: 'good',
+            success: function (res) {
+                console.log(res);
+                let goodInfo = res.data.goodInfo;
+                let index = res.data.index;
+                let change = res.data.change;
+                if (change) {
+                    that.data.goods[index] = goodInfo;
+                    that.setData({
+                        goods: that.data.goods,
+                    });
+                }
+            }
+        })
     },
     onShareAppMessage: function () {
         return app.onShareAppMessage();

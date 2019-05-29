@@ -75,7 +75,7 @@
         <view style='display:flex'>
             <text style='width:150rpx;font-size: 35rpx;font-weight: bold;color:black'>密码：
             </text>
-            <input password="true" name="studentPassword" placeholder="请输入选课系统密码" maxlength='16'
+            <input password="true" name="studentPassword" placeholder="请输入信息门户密码" maxlength='16'
                    bindinput='studentPasswordInput'/>
         </view>
     </view>

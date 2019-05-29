@@ -8,7 +8,6 @@ Page({
         hasUserInfo: false,
         hasStudentInfo: false,
         isHelp: false,
-        col: null,
         index: null,
         goodInfo: {
             sellerOpenId: null,
@@ -66,26 +65,27 @@ Page({
                 userInfo: app.globalData.userInfo,
                 hasUserInfo: true
             })
+        }else {
+            app.userInfoReadyCallback = userInfo => {
+                this.setData({
+                    userInfo: userInfo,
+                    hasUserInfo: true
+                })
+            };
         }
         if (app.globalData.studentInfo) {
             this.setData({
                 studentInfo: app.globalData.studentInfo,
                 hasStudentInfo: true
             })
+        }else{
+            app.studentInfoReadyCallback = studentInfo => {
+                this.setData({
+                    studentInfo: studentInfo,
+                    hasStudentInfo: true,
+                })
+            };
         }
-        app.userInfoReadyCallback = userInfo => {
-            this.setData({
-                userInfo: userInfo,
-                hasUserInfo: true
-            })
-        };
-        app.studentInfoReadyCallback = studentInfo => {
-            this.setData({
-                studentInfo: studentInfo,
-                hasStudentInfo: true,
-            })
-        };
-        this.data.goodInfo.sellerOpenId = app.globalData.openId;
         let that = this;
         wx.showLoading({
             title: '加载中',
@@ -99,7 +99,6 @@ Page({
                 key: 'good',
                 success: function (res) {
                     that.setData({
-                        col: res.data.col,
                         index: res.data.index,
                         goodInfo: res.data.goodInfo,
                         sectionId: res.data.goodInfo.section
@@ -352,6 +351,7 @@ Page({
             });
             return
         }
+        this.data.goodInfo.sellerOpenId = app.globalData.openId;
         // 金额，联系方式输入验证正则表达式
         let priceReg = /(^[1-9]([0-9]+)?(\.[0-9]{1,2})?$)|(^(0){1}$)|(^[0-9]\.[0-9]([0-9])?$)/;
         let phoneNumberReg = /^([1](([3][0-9])|([4][5-9])|([5][0-3,5-9])|([6][5,6])|([7][0-8])|([8][0-9])|([9][1,8,9]))[0-9]{8})$/;

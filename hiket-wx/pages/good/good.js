@@ -5,7 +5,6 @@ Page({
     data: {
         rewardLabel: '答谢：',
         goodInfo: null,
-        col: null,
         index: null,
         swiperCurrent: 0,
         userInfo: null,
@@ -84,8 +83,19 @@ Page({
             method: 'POST',
             success: function (res) {
                 console.log(res);
+                that.changeGood();
             }
         });
+    },
+    changeGood: function () {
+        wx.setStorage({
+            key: 'good',
+            data:{
+                goodInfo: this.data.goodInfo,
+                index: this.data.index,
+                change: true
+            }
+        })
     },
     getGoodInfoFromServer: function (goodId) {
         let that = this;
@@ -179,7 +189,8 @@ Page({
                             that.data.goodInfo.myFavorite = true;
                             that.setData({
                                 goodInfo: that.data.goodInfo
-                            })
+                            });
+                            that.changeGood();
                         } else {
                             wx.showToast({
                                 title: '收藏失败',
@@ -214,7 +225,8 @@ Page({
                             that.data.goodInfo.myFavorite = false;
                             that.setData({
                                 goodInfo: that.data.goodInfo
-                            })
+                            });
+                            that.changeGood();
                         } else {
                             wx.showToast({
                                 title: '取消失败',
@@ -319,13 +331,6 @@ Page({
         })
     },
     bindEdit: function () {
-        wx.setStorage({
-            key: "good",
-            data: {
-                index: this.data.index,
-                goodInfo: this.data.goodInfo
-            }
-        });
         wx.redirectTo({
             url: '../release/release?edit=true',
         })
@@ -407,21 +412,14 @@ Page({
             success: function (res) {
                 console.log(res);
                 if (res.data.success) {
+                    wx.showToast({
+                        title: '操作成功',
+                    });
                     that.data.goodInfo.state = newState;
                     that.setData({
                         goodInfo: that.data.goodInfo
                     });
-                    wx.setStorage({
-                        key: "good",
-                        data: {
-                            goodInfo: that.data.goodInfo,
-                            index: that.data.index,
-                            change: true
-                        }
-                    });
-                    wx.showToast({
-                        title: '操作成功',
-                    })
+                    that.changeGood();
                 } else {
                     wx.showToast({
                         title: '操作失败',
