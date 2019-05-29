@@ -178,7 +178,7 @@ Page({
             },
             fail: function () {
                 wx.showToast({
-                    title: "服务器错误",
+                    title: "服务器维护中",
                     icon: 'none'
                 })
             }
@@ -249,7 +249,7 @@ Page({
                     },
                     fail: function () {
                         wx.showToast({
-                            title: '服务器错误',
+                            title: '服务器维护中',
                             icon: 'none'
                         })
                     }
@@ -317,7 +317,7 @@ Page({
             },
             fail: function () {
                 wx.showToast({
-                    title: '服务器错误',
+                    title: '服务器维护中',
                     icon: 'none'
                 })
             }

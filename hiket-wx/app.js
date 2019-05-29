@@ -1,6 +1,6 @@
 //app.js
-// const serverUrl = "http://localhost:8080";
-const serverUrl = "https://www.werehunter.com";
+const serverUrl = "http://localhost:8080";
+// const serverUrl = "https://www.werehunter.com";
 
 
 App({
@@ -63,7 +63,7 @@ App({
                         fail: function () {
                             wx.hideLoading();
                             wx.showToast({
-                                title: '服务器错误',
+                                title: '服务器维护中',
                                 icon: 'none'
                             })
                         }
@@ -123,7 +123,7 @@ App({
             },
             fail: function () {
                 wx.showToast({
-                    title: '服务器错误',
+                    title: '服务器维护中',
                     icon: 'none'
                 })
             }

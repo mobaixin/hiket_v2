@@ -155,10 +155,11 @@ Page({
         search.beginIndex = this.data.goods.length;
         this.searchGoods(search, true);
     },
-    bindTab: function (e) {
-        let current = e.target.dataset.current;
+    bindTopTab: function (e) {
+        let current = e.currentTarget.dataset.current;
         this.setData({
-            currentTab: current
+            currentTab: current,
+            searchValue: null
         });
         if (this.data.currentTab == -1) {
             this.searchRecommend();
@@ -166,6 +167,13 @@ Page({
             let search = this.getSearch();
             this.searchGoods(search, false);
         }
+    },
+    bindTag: function (e) {
+        let pattern = e.currentTarget.dataset.pattern;
+        this.setData({
+            searchValue: pattern
+        });
+        this.bindSearch();
     },
     modalBindConfirm: function () {
         this.setData({
@@ -183,7 +191,6 @@ Page({
             modalHidden: true,
         })
     },
-
 // 搜索
     searchRecommend: function () {
         let search = this.getSearch();
@@ -235,7 +242,7 @@ Page({
             },
             fail: function () {
                 wx.showToast({
-                    title: '服务器错误',
+                    title: '服务器维护中',
                     icon: 'none'
                 });
                 that.setData({
@@ -266,6 +273,7 @@ Page({
         })
     },
     bindSearch: function () {
-        this.searchGoods(this.data.sectionId, this.data.searchValue, 0, this.data.numberIndex, false)
+        let search = this.getSearch();
+        this.searchGoods(search, false);
     },
 });

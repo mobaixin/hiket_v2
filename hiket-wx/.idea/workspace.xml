@@ -1,59 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eb749d0b-4455-4b60-9c80-81865131d3d7" name="Default Changelist" comment="img_col display">
+    <list default="true" id="eb749d0b-4455-4b60-9c80-81865131d3d7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/index/tag/上衣.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/index/tag/上衣.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/index/tag/个人洗护.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/index/tag/个人洗护.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/index/tag/体育装备.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/index/tag/体育装备.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/index/tag/健身卡.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/index/tag/健身卡.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/index/tag/其它.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/index/tag/其它.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/index/tag/养生保健.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/index/tag/养生保健.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/index/tag/包包.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/index/tag/包包.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/index/tag/口红专区.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/index/tag/口红专区.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/index/tag/咖啡.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/index/tag/咖啡.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/index/tag/坚果类.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/index/tag/坚果类.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/index/tag/奶制品.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/index/tag/奶制品.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/index/tag/宿舍好物.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/index/tag/宿舍好物.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/index/tag/小家电.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/index/tag/小家电.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/index/tag/工具书.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/index/tag/工具书.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/index/tag/帽子.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/index/tag/帽子.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/index/tag/彩妆.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/index/tag/彩妆.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/index/tag/托福GRE.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/index/tag/托福GRE.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/index/tag/收纳储藏.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/index/tag/收纳储藏.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/index/tag/教材.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/index/tag/教材.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/index/tag/文学.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/index/tag/文学.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/index/tag/日用品.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/index/tag/日用品.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/index/tag/智能设备.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/index/tag/智能设备.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/index/tag/桌椅.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/index/tag/桌椅.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/index/tag/水果.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/index/tag/水果.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/index/tag/玩偶.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/index/tag/玩偶.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/index/tag/美妆工具.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/index/tag/美妆工具.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/index/tag/考研.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/index/tag/考研.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/index/tag/考证系列.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/index/tag/考证系列.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/index/tag/耳机.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/index/tag/耳机.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/index/tag/膨化食品.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/index/tag/膨化食品.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/index/tag/裙子.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/index/tag/裙子.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/index/tag/裤子.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/index/tag/裤子.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/index/tag/运动器械.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/index/tag/运动器械.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/index/tag/速食品.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/index/tag/速食品.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/index/tag/键盘.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/index/tag/键盘.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/index/tag/防晒.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/index/tag/防晒.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/index/tag/雅思.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/index/tag/雅思.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/index/tag/面膜.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/index/tag/面膜.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/index/tag/鞋.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/index/tag/鞋.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/index/tag/音响.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/index/tag/音响.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/index/tag/饮料.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/index/tag/饮料.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/index/tag/饰品.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/index/tag/饰品.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/index/tag/香水.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/index/tag/香水.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/good/good.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/good/good.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/good/good.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/pages/good/good.wxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/index/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/index/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index/index.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index/index.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index/index.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/mine/mine.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/pages/mine/mine.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/template/img_col/img_col.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/template/img_col/img_col.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hiket/src/main/resources/mapper/GoodMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hiket/src/main/resources/mapper/GoodMapper.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -75,7 +29,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="21" />
+          <entry key="HTML" value="23" />
           <entry key="JAVA" value="1" />
           <entry key="JSON" value="6" />
           <entry key="JavaScript" value="16" />
@@ -84,10 +38,10 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="1512" />
+          <entry key="HTML" value="1648" />
           <entry key="JSON" value="21" />
-          <entry key="JavaScript" value="2838" />
-          <entry key="PLAIN_TEXT" value="192" />
+          <entry key="JavaScript" value="3013" />
+          <entry key="PLAIN_TEXT" value="221" />
           <entry key="Wxss" value="175" />
         </counts>
       </usages-collector>
@@ -101,8 +55,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/index/index.wxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="596">
-              <caret line="77" column="14" selection-start-line="77" selection-start-column="14" selection-end-line="77" selection-end-column="14" />
+            <state relative-caret-position="-323">
+              <caret line="61" column="90" selection-start-line="61" selection-start-column="90" selection-end-line="61" selection-end-column="90" />
               <folding>
                 <element signature="n#style#0;n#image#0;n#swiper-item#0;n#block#0;n#swiper#0;n#view#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#view#3;n#view#0;n#!!top" expanded="true" />
@@ -121,55 +75,33 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/template/img_col/img_col.wxml">
+        <entry file="file://$PROJECT_DIR$/pages/index/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-697">
-              <caret line="17" column="45" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="45" />
+            <state relative-caret-position="2054">
+              <caret line="276" column="12" selection-start-line="276" selection-start-column="12" selection-end-line="276" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/good/good.wxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-4201">
+              <caret line="10" column="38" lean-forward="true" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
               <folding>
-                <element signature="n#style#0;n#text#0;n#view#0;n#view#0;n#view#0;n#view#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#image#0;n#view#0;n#view#0;n#view#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#text#1;n#view#1;n#view#0;n#view#0;n#view#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#text#2;n#view#1;n#view#0;n#view#0;n#view#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#text#3;n#view#1;n#view#0;n#view#0;n#view#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#text#4;n#view#1;n#view#0;n#view#0;n#view#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#text#5;n#view#1;n#view#0;n#view#0;n#view#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#text#0;n#view#0;n#view#0;n#view#1;n#view#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#text#0;n#view#1;n#view#0;n#view#1;n#view#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#text#1;n#view#1;n#view#0;n#view#1;n#view#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#text#2;n#view#1;n#view#0;n#view#1;n#view#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#text#3;n#view#1;n#view#0;n#view#1;n#view#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#text#4;n#view#1;n#view#0;n#view#1;n#view#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#text#5;n#view#1;n#view#0;n#view#1;n#view#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#view#2;n#view#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#view#3;n#view#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#image#0;n#swiper-item#0;n#block#0;n#swiper#0;n#view#0;n#view#0;n#view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#view#2;n#view#0;n#view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#text#0;n#view#2;n#view#0;n#view#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pages/index/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="147" column="20" lean-forward="true" selection-start-line="147" selection-start-column="20" selection-end-line="147" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/index/index.wxss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/good/good.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="130" column="21" selection-start-line="130" selection-start-column="21" selection-end-line="130" selection-end-column="21" />
+            <state relative-caret-position="181">
+              <caret line="336" column="14" selection-start-line="336" selection-start-column="14" selection-end-line="336" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -177,8 +109,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="1" column="32" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="32" />
+            <state relative-caret-position="-7888">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
@@ -220,7 +152,6 @@
         <option value="$PROJECT_DIR$/pages/sections/sections.wxss" />
         <option value="$PROJECT_DIR$/app.wxss" />
         <option value="$PROJECT_DIR$/app.json" />
-        <option value="$PROJECT_DIR$/pages/good/good.wxml" />
         <option value="$PROJECT_DIR$/pages/release/release.wxml" />
         <option value="$PROJECT_DIR$/pages/release/release.js" />
         <option value="$PROJECT_DIR$/pages/sections/sections.js" />
@@ -229,10 +160,11 @@
         <option value="$PROJECT_DIR$/pages/index/index.wxss" />
         <option value="$PROJECT_DIR$/pages/mine/mine.wxss" />
         <option value="$PROJECT_DIR$/template/img_col/img_col.wxml" />
-        <option value="$PROJECT_DIR$/pages/good/good.js" />
-        <option value="$PROJECT_DIR$/pages/index/index.wxml" />
         <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/pages/index/index.wxml" />
         <option value="$PROJECT_DIR$/pages/index/index.js" />
+        <option value="$PROJECT_DIR$/pages/good/good.wxml" />
+        <option value="$PROJECT_DIR$/pages/good/good.js" />
       </list>
     </option>
   </component>
@@ -324,7 +256,7 @@
     <property name="GO_FMT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559106370347" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559115139392" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -358,7 +290,7 @@
       <workItem from="1559008986250" duration="3574000" />
       <workItem from="1559022647141" duration="2000" />
       <workItem from="1559038127434" duration="15125000" />
-      <workItem from="1559095157002" duration="7828000" />
+      <workItem from="1559095157002" duration="9334000" />
     </task>
     <task id="LOCAL-00001" summary="contact and good storage refresh">
       <created>1559011433088</created>
@@ -402,18 +334,25 @@
       <option name="project" value="LOCAL" />
       <updated>1559104067917</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="pull down and reach bottom">
+      <created>1559106433782</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1559106433782</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26529000" />
+    <option name="totallyTimeSpent" value="28035000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.58787876" visible="true" weight="0.16544567" />
-      <window_info id="Structure" order="1" sideWeight="0.4121212" side_tool="true" visible="true" weight="0.16544567" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.58787876" visible="true" weight="0.16544567" />
+      <window_info active="true" id="Structure" order="1" sideWeight="0.4121212" side_tool="true" visible="true" weight="0.16544567" />
       <window_info id="Image Layers" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" sideWeight="0.50236404" side_tool="true" weight="0.24969475" />
@@ -492,7 +431,8 @@
     <MESSAGE value="index wxml finished" />
     <MESSAGE value="delete sections" />
     <MESSAGE value="img_col display" />
-    <option name="LAST_COMMIT_MESSAGE" value="img_col display" />
+    <MESSAGE value="pull down and reach bottom" />
+    <option name="LAST_COMMIT_MESSAGE" value="pull down and reach bottom" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/pages/mine/mine.js">
@@ -512,17 +452,6 @@
     <entry file="file://$PROJECT_DIR$/component/tabbar/tabbar.wxss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-665" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/good/good.wxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-295">
-          <caret line="36" column="27" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
-          <folding>
-            <element signature="n#style#0;n#view#2;n#view#0;n#view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#text#0;n#view#2;n#view#0;n#view#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.wxss">
@@ -597,42 +526,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/sections/sections.js">
+    <entry file="file://$PROJECT_DIR$/pages/index/index.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/index/index.wxss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="562">
-          <caret line="132" column="6" selection-start-line="132" selection-start-column="6" selection-end-line="132" selection-end-column="6" />
+        <state relative-caret-position="456">
+          <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template/img_col/img_col.wxml">
+    <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-697">
-          <caret line="17" column="45" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="45" />
-          <folding>
-            <element signature="n#style#0;n#text#0;n#view#0;n#view#0;n#view#0;n#view#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#image#0;n#view#0;n#view#0;n#view#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#text#1;n#view#1;n#view#0;n#view#0;n#view#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#text#2;n#view#1;n#view#0;n#view#0;n#view#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#text#3;n#view#1;n#view#0;n#view#0;n#view#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#text#4;n#view#1;n#view#0;n#view#0;n#view#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#text#5;n#view#1;n#view#0;n#view#0;n#view#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#text#0;n#view#0;n#view#0;n#view#1;n#view#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#text#0;n#view#1;n#view#0;n#view#1;n#view#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#text#1;n#view#1;n#view#0;n#view#1;n#view#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#text#2;n#view#1;n#view#0;n#view#1;n#view#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#text#3;n#view#1;n#view#0;n#view#1;n#view#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#text#4;n#view#1;n#view#0;n#view#1;n#view#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#text#5;n#view#1;n#view#0;n#view#1;n#view#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#view#2;n#view#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#view#3;n#view#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="-7888">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/index/index.wxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="596">
-          <caret line="77" column="14" selection-start-line="77" selection-start-column="14" selection-end-line="77" selection-end-column="14" />
+        <state relative-caret-position="-323">
+          <caret line="61" column="90" selection-start-line="61" selection-start-column="90" selection-end-line="61" selection-end-column="90" />
           <folding>
             <element signature="n#style#0;n#image#0;n#swiper-item#0;n#block#0;n#swiper#0;n#view#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#view#3;n#view#0;n#!!top" expanded="true" />
@@ -649,34 +563,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/index/index.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
+    <entry file="file://$PROJECT_DIR$/pages/sections/sections.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="1" column="32" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="32" />
+        <state relative-caret-position="562">
+          <caret line="132" column="6" selection-start-line="132" selection-start-column="6" selection-end-line="132" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/good/good.js">
+    <entry file="file://$PROJECT_DIR$/template/img_col/img_col.wxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="130" column="21" selection-start-line="130" selection-start-column="21" selection-end-line="130" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/index/index.wxss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+        <state relative-caret-position="1460">
+          <caret line="38" column="14" selection-start-line="38" selection-start-column="14" selection-end-line="38" selection-end-column="14" />
+          <folding>
+            <element signature="n#style#0;n#text#0;n#view#0;n#view#0;n#view#0;n#view#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#image#0;n#view#0;n#view#0;n#view#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#1;n#view#1;n#view#0;n#view#0;n#view#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#2;n#view#1;n#view#0;n#view#0;n#view#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#3;n#view#1;n#view#0;n#view#0;n#view#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#4;n#view#1;n#view#0;n#view#0;n#view#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#5;n#view#1;n#view#0;n#view#0;n#view#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#0;n#view#0;n#view#0;n#view#1;n#view#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#image#0;n#view#0;n#view#1;n#view#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#0;n#view#1;n#view#0;n#view#1;n#view#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#1;n#view#1;n#view#0;n#view#1;n#view#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#2;n#view#1;n#view#0;n#view#1;n#view#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#3;n#view#1;n#view#0;n#view#1;n#view#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#4;n#view#1;n#view#0;n#view#1;n#view#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#5;n#view#1;n#view#0;n#view#1;n#view#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#view#2;n#view#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#view#3;n#view#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/index/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="147" column="20" lean-forward="true" selection-start-line="147" selection-start-column="20" selection-end-line="147" selection-end-column="20" />
+        <state relative-caret-position="2054">
+          <caret line="276" column="12" selection-start-line="276" selection-start-column="12" selection-end-line="276" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/good/good.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4201">
+          <caret line="10" column="38" lean-forward="true" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+          <folding>
+            <element signature="n#style#0;n#image#0;n#swiper-item#0;n#block#0;n#swiper#0;n#view#0;n#view#0;n#view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#view#2;n#view#0;n#view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#0;n#view#2;n#view#0;n#view#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/good/good.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="336" column="14" selection-start-line="336" selection-start-column="14" selection-end-line="336" selection-end-column="14" />
         </state>
       </provider>
     </entry>

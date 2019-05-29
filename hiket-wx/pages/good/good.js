@@ -27,25 +27,27 @@ Page({
                 userInfo: app.globalData.userInfo,
                 hasUserInfo: true
             })
+        }else {
+            app.userInfoReadyCallback = res => {
+                this.setData({
+                    userInfo: res.userInfo,
+                    hasUserInfo: true
+                })
+            };
         }
         if (app.globalData.studentInfo) {
             this.setData({
                 studentInfo: app.globalData.studentInfo,
                 hasStudentInfo: true
             })
+        }else {
+            app.studentInfoReadyCallback = studentInfo => {
+                this.setData({
+                    studentInfo: studentInfo,
+                    hasStudentInfo: true,
+                })
+            };
         }
-        app.userInfoReadyCallback = res => {
-            this.setData({
-                userInfo: res.userInfo,
-                hasUserInfo: true
-            })
-        };
-        app.studentInfoReadyCallback = studentInfo => {
-            this.setData({
-                studentInfo: studentInfo,
-                hasStudentInfo: true,
-            })
-        };
         if (options.goodId) {
             this.getGoodInfoFromServer(options.goodId);
         } else {
@@ -119,7 +121,7 @@ Page({
             fail: function () {
                 wx.hideLoading();
                 wx.showToast({
-                    title: '服务器错误',
+                    title: '服务器维护中',
                     icon: 'none'
                 })
             }
@@ -187,7 +189,7 @@ Page({
                     },
                     fail: function () {
                         wx.showToast({
-                            title: '服务器错误',
+                            title: '服务器维护中',
                             icon: 'none'
                         })
                     }
@@ -222,7 +224,7 @@ Page({
                     },
                     fail: function () {
                         wx.showToast({
-                            title: '服务器错误',
+                            title: '服务器维护中',
                             icon: 'none'
                         })
                     }
@@ -320,7 +322,6 @@ Page({
         wx.setStorage({
             key: "good",
             data: {
-                col: this.data.col,
                 index: this.data.index,
                 goodInfo: this.data.goodInfo
             }
@@ -331,23 +332,9 @@ Page({
     },
     bindReport: function () {
         if (!this.data.hasUserInfo || !this.data.hasStudentInfo) {
-            let that = this;
-            wx.showModal({
-                title: '提示',
-                content: '系统检测到你未进行认证',
-                cancelText: '取消',
-                confirmText: '前往认证',
-                success: function (res) {
-                    if (res.confirm) {
-                        if (that.data.hasUserInfo) {
-                            app.globalData.studentRegister = true;
-                        }
-                        wx.switchTab({
-                            url: '../mine/mine'
-                        })
-                    }
-                }
-            });
+            this.setData({
+                modalHidden: false
+            })
         } else {
             let that = this;
             wx.showModal({
@@ -428,7 +415,6 @@ Page({
                         key: "good",
                         data: {
                             goodInfo: that.data.goodInfo,
-                            col: that.data.col,
                             index: that.data.index,
                             change: true
                         }
@@ -445,7 +431,7 @@ Page({
             },
             fail: function () {
                 wx.showToast({
-                    title: '服务器错误',
+                    title: '服务器维护中',
                     icon: 'none'
                 })
             }
