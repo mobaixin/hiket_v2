@@ -1,6 +1,7 @@
 package cn.hope.hiket.service;
 
 import cn.hope.hiket.entity.Good;
+import cn.hope.hiket.entity.Search;
 
 import java.util.List;
 
@@ -9,7 +10,7 @@ public interface GoodService {
 
     Good releaseGood(Good good);
 
-    List<Good> searchActiveGood(String openId,Integer section, String title,Integer beginIndex,Integer numberIndex);
+    List<Good> searchActiveGood(Search search);
 
     boolean favoriteGood(String openId,Long goodId);
 

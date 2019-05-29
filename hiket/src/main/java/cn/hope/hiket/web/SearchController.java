@@ -24,16 +24,24 @@ public class SearchController {
     @Autowired
     Constants constants;
 
+//    @PostMapping("/searchActiveGood")
+//    public ResponseResult searchActiveGood(@RequestBody Search search) {
+//        LOG.info("openId=" + search.getOpenId() + ": search active good with search: " + search);
+//        List<Good> list = goodService.searchActiveGood(
+//                search.getOpenId(),
+//                search.getSection(),
+//                search.getTitle(),
+//                search.getBeginIndex(),
+//                search.getNumberIndex()
+//        );
+//        LOG.info("openId=" + search.getOpenId() + ": search active good with search: " + search + ", success with: " + list);
+//        return  FormatResponseUtil.success(list);
+//    }
+
     @PostMapping("/searchActiveGood")
     public ResponseResult searchActiveGood(@RequestBody Search search) {
         LOG.info("openId=" + search.getOpenId() + ": search active good with search: " + search);
-        List<Good> list = goodService.searchActiveGood(
-                search.getOpenId(),
-                search.getSection(),
-                search.getTitle(),
-                search.getBeginIndex(),
-                search.getNumberIndex()
-        );
+        List<Good> list = goodService.searchActiveGood(search);
         LOG.info("openId=" + search.getOpenId() + ": search active good with search: " + search + ", success with: " + list);
         return  FormatResponseUtil.success(list);
     }

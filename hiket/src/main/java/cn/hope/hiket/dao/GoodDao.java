@@ -1,6 +1,7 @@
 package cn.hope.hiket.dao;
 
 import cn.hope.hiket.entity.Good;
+import cn.hope.hiket.entity.Search;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -14,7 +15,7 @@ public interface GoodDao {
 
     int deleteUploadImagePath(Long goodId);
 
-    List<Good> selectActiveGood(@Param("section") Integer section, @Param("title") String title, @Param("beginIndex") Integer beginIndex, @Param("numberIndex") Integer numberIndex);
+    List<Good> selectActiveGood(Search search);
 
     List<String> selectUploadImagePathByGoodId(Long goodId);
 

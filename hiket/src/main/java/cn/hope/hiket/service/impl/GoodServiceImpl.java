@@ -2,6 +2,7 @@ package cn.hope.hiket.service.impl;
 
 import cn.hope.hiket.dao.GoodDao;
 import cn.hope.hiket.entity.Good;
+import cn.hope.hiket.entity.Search;
 import cn.hope.hiket.service.GoodService;
 import cn.hope.hiket.utils.CommonUtil;
 import cn.hope.hiket.utils.TimeUtil;
@@ -53,10 +54,14 @@ public class GoodServiceImpl implements GoodService {
     }
 
     @Override
-    public List<Good> searchActiveGood(String openId, Integer section, String title, Integer beginIndex, Integer numberIndex) {
-        List<Good> goodList = goodDao.selectActiveGood(section, title, beginIndex, numberIndex);
-        fillGood(openId, goodList);
-        return goodList;
+    public List<Good> searchActiveGood(Search search) {
+        if (CommonUtil.notUndefined(search.getOpenId())) {
+            List<Good> goodList = goodDao.selectActiveGood(search);
+            fillGood(search.getOpenId(), goodList);
+            return goodList;
+        }else {
+            throw new RuntimeException("获取 OpenId 失败");
+        }
     }
 
     private void fillGood(String openId, Good good) {

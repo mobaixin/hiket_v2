@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eb749d0b-4455-4b60-9c80-81865131d3d7" name="Default Changelist" comment="">
+    <list default="true" id="eb749d0b-4455-4b60-9c80-81865131d3d7" name="Default Changelist" comment="index wxml finished">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/release/release.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/release/release.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/release/release.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/pages/release/release.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hiket/create.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../hiket/create.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hiket/src/main/java/cn/hope/hiket/entity/Good.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hiket/src/main/java/cn/hope/hiket/entity/Good.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hiket/src/main/java/cn/hope/hiket/dao/GoodDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hiket/src/main/java/cn/hope/hiket/dao/GoodDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hiket/src/main/java/cn/hope/hiket/entity/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hiket/src/main/java/cn/hope/hiket/entity/Search.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hiket/src/main/java/cn/hope/hiket/service/GoodService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hiket/src/main/java/cn/hope/hiket/service/GoodService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hiket/src/main/java/cn/hope/hiket/service/impl/GoodServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hiket/src/main/java/cn/hope/hiket/service/impl/GoodServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hiket/src/main/java/cn/hope/hiket/web/BrowseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hiket/src/main/java/cn/hope/hiket/web/BrowseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hiket/src/main/java/cn/hope/hiket/web/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hiket/src/main/java/cn/hope/hiket/web/SearchController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../hiket/src/main/resources/mapper/GoodMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hiket/src/main/resources/mapper/GoodMapper.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,11 +21,12 @@
     <session id="-1437776038">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -54,7 +57,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/index/index.wxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="545">
+            <state relative-caret-position="1710">
               <caret line="45" column="147" selection-start-line="45" selection-start-column="147" selection-end-line="45" selection-end-column="147" />
               <folding>
                 <element signature="n#style#0;n#view#0;n#!!top" expanded="true" />
@@ -67,7 +70,6 @@
                 <element signature="n#style#0;n#view#0;n#view#1;n#view#2;n#view#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#image#0;n#view#0;n#view#1;n#view#2;n#view#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#text#0;n#view#0;n#view#1;n#view#2;n#view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#view#3;n#view#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -76,7 +78,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/index/index.wxss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
+            <state relative-caret-position="1900">
               <caret line="50" column="15" selection-start-line="50" selection-start-column="15" selection-end-line="50" selection-end-column="15" />
             </state>
           </provider>
@@ -85,7 +87,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/index/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
+            <state relative-caret-position="912">
               <caret line="24" column="63" selection-start-line="24" selection-start-column="63" selection-end-line="24" selection-end-column="63" />
             </state>
           </provider>
@@ -94,7 +96,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/release/release.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="490">
+            <state relative-caret-position="778">
               <caret line="348" column="15" selection-start-line="348" selection-start-column="15" selection-end-line="348" selection-end-column="15" />
             </state>
           </provider>
@@ -103,7 +105,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/release/release.wxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
+            <state relative-caret-position="3306">
               <caret line="87" column="73" selection-start-line="87" selection-start-column="73" selection-end-line="87" selection-end-column="73" />
               <folding>
                 <element signature="n#style#0;n#picker#0;n#view#0;n#view#5;n#form#0;n#view#0;n#!!top" expanded="true" />
@@ -125,7 +127,7 @@
         <entry file="file://$PROJECT_DIR$/pages/sections/sections.wxss">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="646">
-              <caret line="17" column="15" lean-forward="true" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="15" />
+              <caret line="17" column="15" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -260,7 +262,7 @@
     <property name="GO_FMT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559055627979" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559055659353" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -293,7 +295,8 @@
       <updated>1559008984391</updated>
       <workItem from="1559008986250" duration="3574000" />
       <workItem from="1559022647141" duration="2000" />
-      <workItem from="1559038127434" duration="15018000" />
+      <workItem from="1559038127434" duration="15125000" />
+      <workItem from="1559095157002" duration="873000" />
     </task>
     <task id="LOCAL-00001" summary="contact and good storage refresh">
       <created>1559011433088</created>
@@ -320,14 +323,14 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18594000" />
+    <option name="totallyTimeSpent" value="19574000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49818182" visible="true" weight="0.16544567" />
-      <window_info active="true" id="Structure" order="1" sideWeight="0.5018182" side_tool="true" visible="true" weight="0.16544567" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4969697" visible="true" weight="0.16544567" />
+      <window_info active="true" id="Structure" order="1" sideWeight="0.5030303" side_tool="true" visible="true" weight="0.16544567" />
       <window_info id="Image Layers" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" sideWeight="0.50236404" side_tool="true" weight="0.24969475" />
@@ -451,12 +454,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="317">
           <caret line="52" column="99" selection-start-line="52" selection-start-column="99" selection-end-line="52" selection-end-column="99" />
-          <folding>
-            <element signature="n#style#0;n#text#0;n#view#1;n#view#0;n#view#0;n#view#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="e#852#858#0" expanded="true" />
-            <element signature="n#style#0;n#text#0;n#view#1;n#view#0;n#view#1;n#view#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="e#2505#2511#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -464,10 +461,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-295">
           <caret line="36" column="27" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
-          <folding>
-            <element signature="n#style#0;n#view#2;n#view#0;n#view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#text#0;n#view#2;n#view#0;n#view#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -492,34 +485,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/index/index.wxss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="50" column="15" selection-start-line="50" selection-start-column="15" selection-end-line="50" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/sections/sections.wxss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="17" column="15" lean-forward="true" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/sections/sections.wxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/index/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="24" column="63" selection-start-line="24" selection-start-column="63" selection-end-line="24" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app.wxss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="724">
@@ -529,7 +494,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/index/index.wxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="545">
+        <state relative-caret-position="1710">
           <caret line="45" column="147" selection-start-line="45" selection-start-column="147" selection-end-line="45" selection-end-column="147" />
           <folding>
             <element signature="n#style#0;n#view#0;n#!!top" expanded="true" />
@@ -542,14 +507,27 @@
             <element signature="n#style#0;n#view#0;n#view#1;n#view#2;n#view#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#image#0;n#view#0;n#view#1;n#view#2;n#view#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#text#0;n#view#0;n#view#1;n#view#2;n#view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#view#3;n#view#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/index/index.wxss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1900">
+          <caret line="50" column="15" selection-start-line="50" selection-start-column="15" selection-end-line="50" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/index/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="912">
+          <caret line="24" column="63" selection-start-line="24" selection-start-column="63" selection-end-line="24" selection-end-column="63" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/release/release.wxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
+        <state relative-caret-position="3306">
           <caret line="87" column="73" selection-start-line="87" selection-start-column="73" selection-end-line="87" selection-end-column="73" />
           <folding>
             <element signature="n#style#0;n#picker#0;n#view#0;n#view#5;n#form#0;n#view#0;n#!!top" expanded="true" />
@@ -557,9 +535,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pages/sections/sections.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/sections/sections.wxss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="17" column="15" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pages/release/release.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
+        <state relative-caret-position="778">
           <caret line="348" column="15" selection-start-line="348" selection-start-column="15" selection-end-line="348" selection-end-column="15" />
         </state>
       </provider>

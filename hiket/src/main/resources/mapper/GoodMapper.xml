@@ -61,19 +61,29 @@
     where good_id=#{goodId}
     </select>
 
-    <select id="selectActiveGood" resultType="good">
+    <select id="selectActiveGood" parameterType="search" resultType="good">
         select good_id, nick_name, gender, avatar_url, campus, college, title, content, phone_number, weixin_number, qq_number, create_time, price, old_price, section, section_tag, else_tag, state, browse_number
         from good_info
         where state = 0
         <if test="section!=null and section!=-1">and section = #{section}</if>
-        <if test="title!=null and title!=''">and (title like "%"#{title}"%" or campus like "%"#{title}"%" or content like "%"#{title}"%")</if>
+        <if test="pattern!=null and pattern!=''">
+            <choose>
+                <when test="pattern=='其它'">and else_tag=1</when>
+                <otherwise>
+                    and (title like "%"#{pattern}"%" or campus like "%"#{pattern}"%" or content like "%"#{pattern}"%" or section_tag like "%"#{pattern}"%")
+                </otherwise>
+            </choose>
+        </if>
         order by
         <choose>
-            <when test="section==-1">
-                rand()
+            <when test="orderByBrowseNumber!=null and orderByBrowseNumber==1">
+                browse_number
+            </when>
+            <when test="orderByCreateTime!=null and orderByCreateTime==1">
+                create_time desc
             </when>
             <otherwise>
-                create_time desc
+                rand()
             </otherwise>
         </choose>
         <if test="beginIndex!=null and beginIndex!=-1 and numberIndex!=null and numberIndex!=-1">limit #{beginIndex},#{numberIndex}</if>
