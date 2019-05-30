@@ -5,11 +5,16 @@ import cn.hope.hiket.entity.User;
 import cn.hope.hiket.service.UserService;
 import cn.hope.hiket.utils.CommonUtil;
 import cn.hope.hiket.utils.NKUUtil;
+import cn.hope.hiket.web.UserController;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserServiceImpl implements UserService {
+    private static final Logger LOG = LoggerFactory.getLogger(UserServiceImpl.class);
+
     @Autowired
     UserDao userDao;
 
@@ -73,8 +78,10 @@ public class UserServiceImpl implements UserService {
 
         String college;
         if (number.length() == 10) {
-            college = NKUUtil.nkuUrpLogin(number, password);
-        }else {
+            LOG.info("sso login");
+            college = NKUUtil.nkuSsoLogin(number, password);
+        } else {
+            LOG.info("eamis login");
             college = NKUUtil.nkuEamisLogin(number, password);
         }
         user.setCollege(college);

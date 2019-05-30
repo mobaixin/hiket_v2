@@ -16,7 +16,7 @@ public class URLFecter {
     public static void ssoLogin(CloseableHttpClient client, Student s) throws Success, PasswordError {
         BufferedReader reader;
         try {
-            CloseableHttpResponse response = HttpUtil.ssoLogin(client, s);
+            CloseableHttpResponse response = HttpUtils.ssoLogin(client, s);
             HttpEntity entity = response.getEntity();
             StringBuffer responseContent = new StringBuffer();
             reader = new BufferedReader(
@@ -39,7 +39,7 @@ public class URLFecter {
     public static void urpLogin(CloseableHttpClient client, Student s) throws PasswordError, Success {
         BufferedReader reader;
         try {
-            CloseableHttpResponse response = HttpUtil.urpLogin(client, s);
+            CloseableHttpResponse response = HttpUtils.urpLogin(client, s);
             HttpEntity entity = response.getEntity();
             reader = new BufferedReader(new InputStreamReader(
                     entity.getContent(), "utf-8"));
@@ -57,7 +57,7 @@ public class URLFecter {
     }
 
     public static void eamisLogin(CloseableHttpClient client, Student s) throws PasswordError, Success {
-        CloseableHttpResponse response = HttpUtil.eamisLogin(client, s);
+        CloseableHttpResponse response = HttpUtils.eamisLogin(client, s);
         int StatusCode = response.getStatusLine().getStatusCode();
 
         if (StatusCode == 200) {
@@ -70,7 +70,7 @@ public class URLFecter {
     }
 
     public static void getStudentInfo(CloseableHttpClient client, Student s) {
-        s.setInfo(HttpUtil.getInfo(client));
+        s.setInfo(HttpUtils.getInfo(client));
     }
 }
 

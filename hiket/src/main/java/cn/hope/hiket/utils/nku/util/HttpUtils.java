@@ -22,7 +22,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HttpUtil {
+public class HttpUtils {
     public static CloseableHttpResponse ssoLogin(CloseableHttpClient client, Student s)  {
         HttpPost httpPost = new HttpPost("https://sso.nankai.edu.cn/sso/checkRole");
         httpPost.addHeader("User-Agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.160 Safari/537.22");

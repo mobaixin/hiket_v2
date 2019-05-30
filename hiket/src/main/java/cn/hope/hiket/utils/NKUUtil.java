@@ -82,6 +82,7 @@ public class NKUUtil {
         try {
             URLFecter.eamisLogin(client, s);
         } catch (Success success) {
+
             URLFecter.getStudentInfo(client, s);
             college = s.getInfo().getFaculty();
             return college;
@@ -112,8 +113,8 @@ public class NKUUtil {
     }
 
     public static String nkuSsoLogin(String number, String password) {
-//        System.setProperty("javax.net.ssl.trustStore", "cn/hope/hiket/utils/nku/util/jssecacerts");
         System.setProperty("javax.net.ssl.trustStore", "/Users/xuanchuanbu/hiket_v2/hiket/src/main/java/cn/hope/hiket/utils/nku/util/jssecacerts");
+//        System.setProperty("javax.net.ssl.trustStore", "/www/web/nk/jssecacerts");
         CloseableHttpClient client = HttpClients.createDefault();
         Student s = new Student();
         s.setNumber(number);
