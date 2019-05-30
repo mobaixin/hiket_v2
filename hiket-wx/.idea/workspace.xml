@@ -4,12 +4,17 @@
     <list default="true" id="eb749d0b-4455-4b60-9c80-81865131d3d7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/mine/mine.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/mine/mine.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/release/release.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/release/release.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hiket/src/main/java/cn/hope/hiket/service/impl/MessageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hiket/src/main/java/cn/hope/hiket/service/impl/MessageServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hiket/src/main/java/cn/hope/hiket/web/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hiket/src/main/java/cn/hope/hiket/web/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hiket/src/main/java/cn/hope/hiket/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hiket/src/main/java/cn/hope/hiket/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hiket/src/main/java/cn/hope/hiket/utils/NKUUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hiket/src/main/java/cn/hope/hiket/utils/NKUUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hiket/src/main/java/cn/hope/hiket/utils/nku/init/Url.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hiket/src/main/java/cn/hope/hiket/utils/nku/init/Url.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hiket/src/main/java/cn/hope/hiket/utils/nku/util/HttpUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hiket/src/main/java/cn/hope/hiket/utils/nku/util/HttpUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hiket/src/main/java/cn/hope/hiket/utils/nku/util/URLFecter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hiket/src/main/java/cn/hope/hiket/utils/nku/util/URLFecter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hiket/src/main/java/cn/hope/hiket/web/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hiket/src/main/java/cn/hope/hiket/web/MessageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../hiket/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../hiket/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hiket/src/main/resources/mapper/MessageMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hiket/src/main/resources/mapper/MessageMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hiket/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hiket/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hiket/src/test/java/cn/hope/hiket/HiketApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hiket/src/test/java/cn/hope/hiket/HiketApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../script/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/../script/nginx.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../script/sftp" beforeDir="false" afterPath="$PROJECT_DIR$/../script/sftp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,9 +30,10 @@
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.20" value="1" />
+          <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="5" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -89,8 +95,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="2" column="49" selection-start-line="2" selection-start-column="49" selection-end-line="2" selection-end-column="49" />
+            <state relative-caret-position="456">
+              <caret line="14" column="13" lean-forward="true" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -205,7 +211,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -282,6 +287,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -325,6 +331,7 @@
       <workItem from="1559038127434" duration="15125000" />
       <workItem from="1559095157002" duration="22115000" />
       <workItem from="1559144752915" duration="7000" />
+      <workItem from="1559199741994" duration="1001000" />
     </task>
     <task id="LOCAL-00001" summary="contact and good storage refresh">
       <created>1559011433088</created>
@@ -414,7 +421,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40823000" />
+    <option name="totallyTimeSpent" value="41824000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -426,10 +433,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
+    <frame x="332" y="23" width="1348" height="939" extended-state="1" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.58666664" visible="true" weight="0.16544567" />
-      <window_info id="Structure" order="1" sideWeight="0.41333333" side_tool="true" visible="true" weight="0.16544567" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5854342" visible="true" weight="0.1653905" />
+      <window_info id="Structure" order="1" sideWeight="0.41456583" side_tool="true" visible="true" weight="0.1653905" />
       <window_info id="Image Layers" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" sideWeight="0.50236404" side_tool="true" weight="0.24969475" />
@@ -444,7 +452,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32959184" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.15816326" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.1570248" />
       <window_info anchor="bottom" id="Messages" order="9" weight="0.32959184" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" />
@@ -701,8 +709,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="2" column="49" selection-start-line="2" selection-start-column="49" selection-end-line="2" selection-end-column="49" />
+        <state relative-caret-position="456">
+          <caret line="14" column="13" lean-forward="true" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>

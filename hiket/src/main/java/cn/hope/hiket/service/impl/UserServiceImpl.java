@@ -75,14 +75,15 @@ public class UserServiceImpl implements UserService {
     private void getStudentInfo(User user) {
         String number = user.getNumber();
         String password = user.getPassword();
-
         String college;
         if (number.length() == 10) {
             LOG.info("sso login");
             college = NKUUtil.nkuSsoLogin(number, password);
+            user.setRole(2);
         } else {
             LOG.info("eamis login");
             college = NKUUtil.nkuEamisLogin(number, password);
+            user.setRole(1);
         }
         user.setCollege(college);
     }

@@ -36,7 +36,7 @@ public class URLFecter {
         }
     }
 
-    public static void urpLogin(CloseableHttpClient client, Student s) throws PasswordError, Success {
+    public static void urpLogin(CloseableHttpClient client, Student s) throws PasswordError, Success, UnknownError {
         BufferedReader reader;
         try {
             CloseableHttpResponse response = HttpUtils.urpLogin(client, s);
@@ -48,7 +48,7 @@ public class URLFecter {
                 throw new Success();
             } else if (result == 13) {
                 throw new PasswordError();
-            } else {
+            }else {
                 throw new RuntimeException("未知错误");
             }
         } catch (IOException e) {
@@ -56,7 +56,7 @@ public class URLFecter {
         }
     }
 
-    public static void eamisLogin(CloseableHttpClient client, Student s) throws PasswordError, Success {
+    public static void eamisLogin(CloseableHttpClient client, Student s) throws PasswordError, Success, UnknownError {
         CloseableHttpResponse response = HttpUtils.eamisLogin(client, s);
         int StatusCode = response.getStatusLine().getStatusCode();
 

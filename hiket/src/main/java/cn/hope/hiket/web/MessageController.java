@@ -1,5 +1,6 @@
 package cn.hope.hiket.web;
 
+import cn.hope.hiket.conf.Constants;
 import cn.hope.hiket.entity.Message;
 import cn.hope.hiket.service.MessageService;
 import cn.hope.hiket.utils.http.FormatResponseUtil;
@@ -7,10 +8,7 @@ import cn.hope.hiket.utils.http.ResponseResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,6 +19,8 @@ public class MessageController {
 
     @Autowired
     MessageService messageService;
+    @Autowired
+    Constants constants;
 
     @PostMapping("/hasUnreadMessage")
     public ResponseResult hasUnReadMessage(String openId) {
@@ -52,5 +52,10 @@ public class MessageController {
         boolean ret = messageService.readAllMessage(openId);
         LOG.info("openId=" + openId + ": read all message, success with: " + ret);
         return FormatResponseUtil.adapter(ret);
+    }
+
+    @GetMapping("/test")
+    public ResponseResult get() {
+        return FormatResponseUtil.success("message success in serverPort: " + constants.getServerPort() + ", serverName: " + constants.getServerName());
     }
 }

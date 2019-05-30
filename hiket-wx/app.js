@@ -1,7 +1,9 @@
 //app.js
- //const serverUrl = "http://localhost:8080";
- //const serverUrl = "http://39.104.108.69:8080";
-const serverUrl = "https://www.werehunter.com";
+//const serverUrl = "http://localhost:8080";
+//const serverUrl = "http://39.104.108.69:8080";
+//const serverUrl = "http://39.106.179.8:8003";
+const serverUrl = "http://118.25.159.178:8005";
+//const serverUrl = "https://www.werehunter.com";
 
 
 App({

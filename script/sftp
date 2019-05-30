@@ -4,11 +4,9 @@ put /Users/xuanchuanbu/Desktop/nginx.conf /etc/nginx
 
 certbot certonly --webroot -w /www/web/nk -d werehunter.com -d www.werehunter.com
 
-put /Users/xuanchuanbu/Desktop/test.jar /www/web/nk/jars
+put /Users/xuanchuanbu/Desktop/caolia.jar /www/web/nk/jars
 
 put /Users/xuanchuanbu/Desktop/jssecacerts /www/web/nk
-
-put /Users/xuanchuanbu/Desktop/bbs.jar /dev
 
 put /Users/xuanchuanbu/Desktop/kill.sh /www/web/nk/jars
 

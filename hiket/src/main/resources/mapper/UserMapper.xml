@@ -20,7 +20,7 @@
         <if test="number!=null">number=#{number},</if>
         <if test="campus!=null">campus=#{campus},</if>
         <if test="college!=null">college=#{college},</if>
-        role=1
+        role=#{role}
         where open_id=#{openId}
     </update>
 

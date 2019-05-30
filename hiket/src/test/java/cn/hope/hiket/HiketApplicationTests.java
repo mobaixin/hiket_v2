@@ -36,8 +36,13 @@ public class HiketApplicationTests {
     }
 
 //    @Test
-//    public void studentErrorTest() {
-//        System.out.println(test.nkuEamisLogin("161260", "11904"));
+//    public void eamisErrorTest0() {
+//        System.out.println(NKUUtil.nkuEamisLogin("16120", "11904"));
+//    }
+//
+//    @Test
+//    public void eamisErrorTest1() {
+//        System.out.println(NKUUtil.nkuEamisLogin("161260", "11904"));
 //    }
 
     @Test
@@ -47,16 +52,16 @@ public class HiketApplicationTests {
 
 //    @Test
 //    public void ssoTest() {
-//        System.out.println(test.nkuSsoLogin("2120182362", "141592"));
+//        System.out.println(NKUUtil.nkuSsoLogin("2120182362", "141592"));
 //    }
 
 //    @Test
 //    public void ssoErrorTest0() {
-//        System.out.println(test.nkuSsoLogin("212018262", "141592"));
+//        System.out.println(NKUUtil.nkuSsoLogin("212018262", "141592"));
 //    }
 //
 //    @Test
 //    public void ssoErrorTest1() {
-//        System.out.println(test.nkuSsoLogin("2120182362", "14192"));
+//        System.out.println(NKUUtil.nkuSsoLogin("2120182362", "14192"));
 //    }
 }
