@@ -1,6 +1,5 @@
 package cn.hope.hiket;
 
-import cn.hope.hiket.utils.NKUUtil;
 import cn.hope.hiket.utils.TimeUtil;
 import cn.hope.hiket.utils.http.ImageUploadUtil;
 import org.junit.Test;
@@ -30,11 +29,11 @@ public class HiketApplicationTests {
         }
     }
 
-    @Test
-    public void eamisTest() {
-        System.out.println(NKUUtil.nkuEamisLogin("1612831", "912161"));
-    }
-
+//    @Test
+//    public void eamisTest() {
+//        System.out.println(NKUUtil.nkuEamisLogin("1612831", "912161"));
+//    }
+//
 //    @Test
 //    public void eamisErrorTest0() {
 //        System.out.println(NKUUtil.nkuEamisLogin("16120", "11904"));
@@ -44,12 +43,12 @@ public class HiketApplicationTests {
 //    public void eamisErrorTest1() {
 //        System.out.println(NKUUtil.nkuEamisLogin("161260", "11904"));
 //    }
-
-    @Test
-    public void urpTest() {
-        System.out.println(NKUUtil.nkuUrpLogin("2120182362", "141592"));
-    }
-
+//
+//    @Test
+//    public void urpTest() {
+//        System.out.println(NKUUtil.nkuUrpLogin("2120182362", "141592"));
+//    }
+//
 //    @Test
 //    public void ssoTest() {
 //        System.out.println(NKUUtil.nkuSsoLogin("2120182362", "141592"));

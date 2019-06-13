@@ -21,7 +21,7 @@ create table `user`(
   `campus` varchar (16),
   `college` varchar (16),
   `create_time` timestamp not null default current_timestamp,
-  `state` int(4) not null default 0 comment '状态'
+  `state` int(4) not null default 0 comment '状态',
   primary key (`open_id`)
 ) ENGINE=InnoDB default CHARset=utf8;
 

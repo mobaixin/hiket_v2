@@ -22,3 +22,10 @@ nohup java -jar tenxun.jar --server.port=8003 &
 nohup java -jar tenxun.jar --server.port=8004 &
 nohup java -jar tenxun.jar --server.port=8005 &
 
+nohup java -jar caolia.jar --server.port=8000 &
+nohup java -jar caolia.jar --server.port=8001 &
+nohup java -jar caolia.jar --server.port=8002 &
+nohup java -jar caolia.jar --server.port=8003 &
+nohup java -jar caolia.jar --server.port=8004 &
+nohup java -jar caolia.jar --server.port=8005 &
+

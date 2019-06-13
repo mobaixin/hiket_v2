@@ -8,6 +8,12 @@
 
 mysql -h rm-hp3cu2bv3w34t7o9iso.mysql.huhehaote.rds.aliyuncs.com -P 3306 -u root -pStation2018
 
+mysql -h 118.25.159.178 -P 3306 -u root -pmypassword
+
+use short_url
+
+select * from links;
+
 ssh root@39.104.108.69
 
 sftp root@39.104.108.69
@@ -16,11 +22,19 @@ ssh root@118.25.159.178
 
 sftp root@118.25.159.178
 
+XIAOxi376181868.?
+
 ssh root@192.168.9.82
 
 sftp root@192.168.9.82
 
 XCB#519519519
+
+ssh root@39.106.179.8
+
+sftp root@39.106.179.8
+
+251397_cl
 
 shiwenxuan2003@aliyun.com/station307
 

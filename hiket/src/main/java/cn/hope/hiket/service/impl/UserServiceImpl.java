@@ -76,14 +76,18 @@ public class UserServiceImpl implements UserService {
         String number = user.getNumber();
         String password = user.getPassword();
         String college;
-        if (number.length() == 10) {
+        if (number.length() == 10&&number.startsWith("2120")) {
             LOG.info("sso login");
-            college = NKUUtil.nkuSsoLogin(number, password);
+//            college = NKUUtil.nkuSsoLogin(number, password);
+            college = "研究生";
             user.setRole(2);
-        } else {
+        } else if (number.length() == 7) {
             LOG.info("eamis login");
-            college = NKUUtil.nkuEamisLogin(number, password);
+//            college = NKUUtil.nkuEamisLogin(number, password);
+            college = "本科生";
             user.setRole(1);
+        } else {
+            throw new RuntimeException("学号或密码错误");
         }
         user.setCollege(college);
     }

@@ -60,14 +60,6 @@ public class UserController {
         return FormatResponseUtil.adapter("学生认证成功", user, ret);
     }
 
-    @PostMapping("/graduateRegister")
-    public ResponseResult graduateRegister(@RequestBody User user) {
-        LOG.info("openId=" + user.getOpenId() + ": student register with user: " + user);
-        boolean ret = userService.studentRegister(user);
-        LOG.info("openId=" + user.getOpenId() + ": student register with user: " + user + ", success  with: " + ret + ", " + user);
-        return FormatResponseUtil.adapter("学生认证成功", user, ret);
-    }
-
     @PostMapping("/updateUserInfo")
     public ResponseResult updateUserInfo(@RequestBody User user) {
         LOG.info("openId=" + user.getOpenId() + ": update user info with user: " + user);

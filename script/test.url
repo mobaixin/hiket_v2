@@ -1,0 +1,26 @@
+test.url
+
+https://www.werehunter.com/user/test
+https://www.werehunter.com/release/test
+https://www.werehunter.com/search/test
+https://www.werehunter.com/favorite/test
+https://www.werehunter.com/operation/test
+https://www.werehunter.com/message/test
+https://www.werehunter.com/browse/test
+
+39.104.108.69
+118.25.159.178
+39.106.179.8
+
+8000 到 8005
+
+/user/test
+/release/test
+/search/test
+/favorite/test
+/operation/test
+/message/test
+/browse/test
+
+以上三个，任选一个，组成类似 http://39.104.108.69:8003/favorite/test
+的网址访问，出现 404 即为错误

@@ -2,19 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eb749d0b-4455-4b60-9c80-81865131d3d7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hiket/src/main/java/cn/hope/hiket/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hiket/src/main/java/cn/hope/hiket/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hiket/src/main/java/cn/hope/hiket/utils/NKUUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hiket/src/main/java/cn/hope/hiket/utils/NKUUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hiket/src/main/java/cn/hope/hiket/utils/nku/init/Url.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hiket/src/main/java/cn/hope/hiket/utils/nku/init/Url.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hiket/src/main/java/cn/hope/hiket/utils/nku/util/HttpUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hiket/src/main/java/cn/hope/hiket/utils/nku/util/HttpUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hiket/src/main/java/cn/hope/hiket/utils/nku/util/URLFecter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hiket/src/main/java/cn/hope/hiket/utils/nku/util/URLFecter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hiket/src/main/java/cn/hope/hiket/web/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hiket/src/main/java/cn/hope/hiket/web/MessageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hiket/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../hiket/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hiket/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hiket/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hiket/src/test/java/cn/hope/hiket/HiketApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hiket/src/test/java/cn/hope/hiket/HiketApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../script/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/../script/nginx.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../script/sftp" beforeDir="false" afterPath="$PROJECT_DIR$/../script/sftp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../script/aliyun.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../script/aliyun.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../script/tenxun.jar" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,7 +15,7 @@
     <session id="-1437776038">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.20" value="1" />
@@ -197,7 +186,7 @@
   <component name="PhpServers">
     <servers />
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="332" />
     <option name="y" value="23" />
     <option name="width" value="1348" />
@@ -433,7 +422,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="332" y="23" width="1348" height="939" extended-state="1" />
+    <frame x="332" y="23" width="1348" height="939" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5854342" visible="true" weight="0.1653905" />
