@@ -42,5 +42,7 @@ public interface GoodDao {
     int update(Good good);
 
     int increaseBrowseNumber(Long goodId);
+
+    List<Good> selectTodayGood(String time);
 }
 

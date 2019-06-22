@@ -182,4 +182,11 @@
         where good_id=#{goodId};
     </update>
     <!--浏览-->
+
+    <!--今日新品-->
+    <select id="selectTodayGood" parameterType="string" resultType="good">
+        select good_id, seller_open_id, nick_name, gender, avatar_url, campus, college, title, content, phone_number, weixin_number, qq_number, create_time, price, old_price, section, section_tag, else_tag, state, browse_number
+        from good_info where Date(create_time)=#{time}
+    </select>
+    <!--今日新品-->
 </mapper>

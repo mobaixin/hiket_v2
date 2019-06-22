@@ -23,4 +23,6 @@ public interface GoodService {
     boolean updateGoodState(Long goodId, Integer state);
 
     boolean browse(Long goodId);
+
+    List<Good> getTodayGood(String time);
 }

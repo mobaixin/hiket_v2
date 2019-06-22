@@ -119,4 +119,9 @@ public class GoodServiceImpl implements GoodService {
     public boolean browse(Long goodId) {
         return goodDao.increaseBrowseNumber(goodId) > 0;
     }
+
+    @Override
+    public List<Good> getTodayGood(String time) {
+        return goodDao.selectTodayGood(time);
+    }
 }

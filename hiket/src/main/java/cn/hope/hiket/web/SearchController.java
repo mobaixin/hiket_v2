@@ -12,6 +12,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -52,6 +54,15 @@ public class SearchController {
         Good good = goodService.getGood(openId, goodId);
         LOG.info("openId=" + openId + ": get good with goodId: " + goodId + ", success with: " + good);
         return FormatResponseUtil.adapter(good, CommonUtil.notUndefined(good));
+    }
+
+    @PostMapping("/getTodayGood")
+    public ResponseResult getTodayGood() {
+        Date dNow = new Date( );
+        SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd");
+        String time = ft.format(dNow);
+        List<Good> list = goodService.getTodayGood(time);
+        return FormatResponseUtil.success(list);
     }
 
     @GetMapping("/test")
