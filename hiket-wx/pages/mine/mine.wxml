@@ -81,6 +81,7 @@
             <input password="true" name="studentPassword" placeholder="请输入信息门户密码" maxlength='16'
                    bindinput='studentPasswordInput'/>
         </view>
+        <text style='font-size:20rpx;text-align:center;margin-top:20rpx;'>我们保证您的学号密码仅用于学生认证，不会保存您的密码数据</text>
     </view>
     <view wx:else>
         <button plain="false" style="border: none;background-color: #e2e2e2" open-type="contact">联系客服</button>

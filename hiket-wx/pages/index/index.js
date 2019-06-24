@@ -36,6 +36,7 @@ Page({
         searchValue: null,
         search: null,
         goods: [],
+        columnSelect: 0,
     },
     load: function () {
         let that = this;
@@ -67,7 +68,7 @@ Page({
                 wx.navigateTo({
                     url: '../good/good?goodId=' + options.goodId
                 });
-            }else {
+            } else {
                 app.gotoGoodCallback = res => {
                     wx.navigateTo({
                         url: '../good/good?goodId=' + options.goodId
@@ -136,13 +137,22 @@ Page({
                 })
             }
         };
+        var expiration = wx.getStorageSync("index_data_expiration");
+        var timestamp = Date.parse(new Date());
+        if (expiration < timestamp) {
+            wx.removeStorageSync('topSellGood');
+            wx.removeStorageSync('newSellGood');
+        }
         if (app.globalData.openId) {
             this.searchRecommend();
         } else {
             app.searchRecommendCallback = res => {
                 this.searchRecommend();
             };
+
+
         }
+
     },
     onReady: function () {
         wx.hideTabBar({});
@@ -176,7 +186,7 @@ Page({
                         goods: that.data.goods,
                     });
                 }
-                wx.removeStorage({key: 'good'})
+                wx.removeStorage({ key: 'good' })
             }
         })
     },
@@ -195,24 +205,47 @@ Page({
         this.searchGoods(search, true);
     },
     bindTopTab: function (e) {
+        let that = this;
         let current = e.currentTarget.dataset.current;
         this.setData({
             currentTab: current,
-            searchValue: null
+            searchValue: null,
         });
+        this.setData({
+            search: this.getSearch(),
+        })
         if (this.data.currentTab == -1) {
             this.searchRecommend();
         } else {
-            let search = this.getSearch();
-            this.searchGoods(search, false);
+            let currentTabGood = wx.getStorageSync('' + current);
+            if (currentTabGood) {
+                this.setData({
+                    goods: currentTabGood
+                })
+            } else {
+                let search = this.getSearch();
+                this.searchGoods(search, false);
+            }
         }
     },
     bindTag: function (e) {
         let pattern = e.currentTarget.dataset.pattern;
+        let patternGood = wx.getStorageSync(pattern);
         this.setData({
-            searchValue: pattern
+            searchValue: pattern,
         });
-        this.bindSearch();
+        this.setData({
+            search: this.getSearch(),
+        })
+        if (patternGood) {
+            this.setData({
+                goods: patternGood
+            })
+        } else {
+
+            this.bindSearch();
+        }
+
     },
     modalBindConfirm: function () {
         this.setData({
@@ -230,11 +263,30 @@ Page({
             modalHidden: true,
         })
     },
-// 搜索
+    // 搜索
     searchRecommend: function () {
         let search = this.getSearch();
-        search.orderByBrowseNumber = 1;
-        this.searchGoods(search, false);
+        if (this.data.columnSelect == 0) {
+            search.orderByCreateTime = 1;
+        } else {
+            search.orderByBrowseNumber = 1;
+        }
+        this.setData({
+            search: search
+        })
+        let recommendGood = null;
+        if (this.data.columnSelect == 0) {
+            recommendGood = wx.getStorageSync('newSellGood');
+        } else {
+            recommendGood = wx.getStorageSync('topSellGood');
+        }
+        if (recommendGood) {
+            this.setData({
+                goods: recommendGood
+            })
+        } else {
+            this.searchGoods(search, false);
+        }
     },
     getSearch: function () {
         return {
@@ -273,6 +325,30 @@ Page({
                         that.setData({
                             goods: res.data.data
                         });
+                        if (search.orderByBrowseNumber) {
+                            wx.setStorage({
+                                key: 'topSellGood',
+                                data: res.data.data,
+                            })
+                        } else if (search.orderByCreateTime) {
+                            wx.setStorage({
+                                key: 'newSellGood',
+                                data: res.data.data,
+                            })
+                        } else if (search.section != -1 && search.pattern == null) {
+                            wx.setStorage({
+                                key: '' + search.section,
+                                data: res.data.data,
+                            })
+                        } else if (search.pattern != null) {
+                            wx.setStorage({
+                                key: search.pattern,
+                                data: res.data.data,
+                            })
+                        }
+                        var timestamp = Date.parse(new Date());
+                        var expiration = timestamp + 14400000;//86400秒（一天）
+                        wx.setStorageSync("index_data_expiration", expiration);
                     }
                 }
                 that.setData({
@@ -314,5 +390,41 @@ Page({
     bindSearch: function () {
         let search = this.getSearch();
         this.searchGoods(search, false);
+    },
+    changeColumn: function (e) {
+        let column = e.currentTarget.dataset.column;
+        if (column == '0') {
+            let search = this.getSearch();
+            search.orderByCreateTime = 1;
+            this.setData({
+                columnSelect: 0,
+                search: search,
+            })
+            let newSellGood = wx.getStorageSync('newSellGood');
+            if (newSellGood) {
+                this.setData({
+                    goods: newSellGood
+                })
+            } else {
+
+                this.searchGoods(search, false);
+            }
+        } else {
+            let search = this.getSearch();
+            search.orderByBrowseNumber = 1;
+            this.setData({
+                columnSelect: 1,
+                search: search
+            })
+            let topSellGood = wx.getStorageSync('topSellGood');
+            if (topSellGood) {
+                this.setData({
+                    goods: topSellGood
+                })
+            } else {
+
+                this.searchGoods(search, false);
+            }
+        }
     }
 });

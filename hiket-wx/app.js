@@ -188,7 +188,7 @@ App({
         userGetTopBannerUrl: serverUrl + '/user/getTopBanner',
         userRegisterUrl: serverUrl + '/user/register',
         userWeixinRegisterUrl: serverUrl + '/user/weixinRegister',
-        userStudentRegisterUrl:serverUrl+ '/user/studentRegister',
+        userStudentRegisterUrl: serverUrl + '/user/studentRegister',
         userUpdateUserInfoUrl: serverUrl + '/user/updateUserInfo',
         releaseUploadImageUrl: 'https://www.werehunter.com' + '/release/uploadImage',
         releaseReleaseGoodUrl: serverUrl + '/release/releaseGood',
@@ -214,18 +214,18 @@ App({
                 "selectedIconPath": "icon/home_selected.png",
                 "text": "我要买"
             },
-                {
-                    "pagePath": "/pages/release/release",
-                    "iconPath": "icon/icon_release.png",
-                    "isSpecial": true,
-                    "text": ""
-                },
-                {
-                    "pagePath": "/pages/mine/mine",
-                    "iconPath": "icon/mine.png",
-                    "selectedIconPath": "icon/mine_selected.png",
-                    "text": "我的"
-                }
+            {
+                "pagePath": "/pages/release/release",
+                "iconPath": "icon/icon_release.png",
+                "isSpecial": true,
+                "text": ""
+            },
+            {
+                "pagePath": "/pages/mine/mine",
+                "iconPath": "icon/mine.png",
+                "selectedIconPath": "icon/mine_selected.png",
+                "text": "我的"
+            }
             ]
         }
     }

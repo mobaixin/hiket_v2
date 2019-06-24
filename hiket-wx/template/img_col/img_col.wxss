@@ -18,7 +18,7 @@
 
 .img_col_item {
   margin: 15rpx 0 0 0;
-  border-radius: 5%;
+  border-radius: 30rpx;
   background-color: #fff;
   border-width: 1px;
 }
