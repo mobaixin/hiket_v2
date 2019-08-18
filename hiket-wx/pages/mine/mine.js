@@ -343,7 +343,7 @@ Page({
 
     supportTap: function () {
         wx.previewImage({
-            urls: ['../../images/mine/supportCode.jpg'],
+          urls: ["https://www.werehunter.com/upload/supportCode/supportCode.png"],
         })
     }
 });
