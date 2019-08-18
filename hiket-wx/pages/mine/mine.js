@@ -339,5 +339,11 @@ Page({
                 })
             }
         });
+    },
+
+    supportTap: function () {
+        wx.previewImage({
+            urls: ['../../images/mine/supportCode.jpg'],
+        })
     }
 });

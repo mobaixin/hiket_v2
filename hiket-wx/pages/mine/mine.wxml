@@ -53,6 +53,11 @@
             <text class="mine_title">{{item.name}}</text>
             <view class="mine_arrow"></view>
         </navigator>
+        <view class="mine_cell" bindtap='supportTap'>
+            <image class="mine_icon" src="../../images/mine/s.png" style='width:43rpx;height:43rpx;margin-left:30rpx;'/>
+            <text class="mine_title">赞赏支持</text>
+            <view class="mine_arrow"></view>
+        </view>
         <navigator>
             <button  plain="false" style="border: none;"open-type="contact">联系客服</button>
         </navigator>
