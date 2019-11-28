@@ -8,6 +8,8 @@
 
 mysql -h rm-hp3cu2bv3w34t7o9iso.mysql.huhehaote.rds.aliyuncs.com -P 3306 -u root -pStation2018
 
+mysql -P 3310 -u root -p123456
+
 mysql -h 118.25.159.178 -P 3306 -u root -pmypassword
 
 use short_url
