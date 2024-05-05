@@ -4,6 +4,8 @@ import lombok.Data;
 
 import java.util.List;
 
+import javax.validation.constraints.NotNull;
+
 @Data
 public class User {
     private String openId;
@@ -12,6 +14,7 @@ public class User {
     private String avatarUrl;
     private Integer role;
     private String number;
+    @NotNull
     private String password;
     private String campus;
     private String college;

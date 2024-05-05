@@ -1,7 +1,9 @@
 package cn.hope.hiket.dao;
 
 import cn.hope.hiket.entity.Good;
+import cn.hope.hiket.entity.MiaoshaGoods;
 import cn.hope.hiket.entity.Search;
+import cn.hope.hiket.vo.GoodsVo;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -44,5 +46,13 @@ public interface GoodDao {
     int increaseBrowseNumber(Long goodId);
 
     List<Good> selectTodayGood(String time);
+
+    public List<Good> listGoodsVo();
+
+    public GoodsVo getGoodsVoByGoodsId(@Param("goodsId") long goodsId);
+
+    public int reduceStock(MiaoshaGoods goods);
+
+    public int resetStock(MiaoshaGoods goods);
 }
 
